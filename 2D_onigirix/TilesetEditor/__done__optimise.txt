@@ -1,0 +1,15 @@
+-- OPTIMIZATION --
+
+    ^
+   / \
+  / | \ tester les transformation sdl surface en image car peux être c'est ca ui est mortel même si je croix pas
+ /  o  \
+ '''''''
+	
+	- prise de l'offset du related via une fonction 
+	- améliorer set-what
+	- static outscreen un propriété qui dit de pas s'occupé d'un objext si hoirs écran !
+	- pas rerendre tout le texte à chaque touches tapée
+	- inclure les dll et autres ressource en embed dans le .exe
+	- faire un dll de ma GUI sdl
+	- faire un calculation index en plus du zindex

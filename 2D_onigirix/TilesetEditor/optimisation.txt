@@ -1,0 +1,13 @@
+- refaire le système des polices
+- un mode resize rapide dans la fenêtre c.a.d gpu resizing...
+- éviter de recharger à chaque fois l'image depuis le png !
+- ne pas afficher les élément hors fenêtre
+- faire un truc pour supp les recharger
+- faire un id pour les rec 
+- dans draw minimiser les apels des fct get car ils sont gourmants en boucles 
+- réoganiser draw : le moduler / gerder la sdl surface de l'image de base ? -> attention destructeur...
+-bien gérer le multi image par état...
+un fonction qui s'execute en tout cas à chaque boucle avant l'affichage
+-bien refaire le close !
+-faire un état : focus
+-alocatio /désaloc de resource pour les états

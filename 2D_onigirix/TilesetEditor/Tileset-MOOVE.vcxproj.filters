@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\SDL_MODULE">
+      <UniqueIdentifier>{2c06501b-93c8-4153-8f46-39e39224435c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDL_MODULE">
+      <UniqueIdentifier>{59444786-80b8-4bdf-a3f2-d388643d5694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\frame">
+      <UniqueIdentifier>{24e7c20d-eaf4-41a0-ac8c-3eaa0378c3fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\frame">
+      <UniqueIdentifier>{9ba75a60-d3ca-4023-bf14-ec85e7803437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fil-gest">
+      <UniqueIdentifier>{5f3740de-3950-4703-8463-8cafcc7fd775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fil-gest">
+      <UniqueIdentifier>{b399a3e9-9a52-4a8a-bff5-31c17ef5c437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\xbr">
+      <UniqueIdentifier>{b3dcdbe6-6d9d-4e5b-a76f-24ffb9d68d4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\xbr">
+      <UniqueIdentifier>{eefcee65-9f22-403d-a8f9-0af72685c307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\file-manager">
+      <UniqueIdentifier>{533ad6da-b7fe-45f2-8bb9-d73cbb51af15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\file-manager">
+      <UniqueIdentifier>{bbe7d19f-d4e5-4d38-93ae-b02c773b3d24}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="autre.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickRect.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickSurface.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="coleur.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="data.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="etat.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="Fenetre.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="G_inc.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralInclude.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="img_afficheur.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="initialisation.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="list_scan.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="list_serie.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="manga_class.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesure.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="param.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="Pure_text.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="rect.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="Scroll.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_forme.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="sdladdon.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyfiledialogs.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="window-decoration.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="Acceuil.h">
+      <Filter>Header Files\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="all_frame_include.h">
+      <Filter>Header Files\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilset_edit.h">
+      <Filter>Header Files\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="fusioneur.h">
+      <Filter>Header Files\fil-gest</Filter>
+    </ClInclude>
+    <ClInclude Include="parameters.h">
+      <Filter>Header Files\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="savepng.h">
+      <Filter>Header Files\fil-gest</Filter>
+    </ClInclude>
+    <ClInclude Include="xbrz\config.h">
+      <Filter>Header Files\xbr</Filter>
+    </ClInclude>
+    <ClInclude Include="xbrz\xbrz.h">
+      <Filter>Header Files\xbr</Filter>
+    </ClInclude>
+    <ClInclude Include="save-to-file.h">
+      <Filter>Header Files\file-manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFile.h">
+      <Filter>Header Files\file-manager</Filter>
+    </ClInclude>
+    <ClInclude Include="text-input.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="encodage.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="clip_frame.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="cliper.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="Automated_type.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="RelativeObject.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="relative.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="UnderWindow.h">
+      <Filter>Header Files\SDL_MODULE</Filter>
+    </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>Header Files\frame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ClickRect.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickSurface.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="coleur.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="etat.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="Fenetre.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="img_afficheur.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="initialisation.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="list_scan.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="list_serie.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="manga_class.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesure.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="param.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="Pure_text.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="rect.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="Scroll.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL_forme.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="sdladdon.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="window-decoration.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyfiledialogs.c">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="Acceuil.cpp">
+      <Filter>Source Files\frame</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilset_edit.cpp">
+      <Filter>Source Files\frame</Filter>
+    </ClCompile>
+    <ClCompile Include="fusioneur.cpp">
+      <Filter>Source Files\fil-gest</Filter>
+    </ClCompile>
+    <ClCompile Include="savepng.c">
+      <Filter>Source Files\fil-gest</Filter>
+    </ClCompile>
+    <ClCompile Include="xbrz\xbrz.cpp">
+      <Filter>Source Files\xbr</Filter>
+    </ClCompile>
+    <ClCompile Include="save-to-file.cpp">
+      <Filter>Source Files\file-manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigFile.cpp">
+      <Filter>Source Files\file-manager</Filter>
+    </ClCompile>
+    <ClCompile Include="text-input.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="encodage.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="clip_frame.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="cliper.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="UnderWindow.cpp">
+      <Filter>Source Files\SDL_MODULE</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files\frame</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="optimise.txt" />
+  </ItemGroup>
+</Project>

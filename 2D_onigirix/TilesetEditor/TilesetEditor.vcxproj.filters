@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers sources\ONIGIRIX_SDL_GUI">
+      <UniqueIdentifier>{5fe41733-dfa9-40a4-b7b0-076258395825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ONIGIRIX_SDL_GUI">
+      <UniqueIdentifier>{3dd7eae6-a8ce-4d31-aa27-1c8cdd5527e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\FRAMES">
+      <UniqueIdentifier>{01050140-dfed-45fd-856b-487499fd3025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\FRAMES">
+      <UniqueIdentifier>{cce23b15-3b82-4259-8267-9d24e5551308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\RESIZER">
+      <UniqueIdentifier>{b3e91633-44ed-487c-974e-bb39f41ddcf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ONIGIRIX_SDL_GUI\RESIZER">
+      <UniqueIdentifier>{a2857046-bb44-4daa-92fb-0dddf83f1826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET">
+      <UniqueIdentifier>{95e617bc-847c-4319-a2de-8e1551046e39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET">
+      <UniqueIdentifier>{0d3270a4-7f1c-4844-a50f-d7ba820a06d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="other">
+      <UniqueIdentifier>{95143223-d320-45ed-91f7-08b1101596b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="other\Versions">
+      <UniqueIdentifier>{9af20e15-a898-4b1c-81b8-ecf7e760bd74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="other\Optimisation/a faire">
+      <UniqueIdentifier>{c3544215-9723-4289-ba7d-4ad5007d79d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\CURR_PORG_FILE">
+      <UniqueIdentifier>{8d548fc1-3733-48e2-a04d-d736e2a383c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\CURR_PROG_FILE">
+      <UniqueIdentifier>{e1d52c67-f24d-44ed-b6a1-fddbeb79d1d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE">
+      <UniqueIdentifier>{2ea3cf85-2db9-4d31-a647-1c286281bb90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ONIGIRIX_SDL_GUI\CORE">
+      <UniqueIdentifier>{1e50cc3b-7c2d-432a-88c4-e141d4acc333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\CORE">
+      <UniqueIdentifier>{e607ff82-9e95-4ef5-aca5-b47943bfec29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\DISPLAY_THREAD">
+      <UniqueIdentifier>{000739d5-0369-413b-a126-275ccd4399cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilset_edit.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="Acceuil.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="xbrz\xbrz.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\RESIZER</Filter>
+    </ClCompile>
+    <ClCompile Include="staff.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="project_config.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="UnderWindow.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClCompile>
+    <ClCompile Include="Textarea.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiMenu.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClCompile>
+    <ClCompile Include="fusioneur.cpp">
+      <Filter>Fichiers sources\CURR_PORG_FILE</Filter>
+    </ClCompile>
+    <ClCompile Include="save-to-file.cpp">
+      <Filter>Fichiers sources\CURR_PORG_FILE</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickRect.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickSurface.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="clip_frame.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="cliper.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="coleur.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigFile.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="encodage.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="etat.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="Fenetre.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="file_opener.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="initialisation.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesure.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="param.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="Pure_text.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="rect.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="Scroll.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL_forme.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="sdladdon.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="text-input.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyfiledialogs.c">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="useful-fct.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="window-decoration.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilset_edit_2.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgDisplay.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClCompile>
+    <ClCompile Include="GENERAL_PARAMETER.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Acceuil.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilset_edit.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="xbrz\xbrz.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\RESIZER</Filter>
+    </ClInclude>
+    <ClInclude Include="xbrz\config.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\RESIZER</Filter>
+    </ClInclude>
+    <ClInclude Include="staff.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="all_frame_include.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="project_config.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClInclude>
+    <ClInclude Include="UnderWindow.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClInclude>
+    <ClInclude Include="Textarea.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClInclude>
+    <ClInclude Include="ALL_WIDGET.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiMenu.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClInclude>
+    <ClInclude Include="fusioneur.h">
+      <Filter>Fichiers d%27en-tête\CURR_PROG_FILE</Filter>
+    </ClInclude>
+    <ClInclude Include="save-to-file.h">
+      <Filter>Fichiers d%27en-tête\CURR_PROG_FILE</Filter>
+    </ClInclude>
+    <ClInclude Include="Automated_type.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="autre.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickRect.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickSurface.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="clip_frame.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="cliper.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="coleur.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFile.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="data.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="encodage.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="etat.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="Fenetre.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="file_opener.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="G_inc.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralInclude.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="initialisation.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesure.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="param.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="parameters.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="Pure_text.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="rect.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="relative.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="RelativeObject.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="savepng.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="Scroll.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_forme.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="sdladdon.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="text-input.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyfiledialogs.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="useful-fct.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="window-decoration.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="xbrzscale.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="Tileset_edit_2.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgDisplay.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClInclude>
+    <ClInclude Include="MainLoop.h">
+      <Filter>Fichiers d%27en-tête\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_display.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_THREAD</Filter>
+    </ClInclude>
+    <ClInclude Include="OPENGL_display.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_THREAD</Filter>
+    </ClInclude>
+    <ClInclude Include="DISPLAY_thread.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_THREAD</Filter>
+    </ClInclude>
+    <ClInclude Include="TEXTURE_MANAGER.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_THREAD</Filter>
+    </ClInclude>
+    <ClInclude Include="DISPLAY_STRUCTURE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_THREAD</Filter>
+    </ClInclude>
+    <ClInclude Include="GENERAL_PARAMETER.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="version.txt">
+      <Filter>other\Versions</Filter>
+    </Text>
+    <Text Include="optimisation.txt">
+      <Filter>other\Optimisation/a faire</Filter>
+    </Text>
+    <Text Include="__done__optimise.txt">
+      <Filter>other\Optimisation/a faire</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

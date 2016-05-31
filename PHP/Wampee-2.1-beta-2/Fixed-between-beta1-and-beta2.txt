@@ -1,0 +1,18 @@
+Change:
+- scripts\refresh.php
+- scripts\config.inc.php
+- au3\CheckPorts.au3
+- scripts\CheckPorts.exe
+- tpl\wampmanager.tpl
+
+Fixes : 
+- Gestion de wampee avec les ports 80 et 3306 déjà ouverts
+- Proposition d'autres ports
+- manage wampee with already open ports 80 and 3306
+- Provide a gui to change ports
+
+- changes : 
+copy of mysqld.exe to wampeemysqld.exe programm to avoid the kill of an already running mysqld
+copy of httpd.exe to  wampeehttpd.exe programm to avoid the kill of an already running httpd
+
+Copie des executables mysqld en wampeemysqld et httpd.exe en wampeehttpd.exe to avoid kill of a running process 

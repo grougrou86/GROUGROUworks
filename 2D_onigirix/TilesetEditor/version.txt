@@ -1,0 +1,20 @@
+1.0
+	- start of the gui
+	- basic repositioning/selecting
+	- object de bas
+2.0
+	- use of hardware acceleration for the gui
+	- adding of user-input surcharge de Rectangle
+	- implementation of fps
+	- ajout de la sauvegarde des project / de leur chargement.
+3.0
+	- add of cliping 
+	- add of relative element
+	- Gui largely improoved With underwindow and Widget
+	- Widget should be use not underwindows (the same but Widget is more user friendly...)
+	- add of texarea as a Widget
+	- making new "Acceuil", "Staff" and "project property" frames
+	- add namespace "ONIGIRIX_GUI" - cleaning file...
+4.0
+	- supression of leak of memory in main project by remaking the main frame
+	- first release of main project

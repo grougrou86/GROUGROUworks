@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ANY">
+      <UniqueIdentifier>{68f1d095-2086-4b84-9f7e-2414436bf040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ANY\GEN_ANY">
+      <UniqueIdentifier>{00baef14-2377-4ee8-a3fc-6c04fb784150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ANY">
+      <UniqueIdentifier>{0f3e6573-6e09-4ead-aa9f-eecde3473d67}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CONDtext.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DEFINITIONS.cpp">
+      <Filter>Fichiers sources\ANY</Filter>
+    </ClCompile>
+    <ClCompile Include="COMPILER.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPRESSION.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CONDtext.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="OTHER.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="USEDtypelist.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="GEN_ANY\MAIN.h">
+      <Filter>Fichiers d%27en-tête\ANY\GEN_ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="GEN_ANY\OP_MACRO.h">
+      <Filter>Fichiers d%27en-tête\ANY\GEN_ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="GEN_ANY\FCT_MACRO.h">
+      <Filter>Fichiers d%27en-tête\ANY\GEN_ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="GEN_ANY\FCT_MACRO2.h">
+      <Filter>Fichiers d%27en-tête\ANY\GEN_ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="GEN_ANY\MEMBER_MACRO.h">
+      <Filter>Fichiers d%27en-tête\ANY\GEN_ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="COMPILER.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="DEFINITIONS.h">
+      <Filter>Fichiers d%27en-tête\ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="TYPELIST.h">
+      <Filter>Fichiers d%27en-tête\ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="ANY_INCLUDES.h">
+      <Filter>Fichiers d%27en-tête\ANY</Filter>
+    </ClInclude>
+    <ClInclude Include="file2string.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPRESSION.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
