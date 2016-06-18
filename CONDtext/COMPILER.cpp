@@ -107,7 +107,7 @@ namespace Condtext_Compiler {
 	Compiled_File::Compiled_File(std::string _file) {
 		if(boost::filesystem::exists(boost::filesystem::path(_file.c_str()))) load(file2string(_file));
 		else {
-			throw("FILE NOT FOUND IN SHADER COMPILER");
+			throw("FILE NOT FOUND IN SHADER COMPILER ROOT");
 		}
 	}
 	Compiled_File::Compiled_File() {
