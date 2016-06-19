@@ -64,6 +64,12 @@
     <Filter Include="Fichiers d%27en-tête\DISPLAY_THREAD">
       <UniqueIdentifier>{000739d5-0369-413b-a126-275ccd4399cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\DISPLAY_ENGINES">
+      <UniqueIdentifier>{58e49718-3e88-427e-a8d1-9205c36dcc77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\DISPLAY_ENGINES">
+      <UniqueIdentifier>{024a59b3-ecfb-47db-8cf7-08fd00757161}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -179,6 +185,24 @@
     </ClCompile>
     <ClCompile Include="GENERAL_PARAMETER.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_GL_HARDWARE.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_GL_SOFTRWARE.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_SDL_HARDWARE.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_SDL_SOFTWARE.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageDealer.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -352,6 +376,24 @@
     </ClInclude>
     <ClInclude Include="GENERAL_PARAMETER.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_GL_HARDWARE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_GL_SOFTWARE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_SDL_HARDWARE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_SDL_SOFTWARE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageDealer.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
