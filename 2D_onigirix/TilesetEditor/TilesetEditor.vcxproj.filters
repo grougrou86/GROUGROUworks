@@ -70,6 +70,12 @@
     <Filter Include="Fichiers sources\DISPLAY_ENGINES">
       <UniqueIdentifier>{024a59b3-ecfb-47db-8cf7-08fd00757161}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\AUTRES">
+      <UniqueIdentifier>{87205bbd-f3cb-4685-9e26-ecca7459328d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\AUTRE">
+      <UniqueIdentifier>{35ff8e07-1530-46a3-8f0e-345579c45e9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -203,6 +209,12 @@
     </ClCompile>
     <ClCompile Include="ImageDealer.cpp">
       <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>Fichiers sources\AUTRE</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -393,6 +405,15 @@
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
     <ClInclude Include="ImageDealer.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Fichiers d%27en-tête\AUTRES</Filter>
+    </ClInclude>
+    <ClInclude Include="DIFFERED_LOADER.h">
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
   </ItemGroup>

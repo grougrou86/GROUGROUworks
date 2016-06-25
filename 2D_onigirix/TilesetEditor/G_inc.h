@@ -41,6 +41,8 @@ namespace ONIGIRIX_GUI {
 	class Relative;
 	class UnderWindow;
 	class Widget;
+	class UsableImage;
+	class Image;
 
 }
 #include "relative.h"
@@ -63,6 +65,9 @@ namespace ONIGIRIX_GUI {
 #include "UnderWindow.h"
 #include "Widget.h"
 #include "ALL_WIDGET.h"
+#include "ImageDealer.h"
+
+
 
 
 
