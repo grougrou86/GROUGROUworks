@@ -11,17 +11,7 @@ namespace ONIGIRIX_GUI {
 		T& operator= (const T&) {}
 	};
 
-	class SoundManager :public Singleton<SoundManager>
-	{
-		friend SoundManager* Singleton<SoundManager>::Get();
-		friend void Singleton<SoundManager>::Kill();
-
-	private:
-		SoundManager(const SoundManager&) {}
-
-		SoundManager();
-		~SoundManager();
-	};
+	
 
 
 

@@ -43,6 +43,9 @@ namespace ONIGIRIX_GUI {
 	class Widget;
 	class UsableImage;
 	class Image;
+	class SDL_H_texture;
+	class SDL_S_texture;
+	class GL_H_texture;
 
 }
 #include "relative.h"
@@ -65,6 +68,7 @@ namespace ONIGIRIX_GUI {
 #include "UnderWindow.h"
 #include "Widget.h"
 #include "ALL_WIDGET.h"
+#include "texture.h"
 #include "ImageDealer.h"
 
 

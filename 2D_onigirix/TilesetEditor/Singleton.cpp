@@ -10,4 +10,9 @@ namespace ONIGIRIX_GUI {
 		}
 		return m_i;
 	}
+	template <class T> void Singleton<T>::Kill()
+	{
+		delete m_i;
+		m_i = 0;
+	}
 }

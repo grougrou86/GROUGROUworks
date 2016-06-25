@@ -3,7 +3,7 @@
 #include"G_inc.h"
 #include<string>
 #include "texture.h"
-
+#include "DIFFERED_LOADER.h"
 
 
 // clever management of emage
@@ -24,18 +24,18 @@ namespace ONIGIRIX_GUI {
 		Image(std::wstring url):_url(url){}
 		virtual ~Image();//FREE IMAGE is lete to texture wraper
 
-		texture<SDL_H_texture>& get_SDL_TEXTURE();
-		texture<GL_H_texture>& get_GL_TEXTURE();
-		texture<SDL_S_texture>& get_SOFTWARE();
+		DIFFERED_LOADER::loader<SDL_H_texture>& get_SDL_TEXTURE();
+		DIFFERED_LOADER::loader<GL_H_texture>& get_GL_TEXTURE();
+		DIFFERED_LOADER::loader<SDL_S_texture>& get_SOFTWARE();
 
 		virtual bool is_rescuable();
 
 	protected:
 		std::wstring _url;
 
-		texture<SDL_H_texture> _T_H_SDL;//The sdl texture (correspond to renderer)
-		texture<GL_H_texture> _T_H_GL;//The opengl texture
-		texture<SDL_S_texture> _T_S_SDL;//The software texture
+		DIFFERED_LOADER::loader<SDL_H_texture>* _T_H_SDL;//The sdl texture (correspond to renderer)
+		DIFFERED_LOADER::loader<GL_H_texture>* _T_H_GL;//The opengl texture
+		DIFFERED_LOADER::loader<SDL_S_texture>* _T_S_SDL;//The software texture
 
 		unsigned int _SDL_TEXTURE_USER;
 		unsigned int _GL_TEXTURE_USER;
