@@ -4,15 +4,5 @@ namespace ONIGIRIX_GUI {
 	{
 	public:
 		static T* Get();
-		static void Kill();
-	protected:
-		static T* m_i;
-	private:
-		T& operator= (const T&) {}
 	};
-
-	
-
-
-
 }

@@ -669,7 +669,7 @@ namespace ONIGIRIX_GUI {
 		return Zindex;
 	}
 	void Rectangle::set_z_index(int index) {
-		if (index > 0)Zindex = index;
+		Zindex = index;
 		this->ma_fenetre->update_z_index();
 	}
 	void Rectangle::add_callback_etat(callback_etat callback) {

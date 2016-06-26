@@ -1,7 +1,6 @@
 ﻿#include "G_inc.h" 
 #include <string>
 #include <algorithm>
-#include <algorithm>
 #include <math.h>
 #include <iostream>
 #include <io.h>
@@ -10,6 +9,8 @@
 #include <iostream>
 #include <fstream>
 #include "GENERAL_PARAMETER.h"
+
+
 namespace ONIGIRIX_GUI {
 	Fenetre::Fenetre(int screen_width, int screen_height, bool border) :_width(screen_width), _height(screen_height) {
 
@@ -144,8 +145,8 @@ namespace ONIGIRIX_GUI {
 
 		for (auto& i : zIndexOrder) {
 			//Rectangles[i]->get_x();
-			Rectangles[i]->updat_move_fnct();
-			if (Rectangles[i]->everyframe_fct != NULL)Rectangles[i]->everyframe_fct(Rectangles[i]);
+			i->updat_move_fnct();
+			if (i->everyframe_fct != NULL)i->everyframe_fct(i);
 			//Rectangles[i]->index_th = i;
 		}
 		for (auto u : Underwindows)u->Refresh();
@@ -160,7 +161,7 @@ namespace ONIGIRIX_GUI {
 
 		test = 0;
 
-		for (auto& i : zIndexOrder)Rectangles[i]->draw(this);
+		for (auto& i : zIndexOrder)i->draw(this);
 
 		//if (something_new)
 		 //SDL_RenderPresent(gRenderer);
@@ -369,59 +370,43 @@ namespace ONIGIRIX_GUI {
 			monRect->TextinputFct(input);
 		}
 	}
-
+	bool ZindexTest(Rectangle* const& lhs, Rectangle* const& rhs)
+	{
+		return lhs->get_z_index() < rhs->get_z_index();
+	}
 	void Fenetre::update_z_index() {
 
-		while (!zIndexOrder.empty())
-		{
-			zIndexOrder.pop_back();
-		}
-		bool made_all_index = false;
-		int currIndex = 0;
-		int newIndex = -1;
-		while (!made_all_index) {
-			made_all_index = true;
-			bool first = true;
-			int i = 0;
-			for (auto& monRect : Rectangles) {
-				//std::cout << monRect->get_z_index() << std::endl;
-				if (monRect->get_z_index() == currIndex) { zIndexOrder.push_back(i); }
-				if ((monRect->get_z_index() > currIndex && (monRect->get_z_index() < newIndex || first))) {
-					newIndex = monRect->get_z_index();
-					made_all_index = false;
-					first = false;
-				}
-				i++;
-			}
-			currIndex = newIndex;
+		zIndexOrder = Rectangles;//clear the vector ^^ by a raw vector ^^
 
-		}
+		std::stable_sort(zIndexOrder.begin(), zIndexOrder.end(), ZindexTest);
 
 	}
 	bool Fenetre::clickFct(int x, int y) {
 		bool stop = false;
-		int j(zIndexOrder.size()), i;
+		int j(zIndexOrder.size());
+		Rectangle* rect;
 		for (auto r : Rectangles)r->set_etat_activity(false, "active");
 		while (j > 0) {
 			j--;
-			i = zIndexOrder[j];
-			if (Rectangles[i]->get_click_surface()->IsIn(x, y) && !stop) {
-				Rectangles[i]->set_etat_activity(true, "active");
-				Rectangles[i]->onclick_fct(x - Rectangles[i]->get_x().totalPX(Rectangles[i]->RelativeElement->rel_w()) - Rectangles[i]->RelativeElement->rel_x() - Rectangles[i]->get_offset_x(), y - Rectangles[i]->get_y().totalPX(Rectangles[i]->RelativeElement->rel_h()) - Rectangles[i]->RelativeElement->rel_y() - Rectangles[i]->get_offset_y());
-				if (Rectangles[i]->stop_propagation) { stop = true; }
+			rect = zIndexOrder[j];
+			if (rect->get_click_surface()->IsIn(x, y) && !stop) {
+				rect->set_etat_activity(true, "active");
+				rect->onclick_fct(x - rect->get_x().totalPX(rect->RelativeElement->rel_w()) - rect->RelativeElement->rel_x() - rect->get_offset_x(), y - rect->get_y().totalPX(rect->RelativeElement->rel_h()) - rect->RelativeElement->rel_y() - rect->get_offset_y());
+				if (rect->stop_propagation) { stop = true; }
 			}
-			Rectangles[i]->set_hold(false);
+			rect->set_hold(false);
 		}
 		return stop;
 	}
 	bool Fenetre::downFct(int x, int y) {
-		int j(zIndexOrder.size()), i;
+		int j(zIndexOrder.size());
+		Rectangle* rect;
 		while (j > 0) {
 			j--;
-			i = zIndexOrder[j];
-			if (Rectangles[i]->get_click_surface()->IsIn(x, y)) {
-				Rectangles[i]->set_hold(true);
-				if (Rectangles[i]->stop_propagation) { return true; }
+			rect = zIndexOrder[j];
+			if (rect->get_click_surface()->IsIn(x, y)) {
+				rect->set_hold(true);
+				if (rect->stop_propagation) { return true; }
 			}
 		}
 		return false;
@@ -432,12 +417,13 @@ namespace ONIGIRIX_GUI {
 		Mousex = x;
 		Mousey = y;
 		bool got = false;
-		int j(zIndexOrder.size()), i;
+		int j(zIndexOrder.size());
+		Rectangle* rect;
 		while (j > 0) {
 			j--;
-			i = zIndexOrder[j];
-			if (Rectangles[i]->get_click_surface()->IsIn(x, y) && !got) { Rectangles[i]->set_hover(true); if (Rectangles[i]->stop_propagation)got = true; }
-			else Rectangles[i]->set_hover(false);
+			rect = zIndexOrder[j];
+			if (rect->get_click_surface()->IsIn(x, y) && !got) { rect->set_hover(true); if (rect->stop_propagation)got = true; }
+			else rect->set_hover(false);
 		}
 		return got;
 	}

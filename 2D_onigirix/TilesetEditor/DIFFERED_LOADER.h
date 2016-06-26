@@ -65,8 +65,12 @@ namespace DIFFERED_LOADER {
 	};
 	template<class T>class loader {//T is the big data
 	public:
+		loader(T* readyElement) {//direct load by providing the data
+			ready = true;
+			_data = readyElement;
 
-		loader(void(*function)(syncro_tools<T>*),bool in_thread=false) {
+		}
+		loader(void(*function)(syncro_tools<T>*),bool in_thread=false) {//differed load 
 
 			syncro = new syncro_tools<T>();
 			syncro->ready.store(false);

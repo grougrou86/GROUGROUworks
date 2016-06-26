@@ -141,7 +141,7 @@ namespace ONIGIRIX_GUI {
 
 		std::vector<UnderWindow*> Underwindows;
 		std::vector<Rectangle*> Rectangles;
-		std::vector<int> zIndexOrder;
+		std::vector<Rectangle*> zIndexOrder;
 		//std::vector<int> zIndexOrder_cleaner;
 		std::vector<SDL_Surface*> Surfaces;
 		//The window we'll be rendering to
