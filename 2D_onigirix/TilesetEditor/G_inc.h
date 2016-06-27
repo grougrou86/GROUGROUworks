@@ -46,6 +46,7 @@ namespace ONIGIRIX_GUI {
 	class SDL_H_texture;
 	class SDL_S_texture;
 	class GL_H_texture;
+	template<class T>class Singleton;
 
 }
 #include "relative.h"
@@ -55,7 +56,7 @@ namespace ONIGIRIX_GUI {
 #include "etat.h"
 #include "ClickSurface.h"
 #include "ClickRect.h"
-#include "coleur.h"
+#include "color.h"
 #include "font.h"
 #include "Pure_text.h"
 #include "initialisation.h"
@@ -70,6 +71,7 @@ namespace ONIGIRIX_GUI {
 #include "ALL_WIDGET.h"
 #include "texture.h"
 #include "ImageDealer.h"
+#include "Singleton.h"
 
 
 

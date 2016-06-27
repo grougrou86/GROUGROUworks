@@ -79,7 +79,7 @@ namespace ONIGIRIX_GUI {
 			rect = intersection(rect, destRect);
 			RGB_c bg_C_RGB = couleurConverter(get_font_color());
 			SDL_SetRenderDrawBlendMode(f->get_screen_render(), SDL_BLENDMODE_BLEND);
-			SDL_SetRenderDrawColor(f->get_screen_render(), bg_C_RGB.r, bg_C_RGB.g, bg_C_RGB.b, 255);
+			SDL_SetRenderDrawColor(f->get_screen_render(), bg_C_RGB.get_r(), bg_C_RGB.get_g(), bg_C_RGB.get_b(), 255);
 			SDL_RenderFillRect(f->get_screen_render(), &rect);
 			SDL_SetRenderDrawColor(f->get_screen_render(), 0xFF, 0xFF, 0xFF, 0xFF);
 		}

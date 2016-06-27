@@ -140,7 +140,7 @@
     <ClCompile Include="ClickSurface.cpp" />
     <ClCompile Include="cliper.cpp" />
     <ClCompile Include="clip_frame.cpp" />
-    <ClCompile Include="coleur.cpp" />
+    <ClCompile Include="color.cpp" />
     <ClCompile Include="ConfigFile.cpp" />
     <ClCompile Include="DisplayEngine.cpp" />
     <ClCompile Include="DisplayEngine_GL_HARDWARE.cpp" />
@@ -167,7 +167,6 @@
     <ClCompile Include="Scroll.cpp" />
     <ClCompile Include="sdladdon.cpp" />
     <ClCompile Include="SDL_forme.cpp" />
-    <ClCompile Include="Singleton.cpp" />
     <ClCompile Include="staff.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="text-input.cpp" />
@@ -192,7 +191,7 @@
     <ClInclude Include="ClickSurface.h" />
     <ClInclude Include="cliper.h" />
     <ClInclude Include="clip_frame.h" />
-    <ClInclude Include="coleur.h" />
+    <ClInclude Include="color.h" />
     <ClInclude Include="ConfigFile.h" />
     <ClInclude Include="data.h" />
     <ClInclude Include="DIFFERED_LOADER.h" />

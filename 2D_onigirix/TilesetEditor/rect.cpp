@@ -210,7 +210,7 @@ namespace ONIGIRIX_GUI {
 
 				RGB_c bg_C_RGB = couleurConverter(get_bgcolor());
 				SDL_SetRenderDrawBlendMode(f->get_screen_render(), SDL_BLENDMODE_BLEND);
-				SDL_SetRenderDrawColor(f->get_screen_render(), bg_C_RGB.r, bg_C_RGB.g, bg_C_RGB.b, get_bgopacity() * 255);
+				SDL_SetRenderDrawColor(f->get_screen_render(), bg_C_RGB.get_r(), bg_C_RGB.get_g(), bg_C_RGB.get_b(), get_bgopacity() * 255);
 
 				SDL_RenderFillRect(f->get_screen_render(), &destRect);
 
@@ -244,7 +244,7 @@ namespace ONIGIRIX_GUI {
 			//making border
 
 			RGB_c br_C_RGB = couleurConverter(get_bordercolor());
-			SDL_SetRenderDrawColor(f->get_screen_render(), br_C_RGB.r, br_C_RGB.g, br_C_RGB.b, 255);
+			SDL_SetRenderDrawColor(f->get_screen_render(), br_C_RGB.get_r(), br_C_RGB.get_g(), br_C_RGB.get_b(), 255);
 			if (debug)std::cout << "border_width" << get_borderwidth() << std::endl;
 			if (get_borderwidth() != 0) {
 				if (debug)std::cout << extern_clip.x << "-" << extern_clip.y << "-" << extern_clip.w << "-" << extern_clip.h << std::endl;

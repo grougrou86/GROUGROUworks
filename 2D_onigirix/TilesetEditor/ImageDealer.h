@@ -21,7 +21,7 @@ namespace ONIGIRIX_GUI {
 
 	class Image {//image base url should be a unique identifier
 	public:
-		Image(std::wstring url):_url(url){}
+		Image(){}
 		virtual ~Image();//FREE IMAGE is lete to texture wraper
 
 		DIFFERED_LOADER::loader<SDL_H_texture>& get_SDL_TEXTURE();
@@ -31,7 +31,6 @@ namespace ONIGIRIX_GUI {
 		virtual bool is_rescuable();
 
 	protected:
-		std::wstring _url;
 
 		DIFFERED_LOADER::loader<SDL_H_texture>* _T_H_SDL;//The sdl texture (correspond to renderer)
 		DIFFERED_LOADER::loader<GL_H_texture>* _T_H_GL;//The opengl texture
@@ -47,6 +46,7 @@ namespace ONIGIRIX_GUI {
 
 
 	};
+
 	//specific loader -> can ad a reload image function so memory can be freeed and then reload just on time has to use las time of use also ...  
 	//do not forget to set rescuable to true at initialisation
 	class RescuableImage : public Image {
@@ -80,12 +80,13 @@ namespace ONIGIRIX_GUI {
 	public:
 		ImageDealer();
 		~ImageDealer();
-		Image* allocate(std::string url);
-		void release(std::string url);//remove from use 
+		Image* get_image(std::wstring url);
+		Image* get_font_image(std::wstring font, unsigned int size, RGB_c color, wchar_t character);
 
 	private:
 
-		std::set<Image> _images;
+		std::map<std::wstring,Image> _images;
+		std::map<std::wstring, std::map<unsigned int, std::map<RGB_c,std::map<wchar_t, Image>>>> _font_image;
 
 	};
 }

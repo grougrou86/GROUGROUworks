@@ -129,9 +129,6 @@
     <ClCompile Include="cliper.cpp">
       <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
     </ClCompile>
-    <ClCompile Include="coleur.cpp">
-      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
-    </ClCompile>
     <ClCompile Include="ConfigFile.cpp">
       <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
     </ClCompile>
@@ -213,8 +210,8 @@
     <ClCompile Include="texture.cpp">
       <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
     </ClCompile>
-    <ClCompile Include="Singleton.cpp">
-      <Filter>Fichiers sources\AUTRE</Filter>
+    <ClCompile Include="color.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -279,9 +276,6 @@
       <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
     </ClInclude>
     <ClInclude Include="cliper.h">
-      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
-    </ClInclude>
-    <ClInclude Include="coleur.h">
       <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
     </ClInclude>
     <ClInclude Include="ConfigFile.h">
@@ -415,6 +409,9 @@
     </ClInclude>
     <ClInclude Include="DIFFERED_LOADER.h">
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

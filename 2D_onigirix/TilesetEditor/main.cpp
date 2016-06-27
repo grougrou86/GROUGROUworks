@@ -28,6 +28,8 @@ int main(int argc, char* args[])
 	fn2->rebulid_funk = Acceuil;
 	mainloop.Loop();
 	
+	
+	ONIGIRIX_GUI::Singleton<ONIGIRIX_GUI::ImageDealer>::Get();
 
 	//pour la forme....
 	return 3896;
