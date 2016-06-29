@@ -2,9 +2,10 @@
 #include <set>
 #include"G_inc.h"
 #include<string>
+#include "boost/functional/hash.hpp"
 #include "texture.h"
 #include "DIFFERED_LOADER.h"
-
+#include <unordered_map>
 
 // clever management of emage
 // to do record time of last use to be able to free memory for exemple ....
@@ -63,16 +64,56 @@ namespace ONIGIRIX_GUI {
 
 	// must use a unique thread id from which images can be processed one id for each type ??
 
+	struct InfoRealImage
+	{
+		unsigned int width=0;
+		unsigned int height=0;
+	};
 
 	class RealImage :public RescuableImage{ // go to search on disk the file url mean the path here
 	public:
 		RealImage(std::wstring);
+		InfoRealImage get_info();
+	private:
+		InfoRealImage _info;
+		virtual void reload_img();
 	};
+	struct InfoLetterImage
+	{
+		unsigned int width=0;
+		unsigned int height=0;
+		wchar_t character = L' ';
+		int minx = 0;
+		int maxx = 0;
+		int miny = 0;
+		int maxy = 0;
+		int advance = 0;
+	};
+
 	class LetterImage :public RescuableImage { // image of a letter 
 	public:
-		LetterImage(std::wstring , std::wstring font , unsigned int size);
+		LetterImage(wchar_t letter , std::wstring font , unsigned int size, RGB_c color);
+		InfoLetterImage get_info();
 	private:
-		static std::vector<std::wstring> FontLocation;
+		InfoLetterImage _info;
+		virtual void reload_img();
+	};
+
+
+	struct InfoWordImage
+	{
+		unsigned int width = 0;
+		unsigned int height = 0;
+	};
+
+
+	class WordImage :public RescuableImage { // image of a letter 
+	public:
+		WordImage(wchar_t letter, std::wstring font, unsigned int size, RGB_c color);
+		InfoWordImage get_info();
+	private:
+		InfoWordImage _info;
+		virtual void reload_img();
 	};
 
 	class ImageDealer
@@ -82,11 +123,13 @@ namespace ONIGIRIX_GUI {
 		~ImageDealer();
 		Image* get_image(std::wstring url);
 		Image* get_font_image(std::wstring font, unsigned int size, RGB_c color, wchar_t character);
+		Image* get_word_image(std::wstring font, unsigned int size, RGB_c color, std::wstring word);
 
 	private:
 
-		std::map<std::wstring,Image> _images;
-		std::map<std::wstring, std::map<unsigned int, std::map<RGB_c,std::map<wchar_t, Image>>>> _font_image;
+		std::unordered_map<std::wstring, RealImage> _images;
 
+		std::unordered_map<std::wstring, std::unordered_map<unsigned int, std::unordered_map<RGB_c,std::unordered_map<wchar_t, LetterImage>>>> _font_image;
+		std::unordered_map<std::wstring, std::unordered_map<unsigned int, std::unordered_map<RGB_c, std::unordered_map<std::wstring, WordImage>>>> _word_image;
 	};
 }

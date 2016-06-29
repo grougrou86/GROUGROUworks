@@ -21,4 +21,13 @@ namespace ONIGIRIX_GUI {
 	ImageDealer::~ImageDealer()
 	{
 	}
+	InfoRealImage RealImage::get_info() {
+		return _info;
+	}
+	InfoLetterImage LetterImage::get_info() {
+		return _info;
+	}
+	InfoWordImage WordImage::get_info() {
+		return _info;
+	}
 }

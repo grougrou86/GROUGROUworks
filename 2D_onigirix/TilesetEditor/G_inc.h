@@ -49,6 +49,11 @@ namespace ONIGIRIX_GUI {
 	template<class T>class Singleton;
 
 }
+//fct prototypes....
+template <typename T, int N> static std::size_t hasharray(const T(&arr)[N]);
+
+
+#include "useful-fct.h"
 #include "relative.h"
 #include "data.h"
 #include "Automated_type.h"
