@@ -15,7 +15,7 @@ void Staff(Fenetre* fn2) {
 	fn2->titre = "STAFF";
 
 	std::vector<staff_member> membre = std::vector<staff_member>({
-		staff_member({ L"Yuna",L"","images/yuyu-fin.png" }),
+		staff_member({ L"???????",L"......................?!?!?!?!?!?","images/me-fin.png" }),
 		staff_member({ L"Grougrou",L"Codeur c++, Codeur de la gui, Codeur de l'app. Je code pour mes loisirs. En cas de bug n' hésitez pas à me contacter via le site de onigirix : http://www.onigirix.com","images/me-fin.png" })
 	});
 	UnderWindow* u1 = new UnderWindow(fn2, Mesure(10, 0), Mesure(30, 0), Mesure(-15, 100), Mesure(-30, 100), 10, 10);

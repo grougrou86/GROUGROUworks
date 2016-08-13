@@ -41,8 +41,8 @@ namespace ONIGIRIX_GUI {
 	class Relative;
 	class UnderWindow;
 	class Widget;
-	class UsableImage;
-	class Image;
+	template< class I>class UsableImage;
+	template< class I>class Image;
 	class SDL_H_texture;
 	class SDL_S_texture;
 	class GL_H_texture;

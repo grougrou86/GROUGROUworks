@@ -36,6 +36,7 @@ for (size_t i = 0; i < 1000000000; i++)	raw = d.get_data();
 */
 
 namespace DIFFERED_LOADER {
+
 	template<class T> class loader;
 	template<class T> class syncro_tools {
 		friend class loader<T>;
