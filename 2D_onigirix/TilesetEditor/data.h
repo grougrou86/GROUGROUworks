@@ -10,6 +10,7 @@ namespace ONIGIRIX_GUI {
 	struct data_store {
 		std::map<std::string, int> int_data;
 		std::map<std::string, double> double_data;
+		std::map<std::string, void*> pointer_data;
 		std::map<std::string, Rectangle*> rect_data;
 		std::map<std::string, Fenetre*> fenetre_data;
 		std::map<std::string, std::string> string_data;

@@ -5,6 +5,9 @@
 #include "Mesure.h"
 #include <string>
 #include <vector>
+#include "DIFFERED_LOADER.h"
+#include "ImageDealer.h"
+#include "texture.h"
 
 namespace ONIGIRIX_GUI {
 	//ajouter etat / pointersur etat
@@ -184,7 +187,8 @@ namespace ONIGIRIX_GUI {
 
 		std::vector<etat*> clearatclean_etat;
 		TextBlock* LeText = NULL;
-		std::map<std::string, SDL_Surface*> oldIMG;
+		//std::map<std::string, SDL_Surface*> oldIMG;
+		std::map<std::string, Image* > oldIMG; // if you one to set or change manualy this do not forget to put the rectangle as owner of the image !
 		//std:: vector<int>::iterator index_th ;//pas touch stp
 		std::vector<Rectangle_clip>& clips();
 		std::vector<Rectangle_clip*> p_clips;
@@ -212,7 +216,6 @@ namespace ONIGIRIX_GUI {
 
 		bool ever_refresh_text = false;//to try display even empty text(for textinput subclass)...
 	private:
-
 
 		bool active_absolute = false;
 		bool active_offset = true;
@@ -269,6 +272,8 @@ namespace ONIGIRIX_GUI {
 		int oldRel_h = 0;
 		int oldRel_x = 0;
 		int oldRel_y = 0;
+
+
 	};
 }
 #endif

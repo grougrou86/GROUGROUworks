@@ -1,7 +1,11 @@
 #pragma once
+#include <iostream>
+#include <stdio.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <atomic>
 #include <mutex>
-#include "G_inc.h"
 
 namespace ONIGIRIX_GUI {
 
@@ -20,6 +24,7 @@ namespace ONIGIRIX_GUI {
 		SDL_S_texture(const SDL_S_texture& that) = delete;
 		SDL_S_texture(SDL_Surface* s);
 		SDL_S_texture();
+		SDL_Surface* native();//should be avoided !!!
 		void set(SDL_Surface* s);
 		void free();
 		virtual ~SDL_S_texture();
@@ -33,6 +38,7 @@ namespace ONIGIRIX_GUI {
 		SDL_H_texture(const SDL_H_texture& that) = delete;
 		SDL_H_texture(SDL_Texture* s);
 		SDL_H_texture();
+		SDL_Texture* native();
 		void set(SDL_Texture* s);
 		void free();
 		virtual ~SDL_H_texture();

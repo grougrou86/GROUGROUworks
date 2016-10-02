@@ -53,8 +53,8 @@ SDL_Surface* fusion::return_for_display( ONIGIRIX_GUI::Rectangle* r) {
 					r->oldIMG.at(b.url);
 				}
 				catch (const std::out_of_range& oor) {
-					SDL_Surface* sf = r->ma_fenetre->loadImg(b.url);
-					r->oldIMG[b.url] = sf;
+					//SDL_Surface* sf = r->ma_fenetre->loadImg(b.url);
+					//r->oldIMG[b.url]->get_data()->second.set(sf);
 				}
 				SDL_Rect rec1, rec2;
 				rec1.w = case_size;
@@ -66,7 +66,7 @@ SDL_Surface* fusion::return_for_display( ONIGIRIX_GUI::Rectangle* r) {
 				rec2.x = case_size*j;
 				rec2.y = case_size*i;
 
-				SDL_BlitSurface(r->oldIMG[b.url], &rec1, sf1, &rec2);
+				SDL_BlitSurface(r->oldIMG[b.url]->get_SOFTWARE()->native(), &rec1, sf1, &rec2);
 
 			}
 			j++;

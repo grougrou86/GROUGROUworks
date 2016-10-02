@@ -16,7 +16,7 @@ void Staff(Fenetre* fn2) {
 
 	std::vector<staff_member> membre = std::vector<staff_member>({
 		staff_member({ L"???????",L"......................?!?!?!?!?!?","images/me-fin.png" }),
-		staff_member({ L"Grougrou",L"Codeur c++, Codeur de la gui, Codeur de l'app. Je code pour mes loisirs. En cas de bug n' hésitez pas à me contacter via le site de onigirix : http://www.onigirix.com","images/me-fin.png" })
+		staff_member({ L"Grougrou",L"Codeur c++, Codeur de la gui, Codeur de l'app. Je code pour mes loisirs. En cas de bug n' hésitez pas à me contacter ","images/me-fin.png" })
 	});
 	UnderWindow* u1 = new UnderWindow(fn2, Mesure(10, 0), Mesure(30, 0), Mesure(-15, 100), Mesure(-30, 100), 10, 10);
 
@@ -30,7 +30,7 @@ void Staff(Fenetre* fn2) {
 		r->set_font_size(50);
 		r->set_alignement(center);
 		r->set_font("MS");
-		r->debug = true;
+		r->debug = false;
 		Rectangle* r2 = fn2->addRectangle(Rectangle(Mesure(0, 0), Mesure(y_0 , 0), Mesure(h1,0 ), Mesure(h1, 0)));
 		r2->set_bg_img(m.img);
 		Rectangle* r3 = fn2->addRectangle(Rectangle(Mesure(0, 0), Mesure(0, 0), Mesure(0, 100), Mesure(5, 0)));
@@ -38,7 +38,7 @@ void Staff(Fenetre* fn2) {
 		r3->set_font_size(22);
 		r3->set_alignement(left);
 		r3->set_font("keifont");
-		r3->debug = true;
+		r3->debug = false;
 		u1->addRectangle(r);
 		u1->addRectangle(r2);
 		u->addRectangle(r3);

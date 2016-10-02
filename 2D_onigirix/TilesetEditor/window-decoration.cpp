@@ -4,7 +4,7 @@
 #include <memory>
 namespace ONIGIRIX_GUI {
 	void set_text_to_fps(Rectangle* r) {
-		r->set_text(L" Fps : " + std::to_wstring(r->ma_loop->fps));
+		r->set_text(L"" + std::to_wstring(r->ma_loop->fps));
 	}
 	void top_fct_1(Rectangle* r) {
 		SDL_SetRelativeMouseMode(SDL_TRUE);
@@ -84,10 +84,10 @@ namespace ONIGIRIX_GUI {
 		r->add_callback_etat(dep_fe);
 		r->set_z_index(2);
 
-		Rectangle* fps = f->addRectangle(Rectangle(Mesure(-30, 50), Mesure(0,0), Mesure(80, 0), Mesure(20, 0)));
+		Rectangle* fps = f->addRectangle(Rectangle(Mesure(1, 0), Mesure(0,0), Mesure(100, 0), Mesure(20, 0)));
 		fps->set_font("calibri");
-		fps->set_font_size(19);
-		fps->set_text("Fps:?");
+		fps->set_font_size(9);
+		fps->set_text("????");
 		fps->set_font_color(0xffffff);
 		fps->set_alignement(left);
 		fps->everyframe_fct = set_text_to_fps;

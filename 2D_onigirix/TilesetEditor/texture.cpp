@@ -35,6 +35,12 @@ namespace ONIGIRIX_GUI {
 		free();
 		_texture = s;
 	}
+	SDL_Surface* SDL_S_texture::native() {
+		return _texture;
+	}
+	SDL_Texture* SDL_H_texture::native() {
+		return _texture;
+	}
 	void SDL_S_texture::free() {
 		if (_texture != nullptr) {
 			SDL_FreeSurface(_texture);

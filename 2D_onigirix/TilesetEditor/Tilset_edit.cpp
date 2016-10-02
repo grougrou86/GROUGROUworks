@@ -267,8 +267,8 @@ void click_onglet(Rectangle* r, Fenetre* f, SDL_mainLoop* l) {
 	Rectangle* lerec = r->data->rect_data["manager"];
 	int nm = r->data->int_data["mynm"];
 	if (nm == 0) {
-		SDL_FreeSurface(r->data->rect_data["manager"]->data->rect_data["aff"]->oldIMG[base_present_url]);
-		r->data->rect_data["manager"]->data->rect_data["aff"]->oldIMG[base_present_url] = data_TOTAL.return_for_display(r->data->rect_data["manager"]->data->rect_data["aff"]);
+		//SDL_FreeSurface(r->data->rect_data["manager"]->data->rect_data["aff"]->oldIMG[base_present_url]->get_data()->second.native());
+		//r->data->rect_data["manager"]->data->rect_data["aff"]->oldIMG[base_present_url]->get_data()->second.set(data_TOTAL.return_for_display(r->data->rect_data["manager"]->data->rect_data["aff"]));
 	}
 	lerec->data->int_data["selected"] = nm;
 	r->data->rect_data["manager"]->data->rect_data["aff"]->data->int_data["nmaff"] = nm;
@@ -486,7 +486,7 @@ void click_to_export_file(Rectangle* r, Fenetre* f, SDL_mainLoop* l) {
 				   // returns NULL on cancel
 		if (link != NULL) {
 			std::string url = link;
-			IMG_SavePNG(r->data->rect_data["aff"]->oldIMG[base_present_url], link);
+			IMG_SavePNG(r->data->rect_data["aff"]->oldIMG[base_present_url]->get_SOFTWARE()->native(), link);
 		}
 	}
 	catch (int e) {
@@ -522,8 +522,8 @@ void click_change_on(Rectangle*r, Fenetre*, SDL_mainLoop*) {
 		else {
 			std::cout << "Moove : " << to_copy_x << "-" << to_copy_y << "--" << r->data->int_data["index_x"] << "-" << r->data->int_data["index_y"] << std::endl;
 			data_TOTAL.swapper(to_copy_x, to_copy_y, r->data->int_data["index_x"], r->data->int_data["index_y"]);
-			SDL_FreeSurface(r->data->rect_data["img_rel"]->oldIMG[base_present_url]);
-			r->data->rect_data["img_rel"]->oldIMG[base_present_url] = data_TOTAL.return_for_display(r->data->rect_data["img_rel"]);
+			//SDL_FreeSurface(r->data->rect_data["img_rel"]->oldIMG[base_present_url]->get_data()->second.native());
+			//r->data->rect_data["img_rel"]->oldIMG[base_present_url]->get_data()->second.set( data_TOTAL.return_for_display(r->data->rect_data["img_rel"]));
 			r->data->rect_data["img_rel"]->dys_changed();
 
 		}

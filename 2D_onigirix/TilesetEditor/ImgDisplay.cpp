@@ -15,14 +15,26 @@ namespace ONIGIRIX_GUI {
 
 		}
 	}
+	namespace IMGDISPLAY_EVERTYFRAME_FCT {
+		void set_to_normal(Rectangle* r) {
+			if (r->oldIMG[r->get_bg_img()]->get_SOFTWARE()!=nullptr) {
+
+				r->draw(r->ma_fenetre);
+				r->set_width(Mesure(r->img_dim_w, 0));
+				r->set_height(Mesure(r->img_dim_h, 0));
+
+				r->everyframe_fct = NULL;
+			}
+		}
+	};
 
 	ImgDisplay::ImgDisplay(Fenetre* f, Mesure x, Mesure y, Mesure w, Mesure h, std::string _img, Design__ImgDisplay design, int w1 , int w2):Widget(f, x, y, w, h, w1, w2),_design(design){
 		
 		img = W_add(new Rectangle(f));
 		img->set_bg_img(_img);
-		img->draw(f);
-		img->set_width(Mesure(img->img_dim_w, 0));
-		img->set_height(Mesure(img->img_dim_h, 0));
+		img->set_width(Mesure(1, 0));
+		img->set_height(Mesure(1, 0));
+		img->everyframe_fct = IMGDISPLAY_EVERTYFRAME_FCT::set_to_normal;
 
 		auto btn1 = W_add( new Rectangle(f, Mesure(20, 0), Mesure(-60, 100), Mesure(40, 0), Mesure(40, 0)));
 		btn1->activate_offset(false);

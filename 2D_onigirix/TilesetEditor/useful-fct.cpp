@@ -9,4 +9,5 @@ namespace ONIGIRIX_GUI {
 		r->data->rect_data["relRec"]->onclick_fct(x - r->data->int_data["rel-Offset-x"], y - r->data->int_data["rel-Offset-y"]);
 		r->data->rect_data["relRec"]->set_etat_activity(true, "active");
 	}
+	
 }

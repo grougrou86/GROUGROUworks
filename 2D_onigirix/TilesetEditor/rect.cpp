@@ -49,13 +49,15 @@ namespace ONIGIRIX_GUI {
 	}
 	void Rectangle::reload_img(SDL_Texture* & text_bg, SDL_Texture* & text_txt) {
 
+		bool always_reload = false;
 
 		//std::cout << "display changed" << std::endl;
 		text_ok = false;
-
+		int i = 0;
 		while (myTextures.size() != 0) {
-			SDL_DestroyTexture(myTextures.back());
+			if(i=0)SDL_DestroyTexture(myTextures.back());
 			myTextures.pop_back();
+			i++;
 		}
 		SDL_Surface* rect_bg = NULL;
 		//si qqc a changé dans la largeur ou la longeur
@@ -69,56 +71,78 @@ namespace ONIGIRIX_GUI {
 
 			if (text->changed || font_color->changed) {
 
-				if (LeText != NULL)delete LeText;
+				if (LeText != NULL) {
+					delete LeText;
+					LeText = nullptr;
+				}
 				LeText = new TextBlock(this, get_text(), get_font_size(), get_font(), get_alignement(), stretchRect.w, 4, get_font_color());
 
 			}
 			else {
-				LeText->width = stretchRect.w;
-				LeText->update_texture(true);
+				if (LeText != NULL) {
+					LeText->width = stretchRect.w;
+					LeText->update_texture(true);
+				}
 			}
-			text_height = LeText->height;
-			set_etat("default");
-			set_height(Mesure(LeText->height, 0));
-			stretchRect.h = LeText->height;
+
+			if (LeText != NULL)
+			{
+				text_height = LeText->height;
+				set_etat("default");
+				set_height(Mesure(LeText->height, 0));
+				stretchRect.h = LeText->height;
+			}
 		}
 
 
 
 
-		if (get_bg_img() != "none") {
+		if (get_bg_img() != "" && get_bg_img() != "none") {
 
+			std::cout << "trying reload img : " << oldIMG[get_bg_img()] << "--" << get_bg_img() << std::endl;
 
-			rect_bg = oldIMG[get_bg_img()];
-
-			if (rect_bg != NULL)
-			{
-				img_dim_h = rect_bg->h;
-				img_dim_w = rect_bg->w;
-
-				double ratio = (double)rect_bg->w / (double)rect_bg->h;
-				if (rect_bg != NULL) {
-					if (get_bg_img_sizing().x_mode == fit&&get_bg_img_sizing().y_mode == automatic) {
-						zoom = (double)stretchRect.w / (double)rect_bg->w;
-						stretchRect.h = (double)stretchRect.w / (double)ratio;
+			rect_bg = nullptr;
+			if (oldIMG[get_bg_img()]->is_changing())always_reload = true;//exemple video
+			if (oldIMG[get_bg_img()] != nullptr && oldIMG[get_bg_img()]->get_SOFTWARE() != nullptr) {
+				/*
+				if (oldIMG[get_bg_img()]->get_SDL_TEXTURE() == nullptr) {
+					rect_bg = oldIMG[get_bg_img()]->get_SOFTWARE()->native();
+					if (rect_bg != nullptr) {
+						text_bg = SDL_CreateTextureFromSurface(this->ma_fenetre->get_screen_render(), rect_bg);
 					}
-					if (get_bg_img_sizing().x_mode == automatic&&get_bg_img_sizing().y_mode == fit) {
-						zoom = (double)stretchRect.h / (double)rect_bg->h;
-						stretchRect.w = (double)stretchRect.h * (double)ratio;
-					}
-					text_bg = SDL_CreateTextureFromSurface(this->ma_fenetre->get_screen_render(), rect_bg);
-
+				}*/
+				rect_bg = nullptr;
+				if (oldIMG[get_bg_img()]->get_SDL_TEXTURE() != nullptr) {
+					text_bg = oldIMG[get_bg_img()]->get_SDL_TEXTURE()->native();
+					std::cout << "THE NEW TESXTURES ARE" << text_bg << std::endl;
+					std::cout << "33renderer" << ma_fenetre->get_screen_render() << std::endl;
 				}
 			}
+			std::cout << "utilisated :  " << text_bg << std::endl;
+
+			img_dim_h = oldIMG[get_bg_img()]->get_height();
+			img_dim_w = oldIMG[get_bg_img()]->get_width();
+
+			double ratio = (double)img_dim_w / (double)img_dim_h;
+			if (rect_bg != NULL) {
+				if (get_bg_img_sizing().x_mode == fit&&get_bg_img_sizing().y_mode == automatic) {
+					zoom = (double)stretchRect.w / (double)rect_bg->w;
+					stretchRect.h = (double)stretchRect.w / (double)ratio;
+				}
+				if (get_bg_img_sizing().x_mode == automatic&&get_bg_img_sizing().y_mode == fit) {
+					zoom = (double)stretchRect.h / (double)rect_bg->h;
+					stretchRect.w = (double)stretchRect.h * (double)ratio;
+				}
+			}
+
 		}
 		//std::cout << std::endl;
 
 		myTextures.push_back(text_bg);
 		myTextures.push_back(text_txt);
 		//SDL_FreeSurface(rect_bg);
-
-
-		dys_updated();
+		if (!(get_bg_img() != ""&&get_bg_img() != "none"&&oldIMG[get_bg_img()] != nullptr && oldIMG[get_bg_img()]->get_SOFTWARE()==nullptr ))dys_updated();
+		if(always_reload)dys_changed();
 	}
 	void Rectangle::ask_clip_updat() {
 		clip_updated = false;
@@ -355,12 +379,17 @@ namespace ONIGIRIX_GUI {
 			oldIMG.at(path);   // vector::at throws an out-of-range if image not already loaded for this rectangle
 		}
 		catch (const std::out_of_range& oor) {
-			oldIMG[path] = this->ma_fenetre->loadImg(path);
-			if (oldIMG[path] != NULL) {
+			if (path.substr(path.length() - 3) == "mkv" || path.substr(path.length() - 3) == "mp4" || path.substr(path.length() - 3) == "avi") {
+				oldIMG[path] = ma_fenetre->get_videoManager()->get_Video(s2ws(path));
+			}
+			else {
+				oldIMG[path] = ma_fenetre->get_ImageDealer()->get_image(s2ws(path));  //( this->ma_fenetre->loadImg(path);
+			}
+			if (oldIMG[path]!= nullptr && oldIMG[path]->get_SOFTWARE() != nullptr) {
 
 				if ((img_dim_h == -1 || img_dim_w == -1) && currentState == "default") {
-					img_dim_h = oldIMG[path]->h;
-					img_dim_w = oldIMG[path]->w;
+					img_dim_h = oldIMG[path]->get_height();
+					img_dim_w = oldIMG[path]->get_width();
 				}
 			}
 		}
@@ -541,8 +570,15 @@ namespace ONIGIRIX_GUI {
 	Rectangle::~Rectangle() {
 		if (LeText != NULL)delete LeText;
 		for (auto& call : callbacks_etat)delete call;
-		for (auto& call : myTextures)SDL_DestroyTexture(call);
-		for (auto& sdlimg : oldIMG) { SDL_FreeSurface(sdlimg.second); }
+		int i = 0;
+		for (auto& call : myTextures) {
+			if(i!=0)SDL_DestroyTexture(call);
+			i++;
+		}
+		for (auto& sdlimg : oldIMG) { 
+			if (sdlimg.second->get_owner() == this|| sdlimg.second->get_owner() == nullptr) { delete sdlimg.second; } 
+			sdlimg.second = nullptr; 
+		}
 		if (!copied)
 		{
 			delete _x;
@@ -590,7 +626,8 @@ namespace ONIGIRIX_GUI {
 		return &surface_de_clique;
 	}
 	void Rectangle::onclick_fct(int x, int y) {
-		if (click_fct != NULL)click_fct(this, ma_fenetre, ma_loop);
+		if (click_fct != NULL)
+			click_fct(this, ma_fenetre, ma_loop);
 		if (pos_click_fct != NULL)pos_click_fct(this, ma_fenetre, ma_loop, x, y);
 	}
 	void Rectangle::set_hover(bool activ) {

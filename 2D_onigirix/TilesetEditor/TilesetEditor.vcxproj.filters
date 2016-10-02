@@ -76,6 +76,12 @@
     <Filter Include="Fichiers sources\AUTRE">
       <UniqueIdentifier>{35ff8e07-1530-46a3-8f0e-345579c45e9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\VIDEO_PLAYER">
+      <UniqueIdentifier>{70a657e3-7650-4e0f-8fda-12f3d83bb27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\VIDEO_PLAYER">
+      <UniqueIdentifier>{9755554a-1e55-4f52-a5b3-743843f3935d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -212,6 +218,18 @@
     </ClCompile>
     <ClCompile Include="color.cpp">
       <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="Video_Player.cpp">
+      <Filter>Fichiers sources\VIDEO_PLAYER</Filter>
+    </ClCompile>
+    <ClCompile Include="VLC_test.cpp">
+      <Filter>Fichiers sources\VIDEO_PLAYER</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoPlayerTest.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoWidget.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -401,9 +419,6 @@
     <ClInclude Include="ImageDealer.h">
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
-    <ClInclude Include="texture.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Fichiers d%27en-tête\AUTRES</Filter>
     </ClInclude>
@@ -412,6 +427,21 @@
     </ClInclude>
     <ClInclude Include="color.h">
       <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="Video_Player.h">
+      <Filter>Fichiers d%27en-tête\VIDEO_PLAYER</Filter>
+    </ClInclude>
+    <ClInclude Include="VLC_test.h">
+      <Filter>Fichiers d%27en-tête\VIDEO_PLAYER</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_THREAD</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoPlayerTest.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoWidget.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

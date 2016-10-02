@@ -12,10 +12,7 @@ namespace ONIGIRIX_GUI {
 		bool dys_is_changed();
 		virtual void draw(Fenetre* f) = 0;
 		~Forme() {
-			while (myTextures.size() != 0) {
-				SDL_DestroyTexture(myTextures.back());
-				myTextures.pop_back();
-			}
+			//idealy the texture and surface will disapear !!!
 		}
 		virtual ClickSurface* get_click_surface() = 0;
 		virtual void onclick_fct(int x = 0, int y = 0) = 0;

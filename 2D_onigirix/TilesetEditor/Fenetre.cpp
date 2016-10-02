@@ -14,6 +14,8 @@
 namespace ONIGIRIX_GUI {
 	Fenetre::Fenetre(int screen_width, int screen_height, bool border) :_width(screen_width), _height(screen_height) {
 
+		
+
 		data = new data_store();
 
 		gWindow = SDL_CreateWindow("Tileset Mover", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN);
@@ -23,7 +25,7 @@ namespace ONIGIRIX_GUI {
 		//SDL_SetRelativeMouseMode(SDL_TRUE);
 		//gScreenSurface = SDL_GetWindowSurface(gWindow);
 		SDL_SetWindowIcon(gWindow, loadImg("images/icon/icon-new.png"));
-		if (!SOFTWARE_RENDERING)gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);// SDL_RENDERER_SOFTWARE);// SDL_RENDERER_ACCELERATED);// | SDL_RENDERER_PRESENTVSYNC);
+		if (!SOFTWARE_RENDERING)gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);// | SDL_RENDERER_PRESENTVSYNC);
 		//else gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_SOFTWARE);
 		else {
 			software_rendering = SDL_GetWindowSurface(gWindow);
@@ -31,6 +33,8 @@ namespace ONIGIRIX_GUI {
 			SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0, 0xff);
 			SDL_RenderClear(gRenderer);
 		}
+
+		//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "best");
 
 
 		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -42,9 +46,14 @@ namespace ONIGIRIX_GUI {
 
 		//loading font
 
+		//set the renderer for differents images ^^
+		_imageDealer.set_renderer(get_screen_render());
+		get_videoManager()->set_renderer(get_screen_render());
 
 
-
+	}
+	ImageDealer* Fenetre::get_ImageDealer() {
+		return &_imageDealer;
 	}
 	int Fenetre::rel_x() {
 		return 0;
@@ -59,6 +68,7 @@ namespace ONIGIRIX_GUI {
 		return _height;
 	}
 	Fenetre::~Fenetre() {
+		
 		vider();
 		if (data != NULL&&!copied)delete data;
 	}
@@ -139,9 +149,14 @@ namespace ONIGIRIX_GUI {
 	// ####### UPDATED AT EACH LOOP ####
 	void Fenetre::loopFct() {
 		//Apply the image
+
+		
+
 		SDL_SetRenderDrawColor(gRenderer, 0XFF, 0XFF, 0XFF, 0XFF);
 		SDL_RenderClear(gRenderer);
 		SDL_SetRenderDrawColor(gRenderer, 0X0F, 0X00, 0XF0, 0XFF);
+
+		get_videoManager()->Update();//Update the videos on screen 
 
 		for (auto& i : zIndexOrder) {
 			//Rectangles[i]->get_x();
@@ -427,13 +442,14 @@ namespace ONIGIRIX_GUI {
 		}
 		return got;
 	}
-
+	
 	Fenetre* Fenetre::copie()
 	{
 		Fenetre* newf = new Fenetre(*this);
 		copied = true;
 		return newf;
 	}
+	
 	Rectangle* Fenetre::addRectangle(Rectangle& monRectangle) {
 		Rectangle* rec_pointer = monRectangle.copie();
 		Rectangles.push_back(rec_pointer);
@@ -560,5 +576,8 @@ namespace ONIGIRIX_GUI {
 	}
 	bool Fenetre::was_resized() {
 		return _was_resized;
+	}
+	VideoManager* Fenetre::get_videoManager() {
+		return &_videoPlayer;
 	}
 }

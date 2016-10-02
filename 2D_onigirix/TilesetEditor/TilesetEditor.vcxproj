@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\include\SDL2;$(IncludePath)</IncludePath>
-    <LibraryPath>Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\include\SDL2;$(IncludePath)</IncludePath>
+    <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\include\SDL2;$(IncludePath)</IncludePath>
-    <LibraryPath>Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\include\SDL2;$(IncludePath)</IncludePath>
+    <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\zlib\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL2-devel-2.0.3-VC\include\SDL2;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\libpng\include;$(IncludePath)</IncludePath>
@@ -90,9 +90,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>Z:\cpp\visual_studio\Lib\boost_1_60_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;libpng.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;libpng.lib;libvlc.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -112,11 +113,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>Z:\cpp\visual_studio\Lib\boost_1_60_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;libpng.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;libvlc.lib;SDL2_ttf.lib;libpng.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -177,6 +182,10 @@
     <ClCompile Include="tinyfiledialogs.c" />
     <ClCompile Include="UnderWindow.cpp" />
     <ClCompile Include="useful-fct.cpp" />
+    <ClCompile Include="VideoPlayerTest.cpp" />
+    <ClCompile Include="VideoWidget.cpp" />
+    <ClCompile Include="Video_Player.cpp" />
+    <ClCompile Include="VLC_test.cpp" />
     <ClCompile Include="Widget.cpp" />
     <ClCompile Include="window-decoration.cpp" />
     <ClCompile Include="xbrz\xbrz.cpp" />
@@ -243,6 +252,10 @@
     <ClInclude Include="tinyfiledialogs.h" />
     <ClInclude Include="UnderWindow.h" />
     <ClInclude Include="useful-fct.h" />
+    <ClInclude Include="VideoPlayerTest.h" />
+    <ClInclude Include="VideoWidget.h" />
+    <ClInclude Include="Video_Player.h" />
+    <ClInclude Include="VLC_test.h" />
     <ClInclude Include="Widget.h" />
     <ClInclude Include="window-decoration.h" />
     <ClInclude Include="xbrzscale.h" />

@@ -15,6 +15,8 @@ template <typename T> int sgn(T val) {
 
 namespace ONIGIRIX_GUI {
 
+	class RGB_c;
+	struct InfoRealImage;
 	enum alignement{ center, right, left, justify};
 	enum size_mode{ no, fit, automatic }; //no-> do nothing || fit-> adapte size || adaptr-> make container fit  to image
 	//specific to display !! ORDRE !!
@@ -41,8 +43,10 @@ namespace ONIGIRIX_GUI {
 	class Relative;
 	class UnderWindow;
 	class Widget;
+	class Image;
+	class ImageDealer;
 	template< class I>class UsableImage;
-	template< class I>class Image;
+	template< class I>class InfoImage;
 	class SDL_H_texture;
 	class SDL_S_texture;
 	class GL_H_texture;
@@ -52,6 +56,9 @@ namespace ONIGIRIX_GUI {
 //fct prototypes....
 template <typename T, int N> static std::size_t hasharray(const T(&arr)[N]);
 
+
+#include "texture.h"
+#include "ImageDealer.h"
 
 #include "useful-fct.h"
 #include "relative.h"
@@ -74,8 +81,6 @@ template <typename T, int N> static std::size_t hasharray(const T(&arr)[N]);
 #include "UnderWindow.h"
 #include "Widget.h"
 #include "ALL_WIDGET.h"
-#include "texture.h"
-#include "ImageDealer.h"
 #include "Singleton.h"
 
 

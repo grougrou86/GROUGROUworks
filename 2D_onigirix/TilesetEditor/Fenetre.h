@@ -1,15 +1,18 @@
 #ifndef SDL_FENETRE_H
 #define SDL_FENETRE_H
 
-#include "G_inc.h" 
-#include <string>
-#include <vector> 
-#include "Mesure.h"
 
+#include "G_inc.h" 
+#include "Mesure.h"
+#include <string>
+#include <vector>
+#include "texture.h"
+#include "Video_Player.h"
 
 namespace ONIGIRIX_GUI {
 	class Fenetre : public Relative {
 	public:
+
 
 		virtual int rel_x();
 		virtual int rel_y();
@@ -115,8 +118,15 @@ namespace ONIGIRIX_GUI {
 
 		bool was_resized();//si la fenetre a été rsizée...
 
+		ImageDealer* get_ImageDealer();
+
 		void clean();
+
+		VideoManager* get_videoManager();
+
 	private:
+
+		ImageDealer _imageDealer;
 
 		bool _was_resized = false;//si la fenetre a été rsizée...
 		bool send_resize = false;
@@ -125,6 +135,8 @@ namespace ONIGIRIX_GUI {
 		std::vector<Rectangle*> a_supp_rect;
 		std::vector<UnderWindow*> a_supp_underwindows;
 
+
+		
 		int x_base, y_base;//pour le maximize
 		int w_base, h_base;//pour le maximize
 
@@ -155,6 +167,10 @@ namespace ONIGIRIX_GUI {
 		SDL_Surface *software_rendering=NULL;//only activate if you makes software rendering
 
 		//The image we will load and show on the screen
+
+		//the video player
+
+		VideoManager _videoPlayer;
 
 	};
 }
