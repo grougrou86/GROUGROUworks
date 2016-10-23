@@ -139,13 +139,13 @@ namespace ONIGIRIX_GUI {
 		std::pair<I, SDL_H_texture>* data_2 = nullptr;
 		std::pair<I, GL_H_texture>* data_3 = nullptr;
 		get_SOFTWARE();
-		data_1 = _T_S_SDL->get_data();
+		if(_T_S_SDL!=nullptr) data_1 = _T_S_SDL->get_data();
 		if (data_1 == nullptr) {
 			get_SDL_TEXTURE();
-			data_2 = _T_H_SDL->get_data();
+			if (_T_H_SDL != nullptr) data_2 = _T_H_SDL->get_data();
 			if (data_2 == nullptr) {
 				get_GL_TEXTURE();
-				data_3 = _T_H_GL->get_data();
+				if (_T_H_GL != nullptr)data_3 = _T_H_GL->get_data();
 				if (data_3 == nullptr) {
 					if (! _reload_sent) {
 						_reload_sent = true;
@@ -331,6 +331,21 @@ namespace ONIGIRIX_GUI {
 		_instance_vid->play(p);
 	}
 	bool ImageVideo::is_play() {
-		_instance_vid->is_play();
+		return _instance_vid->is_play();
+	}
+	void ImageVideo::set_time(int t) {
+		_instance_vid->set_time(t);
+	}
+	int ImageVideo::get_time() {
+		return _instance_vid->get_time();
+	}
+	int ImageVideo::get_max_time() {
+		return _instance_vid->get_max_time();
+	}
+	void ImageVideo::set_volume(double v) {
+		_instance_vid->set_volume(v);
+	}
+	double ImageVideo::get_volume() {
+		return _instance_vid->get_volume();
 	}
 }

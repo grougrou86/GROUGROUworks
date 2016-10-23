@@ -31,6 +31,7 @@ int main(int argc, char* args[])
 	fn2->add_police("Arial Unicode", "font/Arial Unicode MS.ttf");
 
 	fn2->rebulid_funk = Acceuil;
+	//fn2->rebulid_funk = Video_Player_Test;
 	mainloop.Loop();
 	
 	

@@ -638,9 +638,13 @@ namespace ONIGIRIX_GUI {
 	}
 	void Rectangle::delete_click() {
 		click_fct = NULL;
+		pos_click_fct = NULL;
 	}
 	void Rectangle::set_click_function(Click_fontion fct) {
 		click_fct = fct;
+	}
+	void Rectangle::set_click_function(POS_Click_fontion fct) {
+		pos_click_fct = fct;
 	}
 	etat* Rectangle::add_etat(etat et, int importance) {
 		et.user++;

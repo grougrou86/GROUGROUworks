@@ -97,11 +97,12 @@ namespace ONIGIRIX_GUI {
 		virtual ~ImageVideo();
 
 		void play(bool);
-		void pause();
 		bool is_play();
-		double duration();
-		double current_time();
 		void set_time(int);
+		int get_time();
+		int get_max_time();
+		void set_volume(double);
+		double get_volume();
 
 	private :
 		VideoInstance* _instance_vid = nullptr;

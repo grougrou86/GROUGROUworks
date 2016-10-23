@@ -1,5 +1,6 @@
 #include"G_inc.h"
 namespace ONIGIRIX_GUI {
+	
 	Fenetre* Widget::get_window() {
 		return ma_fenetre;
 	}
@@ -8,6 +9,7 @@ namespace ONIGIRIX_GUI {
 		for (auto a : Widget_rectangles)ma_fenetre->removeRectangle(a);
 		for (auto a : Widget_Scrolls)ma_fenetre->removeScroll(a);
 		for (auto a : Widget_Underwindows)ma_fenetre->removeUnderwindow(a);
+		for (auto a : Widget_Widget)ma_fenetre->removeWidget(a);
 	}
 	Rectangle* Widget::W_add(Rectangle* r) {
 		Widget_rectangles.push_back(r);
@@ -16,6 +18,11 @@ namespace ONIGIRIX_GUI {
 	}
 	UnderWindow* Widget::W_add(UnderWindow* u) {
 		Widget_Underwindows.push_back(u);
+		addUnderWindow(u);
+		return u;
+	}
+	Widget* Widget::W_add(Widget* u) {
+		Widget_Widget.push_back(u);
 		addUnderWindow(u);
 		return u;
 	}

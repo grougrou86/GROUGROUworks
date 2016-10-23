@@ -1,6 +1,9 @@
 #include"G_inc.h"
 #include <algorithm>  
 /*
+	
+	be ware DO  NOT USE UDERWINDOW use Widget 
+
 
 	 a faire :
 

@@ -85,10 +85,16 @@ namespace ONIGIRIX_GUI {
 	void Fenetre::supp_Underwindow(UnderWindow* u) {
 		a_supp_underwindows.push_back(u);
 	}
+	void Fenetre::supp_Widget(Widget* u) {
+		a_supp_underwindows.push_back(u);
+	}
 	void Fenetre::removeScroll(Scroll* s) {
 		a_supp_scrolls.push_back(s);
 	}
 	void Fenetre::removeUnderwindow(UnderWindow* u) {
+		a_supp_underwindows.push_back(u);
+	}
+	void Fenetre::removeWidget(Widget* u) {
 		a_supp_underwindows.push_back(u);
 	}
 	void Fenetre::removeRectangle(Rectangle* rec_ref) {

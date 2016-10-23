@@ -109,6 +109,7 @@ namespace ONIGIRIX_GUI {
 		virtual void set_hold(bool);
 		void delete_click();
 		void set_click_function(Click_fontion fct);
+		void set_click_function(POS_Click_fontion fct);
 
 		Click_fontion click_fct = NULL;
 		POS_Click_fontion pos_click_fct = NULL;
