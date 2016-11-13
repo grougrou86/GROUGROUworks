@@ -13,6 +13,7 @@
 #include "staff.h"
 #include "project_config.h"
 #include "VideoPlayerTest.h"
+#include "GlypsTest.h"
 
 #include "window-decoration.h"
 

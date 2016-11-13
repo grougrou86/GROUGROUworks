@@ -14,6 +14,7 @@ namespace ONIGIRIX_GUI {
 		Police(std::string path) :file(path) {}
 		Police() {}
 		TTF_Font* get_font(unsigned int taille) {
+			//return nullptr;
 			try {
 				TTF_Font* mapolice = fonts.at(taille);
 				return mapolice;

@@ -294,5 +294,7 @@ namespace ONIGIRIX_GUI {
 		//std::unordered_map<std::wstring, std::unordered_map<unsigned int, std::unordered_map<RGB_c,std::unordered_map<wchar_t, LetterImage>>>> _font_image;
 		//std::unordered_map<std::wstring, std::unordered_map<unsigned int, std::unordered_map<RGB_c, std::unordered_map<std::wstring, WordImage>>>> _word_image;
 	};
-
+	
 }
+//TEMPLATE
+#include"ImageDealerTemplate.h"

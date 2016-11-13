@@ -64,6 +64,7 @@ namespace ONIGIRIX_GUI {
 		void set_width(Mesure);
 		void set_height(Mesure);
 		void set_bg_img(std::string);
+		void add_bg(std::string,Image*);//if you want the image to be destroyed at same time as the rectangle do the forget to set the rectangle as the proprietar of image !!!
 		void set_bgcolor(int color);
 		void set_bgopacity(double opacity);
 		void set_bg_img_sizing(img_sizing);

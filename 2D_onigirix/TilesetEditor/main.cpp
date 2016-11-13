@@ -30,13 +30,13 @@ int main(int argc, char* args[])
 	fn2->add_police("consola", "font/consola.ttf");
 	fn2->add_police("Arial Unicode", "font/Arial Unicode MS.ttf");
 
-	fn2->rebulid_funk = Acceuil;
+	//fn2->rebulid_funk = Acceuil;
 	//fn2->rebulid_funk = Video_Player_Test;
+	fn2->rebulid_funk = GlypsTest;
 	mainloop.Loop();
 	
 	
-	ONIGIRIX_GUI::Singleton<ONIGIRIX_GUI::ImageDealer>::Get();
-
+	
 	//pour la forme....
 	return 3896;
 }

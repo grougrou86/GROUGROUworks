@@ -357,11 +357,11 @@ namespace ONIGIRIX_GUI {
 					if (i != testo.size())arr[i] = testo[i];
 					else arr[i] = '\0';
 
-					SDL_Surface* textSurface = TTF_RenderUNICODE_Blended(mapolice.get_font(taille), arr, { (Uint8)(font_RGB.get_r()), (Uint8)(font_RGB.get_g()), (Uint8)(font_RGB.get_b()) });
-					delete[] arr;
+				SDL_Surface* textSurface = TTF_RenderUNICODE_Blended(mapolice.get_font(taille), arr, { (Uint8)(font_RGB.get_r()), (Uint8)(font_RGB.get_g()), (Uint8)(font_RGB.get_b()) });
+				delete[] arr;
 
-					//SDL_Surface* textSurface = TTF_RenderText_Blended(mapolice.get_font(taille), texte.c_str(), { (Uint8)(font_RGB.r), (Uint8)(font_RGB.g), (Uint8)(font_RGB.b) });
-					return textSurface;
+				//SDL_Surface* textSurface = TTF_RenderText_Blended(mapolice.get_font(taille), texte.c_str(), { (Uint8)(font_RGB.r), (Uint8)(font_RGB.g), (Uint8)(font_RGB.b) });
+				return textSurface;
 			}
 			//std::cout << TTF_GetError() << std::endl;
 		}

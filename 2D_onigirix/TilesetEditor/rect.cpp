@@ -838,4 +838,12 @@ namespace ONIGIRIX_GUI {
 	bool  Rectangle::is_absolute_activated() {
 		return active_absolute;
 	}
+	void Rectangle::add_bg(std::string path, Image* img) {
+		try {
+			oldIMG.at(path);   // vector::at throws an out-of-range if image not already loaded for this rectangle
+		}
+		catch (const std::out_of_range& oor) {
+			oldIMG[path] = img;
+		}
+	}
 }

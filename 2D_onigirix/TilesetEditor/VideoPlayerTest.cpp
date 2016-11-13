@@ -8,11 +8,11 @@ using namespace ONIGIRIX_GUI;
 void Video_Player_Test(ONIGIRIX_GUI::Fenetre* f) {
 	f->resize(800, 800);
 	f->titre = "TESTE";
-	auto W = new UnderWindow(f, Mesure(0, 0), Mesure(30, 0), Mesure(0, 100), Mesure(-30, 100));
+	auto W = new Widget(f, Mesure(0, 0), Mesure(30, 0), Mesure(0, 100), Mesure(-30, 100));
 	auto I = new VideoWidget(f, Mesure(15, 0), Mesure(10, 0), Mesure(-30, 100), Mesure(-100, 100), "Z:\\cpp\\visual_studio\\GROUGROUengine\\video\\exemple.mkv");
 	auto I2 = new VideoWidget(f, Mesure(15, 0), Mesure(0, 100), Mesure(-30, 100), Mesure(-100, 100), "Z:\\cpp\\visual_studio\\GROUGROUengine\\video\\exemple2.mkv");
-	W->addUnderWindow(I);
-	W->addUnderWindow(I2);
+	W->W_add(I);
+	W->W_add(I2);
 
 	//auto T = new Textarea(f, Mesure(15, 0), Mesure(100, 0), Mesure(-30, 100), Mesure(-200, 100));
 	//T->set_value(L"Type  here \n..爱(愛)...\nLorem é ipsum dolor sit amet, consectetur adipiscing Lorem é ipsum dolor sit amet, consectetur adipiscing Lorem é ipsum dolor sit amet, consectetur adipiscing 敬語は人間のなんらかの意味の上下関係の認識を\n表現する語彙の体系である .");

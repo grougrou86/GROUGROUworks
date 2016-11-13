@@ -13,7 +13,6 @@
 
 namespace ONIGIRIX_GUI {
 	SDL_mainLoop::SDL_mainLoop() {
-
 		SDL_Init(SDL_INIT_EVERYTHING);
 		int imgFlags = IMG_INIT_PNG;
 

@@ -82,6 +82,12 @@
     <Filter Include="Fichiers d%27en-tête\VIDEO_PLAYER">
       <UniqueIdentifier>{9755554a-1e55-4f52-a5b3-743843f3935d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\FONT_DEALER">
+      <UniqueIdentifier>{d4fc7cfc-d6c5-4541-880c-e231fc4c86cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\FONT_DEALER">
+      <UniqueIdentifier>{10f59983-d830-4b50-874e-9d6f712f028c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -225,11 +231,23 @@
     <ClCompile Include="VLC_test.cpp">
       <Filter>Fichiers sources\VIDEO_PLAYER</Filter>
     </ClCompile>
-    <ClCompile Include="VideoPlayerTest.cpp">
-      <Filter>Fichiers sources\FRAMES</Filter>
-    </ClCompile>
     <ClCompile Include="VideoWidget.cpp">
       <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClCompile>
+    <ClCompile Include="FontDealer.cpp">
+      <Filter>Fichiers sources\FONT_DEALER</Filter>
+    </ClCompile>
+    <ClCompile Include="FontGlypsSurface.cpp">
+      <Filter>Fichiers sources\FONT_DEALER</Filter>
+    </ClCompile>
+    <ClCompile Include="GlypsTest.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoPlayerTest.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ensemble.cpp">
+      <Filter>Fichiers sources\FONT_DEALER</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -442,6 +460,21 @@
     </ClInclude>
     <ClInclude Include="VideoWidget.h">
       <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
+    </ClInclude>
+    <ClInclude Include="FontDealer.h">
+      <Filter>Fichiers d%27en-tête\FONT_DEALER</Filter>
+    </ClInclude>
+    <ClInclude Include="FontGlypsSurface.h">
+      <Filter>Fichiers d%27en-tête\FONT_DEALER</Filter>
+    </ClInclude>
+    <ClInclude Include="GlypsTest.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="Ensemble.h">
+      <Filter>Fichiers d%27en-tête\FONT_DEALER</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageDealerTemplate.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
