@@ -32,7 +32,7 @@ int main(int argc, char* args[])
 
 	//fn2->rebulid_funk = Acceuil;
 	//fn2->rebulid_funk = Video_Player_Test;
-	fn2->rebulid_funk = GlypsTest;
+	fn2->rebulid_funk = Acceuil;
 	mainloop.Loop();
 	
 	

@@ -2,6 +2,7 @@
 #include "G_inc.h"
 #include"FontGlypsSurface.h"
 #include"all_frame_include.h"
+#include"usefullEVENTfct.h"
 
 using namespace ONIGIRIX_GUI;
 
@@ -22,12 +23,13 @@ void GlypsTest(ONIGIRIX_GUI::Fenetre*f) {
 
 	// ATTTENTION BIG MEMORY LEAK TO FIND !!!!
 
-	GlypsImage* IMGglyps = new GlypsImage({ L"font/Arial Unicode MS.ttf" ,30 }, f->get_screen_render());
+	GlypsImage* IMGglyps = new GlypsImage({ L"font/keifont.ttf" ,30 }, f->get_DisplayContext());
 	//IMGglyps->get_SDL_TEXTURE();
 	//delete IMGglyps;
 	auto W = new Widget(f, Mesure(0, 0), Mesure(30, 0), Mesure(0, 100), Mesure(-30, 100));
 
-	Rectangle* r21 = W->W_add(new Rectangle(f,Mesure(0, 0), Mesure(0, 0), Mesure(IMGglyps->get_width(), 0), Mesure(IMGglyps->get_height(), 0)));
+	Rectangle* r21 = W->W_add(new Rectangle(f,Mesure(0, 0), Mesure(0, 0), Mesure(0, 0), Mesure(0, 0)));
+	r21->everyframe_fct = AUTObgSIZE;
 	r21->add_bg("char", IMGglyps);
 	r21->set_bg_img("char");
 	r21->set_bgcolor(0x000000);

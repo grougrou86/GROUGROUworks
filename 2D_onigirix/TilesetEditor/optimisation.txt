@@ -10,8 +10,15 @@ un fonction qui s'execute en tout cas à chaque boucle avant l'affichage
 
 //last idea
 
+idealiser les acces au map (tester d'abord le pointeur precedent )
 rendre la classe scroll comme un widget evite de faire des putin de cas speciaux ....
 autoriser les element a aparaitre hors du widget
 autoriser un display des element du widget au moment ou le widget est display (tous a la foi !!!)
 une fonction pour appliquer la même fonction a tous les rectangle d'un widget d un coup !
 finaly allow rectangle to have shape 
+
+si l image est même taille que le rectangle -> no linear transform else yes
+
+Une police a une fonction display character comme ca plusieur type de ploces sont possibles (ex gif as character etc...)
+
+ajouter la fast map dans tous les image / polices / etcs dealer pour meilleur performance (c.f.solution tester)

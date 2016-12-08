@@ -115,7 +115,7 @@ namespace ONIGIRIX_GUI {
 				if (oldIMG[get_bg_img()]->get_SDL_TEXTURE() != nullptr) {
 					text_bg = oldIMG[get_bg_img()]->get_SDL_TEXTURE()->native();
 					std::cout << "THE NEW TESXTURES ARE" << text_bg << std::endl;
-					std::cout << "33renderer" << ma_fenetre->get_screen_render() << std::endl;
+					std::cout << "33renderer" << ma_fenetre->get_DisplayContext().get_SDL_Renderer() << std::endl;
 				}
 			}
 			std::cout << "utilisated :  " << text_bg << std::endl;
@@ -233,10 +233,9 @@ namespace ONIGIRIX_GUI {
 			if (get_bgopacity() != 0) {
 
 				RGB_c bg_C_RGB = couleurConverter(get_bgcolor());
-				SDL_SetRenderDrawBlendMode(f->get_screen_render(), SDL_BLENDMODE_BLEND);
-				SDL_SetRenderDrawColor(f->get_screen_render(), bg_C_RGB.get_r(), bg_C_RGB.get_g(), bg_C_RGB.get_b(), get_bgopacity() * 255);
+				SDL_SetRenderDrawColor(f->get_DisplayContext().get_SDL_Renderer(), bg_C_RGB.get_r(), bg_C_RGB.get_g(), bg_C_RGB.get_b(), get_bgopacity() * 255);
 
-				SDL_RenderFillRect(f->get_screen_render(), &destRect);
+				SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &destRect);
 
 			}
 			if (text_bg != NULL) {
@@ -255,20 +254,20 @@ namespace ONIGIRIX_GUI {
 					std::cout << "WINDOW:" << ma_fenetre->get_width() << "--" << ma_fenetre->get_height() << std::endl;
 					std::cout << "RATIOS:" << w << "//" << h << " .defo. " << (double)srcRect.w / (double)srcRect.h << "-" << (double)destRect.w / (double)destRect.h << std::endl;
 				}
-				SDL_RenderCopy(f->get_screen_render(), text_bg, &srcRect2, &destRect);
+				SDL_RenderCopy(f->get_DisplayContext().get_SDL_Renderer(), text_bg, &srcRect2, &destRect);
 			}
 			if (LeText != NULL) {
 				//SDL_Rect monrec = { stretchRect.x, stretchRect.y, stretchRect.w, text_height };
 				//SDL_RenderCopy(f->get_screen_render(), text_txt, NULL, &monrec);
 				LeText->x = stretchRect.x;
 				LeText->y = stretchRect.y;
-				LeText->draw_to_render(f->get_screen_render());
+				LeText->draw_to_render(f->get_DisplayContext().get_SDL_Renderer());
 			}
 
 			//making border
 
 			RGB_c br_C_RGB = couleurConverter(get_bordercolor());
-			SDL_SetRenderDrawColor(f->get_screen_render(), br_C_RGB.get_r(), br_C_RGB.get_g(), br_C_RGB.get_b(), 255);
+			SDL_SetRenderDrawColor(f->get_DisplayContext().get_SDL_Renderer(), br_C_RGB.get_r(), br_C_RGB.get_g(), br_C_RGB.get_b(), 255);
 			if (debug)std::cout << "border_width" << get_borderwidth() << std::endl;
 			if (get_borderwidth() != 0) {
 				if (debug)std::cout << extern_clip.x << "-" << extern_clip.y << "-" << extern_clip.w << "-" << extern_clip.h << std::endl;
@@ -279,43 +278,43 @@ namespace ONIGIRIX_GUI {
 
 					r1.x = stretchRect.x - get_borderwidth(); r1.y = stretchRect.y - get_borderwidth(); r1.w = stretchRect.w + 2 * get_borderwidth(); r1.h = get_borderwidth();
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 
 					r1.x = stretchRect.x - get_borderwidth(); r1.y = stretchRect.y - get_borderwidth(); r1.w = get_borderwidth(); r1.h = stretchRect.h + 2 * get_borderwidth();
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 
 					r1.x = stretchRect.x + stretchRect.w; r1.y = stretchRect.y - get_borderwidth(); r1.w = get_borderwidth(); r1.h = stretchRect.h + 2 * get_borderwidth();
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 
 					r1; r1.x = stretchRect.x - get_borderwidth(); r1.y = stretchRect.y + stretchRect.h; r1.h = get_borderwidth(); r1.w = stretchRect.w + 2 * get_borderwidth();
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 				}
 				else {
 					SDL_Rect r1;
 
 					r1.x = stretchRect.x; r1.y = stretchRect.y; r1.w = stretchRect.w; r1.h = -get_borderwidth();
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 
 					r1.x = stretchRect.x; r1.y = stretchRect.y; r1.w = -get_borderwidth(); r1.h = stretchRect.h;
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 
 					r1.x = stretchRect.x + stretchRect.w + get_borderwidth(); r1.y = stretchRect.y; r1.w = -get_borderwidth(); r1.h = stretchRect.h;
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 
 					r1.x = stretchRect.x; r1.y = stretchRect.y + stretchRect.h + get_borderwidth(); r1.h = -get_borderwidth(); r1.w = stretchRect.w;
 					r1 = intersection(r1, destRect_bord);
-					SDL_RenderFillRect(f->get_screen_render(), &r1);
+					SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &r1);
 				}
 				//SDL_RenderDrawRect(f->get_screen_render(), &stretchRect);
 			}
 
-			SDL_SetRenderDrawColor(f->get_screen_render(), 0xFF, 0xFF, 0xFF, 0xFF);
+			SDL_SetRenderDrawColor(f->get_DisplayContext().get_SDL_Renderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 		}
 		else { if (debug) { std::cout << "vide!" << std::endl; std::cout << "ORIGAL:" << stretchRect.x << ".--." << stretchRect.y << ".--." << stretchRect.w << ".--." << stretchRect.h << std::endl; } }
 

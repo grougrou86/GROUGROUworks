@@ -78,10 +78,9 @@ namespace ONIGIRIX_GUI {
 			std::cout << "ofx" << get_offset_x() << "ofy" << get_offset_y() << std::endl;
 			rect = intersection(rect, destRect);
 			RGB_c bg_C_RGB = couleurConverter(get_font_color());
-			SDL_SetRenderDrawBlendMode(f->get_screen_render(), SDL_BLENDMODE_BLEND);
-			SDL_SetRenderDrawColor(f->get_screen_render(), bg_C_RGB.get_r(), bg_C_RGB.get_g(), bg_C_RGB.get_b(), 255);
-			SDL_RenderFillRect(f->get_screen_render(), &rect);
-			SDL_SetRenderDrawColor(f->get_screen_render(), 0xFF, 0xFF, 0xFF, 0xFF);
+			SDL_SetRenderDrawColor(f->get_DisplayContext().get_SDL_Renderer(), bg_C_RGB.get_r(), bg_C_RGB.get_g(), bg_C_RGB.get_b(), 255);
+			SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &rect);
+			SDL_SetRenderDrawColor(f->get_DisplayContext().get_SDL_Renderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 		}
 	}
 	Text_input::~Text_input()

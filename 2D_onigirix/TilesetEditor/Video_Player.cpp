@@ -82,8 +82,8 @@ namespace ONIGIRIX_GUI {
 			v->try_rotate_frame();
 		}
 	}
-	void VideoManager::init(SDL_Renderer* r,bool use) {
-		_renderer = r;
+	void VideoManager::init(DisplayContext r,bool use) {
+		_DisplayContext = r;
 		_use = use;
 		char const *vlc_argv[] = {
 
@@ -103,15 +103,15 @@ namespace ONIGIRIX_GUI {
 			printf("LibVLC initialization failure.\n");
 		}
 	}
-	void VideoManager::set_renderer(SDL_Renderer* r) {
-		_renderer = r;
+	void VideoManager::set_DisplayContext(DisplayContext r) {
+		_DisplayContext = r;
 	}
 	VideoManager::VideoManager(bool use) {
 		init(nullptr,use); 
 	}
 
 	VideoManager::VideoManager(const VideoManager& old) {
-		init(old._renderer,old._use);
+		init(old._DisplayContext,old._use);
 	}
 	VideoManager::~VideoManager() {
 		//delete remaining videos
@@ -196,7 +196,7 @@ namespace ONIGIRIX_GUI {
 			nextFrameReady = false;
 			if (_use){
 				if (_frames[a]->get_SDL_TEXTURE()->native() == nullptr) {
-					SDL_Texture* newtex = SDL_CreateTexture(_manager->_renderer,SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING,_frames[a]->get_SOFTWARE()->native()->w, _frames[a]->get_SOFTWARE()->native()->h);
+					SDL_Texture* newtex = SDL_CreateTexture(_manager->_DisplayContext.get_SDL_Renderer(),SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING,_frames[a]->get_SOFTWARE()->native()->w, _frames[a]->get_SOFTWARE()->native()->h);
 					//SDL_Texture* newtex = SDL_CreateTextureFromSurface(_manager->_renderer, _frames[a]->get_SOFTWARE()->native());
 					_frames[a]->get_SDL_TEXTURE()->set(newtex);
 				}

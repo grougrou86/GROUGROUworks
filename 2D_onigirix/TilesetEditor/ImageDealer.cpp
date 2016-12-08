@@ -9,8 +9,8 @@ namespace ONIGIRIX_GUI {
 	RealImage::RealImage() {
 		throw("error URL needed to build an image");
 	}
-	RealImage::RealImage(std::wstring url, SDL_Renderer* r) {
-		_renderer = r;
+	RealImage::RealImage(std::wstring url, DisplayContext r) {
+		_DisplayContext = r;
 		_url = url;
 	}
 	void RealImage::reload_img() {
@@ -40,12 +40,12 @@ namespace ONIGIRIX_GUI {
 		return true;
 	}
 
-	ImageDealer::ImageDealer(SDL_Renderer* renderer)
+	ImageDealer::ImageDealer(DisplayContext renderer)
 	{
-		_renderer = renderer;
+		_DisplayContext = renderer;
 	}
-	void ImageDealer::set_renderer(SDL_Renderer* renderer) {
-		_renderer = renderer;
+	void ImageDealer::set_DisplayContext(DisplayContext renderer) {
+		_DisplayContext = renderer;
 	}
 	ImageDealer::~ImageDealer()
 	{
@@ -60,12 +60,11 @@ namespace ONIGIRIX_GUI {
 
 			if (iter != _images.end())
 			{
-				std::cout << ws2s(iter->first) << " is ";
 				return &(iter->second);
 			}
 		}
 		
-		_images.insert(std::pair<std::wstring, RealImage>(url, RealImage(url,_renderer)));
+		_images.insert(std::pair<std::wstring, RealImage>(url, RealImage(url, _DisplayContext)));
 		_images[url].set_owner(this);
 		return &_images[url];
 	}

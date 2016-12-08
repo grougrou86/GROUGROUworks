@@ -147,6 +147,7 @@
     <ClCompile Include="clip_frame.cpp" />
     <ClCompile Include="color.cpp" />
     <ClCompile Include="ConfigFile.cpp" />
+    <ClCompile Include="DisplayContext.cpp" />
     <ClCompile Include="DisplayEngine.cpp" />
     <ClCompile Include="DisplayEngine_GL_HARDWARE.cpp" />
     <ClCompile Include="DisplayEngine_GL_SOFTRWARE.cpp" />
@@ -171,6 +172,7 @@
     <ClCompile Include="param.cpp" />
     <ClCompile Include="project_config.cpp" />
     <ClCompile Include="Pure_text.cpp" />
+    <ClCompile Include="QueueExecutor.cpp" />
     <ClCompile Include="rect.cpp" />
     <ClCompile Include="save-to-file.cpp" />
     <ClCompile Include="Scroll.cpp" />
@@ -180,12 +182,14 @@
     <ClCompile Include="test.cpp" />
     <ClCompile Include="text-input.cpp" />
     <ClCompile Include="Textarea.cpp" />
+    <ClCompile Include="TextBlockV2.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="Tilset_edit.cpp" />
     <ClCompile Include="Tilset_edit_2.cpp" />
     <ClCompile Include="tinyfiledialogs.c" />
     <ClCompile Include="UnderWindow.cpp" />
     <ClCompile Include="useful-fct.cpp" />
+    <ClCompile Include="usefullEVENTfct.cpp" />
     <ClCompile Include="VideoPlayerTest.cpp" />
     <ClCompile Include="VideoWidget.cpp" />
     <ClCompile Include="Video_Player.cpp" />
@@ -208,6 +212,7 @@
     <ClInclude Include="ConfigFile.h" />
     <ClInclude Include="data.h" />
     <ClInclude Include="DIFFERED_LOADER.h" />
+    <ClInclude Include="DisplayContext.h" />
     <ClInclude Include="DisplayEngine.h" />
     <ClInclude Include="DisplayEngine_GL_HARDWARE.h" />
     <ClInclude Include="DisplayEngine_GL_SOFTWARE.h" />
@@ -218,6 +223,7 @@
     <ClInclude Include="encodage.h" />
     <ClInclude Include="Ensemble.h" />
     <ClInclude Include="etat.h" />
+    <ClInclude Include="FastUnorderedMap.h" />
     <ClInclude Include="Fenetre.h" />
     <ClInclude Include="file_opener.h" />
     <ClInclude Include="font.h" />
@@ -240,6 +246,7 @@
     <ClInclude Include="parameters.h" />
     <ClInclude Include="project_config.h" />
     <ClInclude Include="Pure_text.h" />
+    <ClInclude Include="QueueExecutor.h" />
     <ClInclude Include="rect.h" />
     <ClInclude Include="relative.h" />
     <ClInclude Include="RelativeObject.h" />
@@ -254,6 +261,7 @@
     <ClInclude Include="test.h" />
     <ClInclude Include="text-input.h" />
     <ClInclude Include="Textarea.h" />
+    <ClInclude Include="TextBlockV2.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="TEXTURE_MANAGER.h" />
     <ClInclude Include="Tileset_edit_2.h" />
@@ -261,6 +269,7 @@
     <ClInclude Include="tinyfiledialogs.h" />
     <ClInclude Include="UnderWindow.h" />
     <ClInclude Include="useful-fct.h" />
+    <ClInclude Include="usefullEVENTfct.h" />
     <ClInclude Include="VideoPlayerTest.h" />
     <ClInclude Include="VideoWidget.h" />
     <ClInclude Include="Video_Player.h" />

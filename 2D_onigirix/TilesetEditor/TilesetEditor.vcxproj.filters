@@ -88,6 +88,15 @@
     <Filter Include="Fichiers sources\FONT_DEALER">
       <UniqueIdentifier>{10f59983-d830-4b50-874e-9d6f712f028c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\QUEUE_EXECUTOR">
+      <UniqueIdentifier>{156bdc8a-2fb0-4791-bc03-dcbaac70856c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\QUEUE_EXECUTOR">
+      <UniqueIdentifier>{9d2066dd-7541-4c98-95a2-f406904a7d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\FASTMAP">
+      <UniqueIdentifier>{cab34dc9-c3d9-4243-8136-2f0850064881}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -248,6 +257,18 @@
     </ClCompile>
     <ClCompile Include="Ensemble.cpp">
       <Filter>Fichiers sources\FONT_DEALER</Filter>
+    </ClCompile>
+    <ClCompile Include="QueueExecutor.cpp">
+      <Filter>Fichiers sources\QUEUE_EXECUTOR</Filter>
+    </ClCompile>
+    <ClCompile Include="usefullEVENTfct.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBlockV2.cpp">
+      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayContext.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -475,6 +496,21 @@
     </ClInclude>
     <ClInclude Include="ImageDealerTemplate.h">
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueExecutor.h">
+      <Filter>Fichiers d%27en-tête\QUEUE_EXECUTOR</Filter>
+    </ClInclude>
+    <ClInclude Include="usefullEVENTfct.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBlockV2.h">
+      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayContext.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="FastUnorderedMap.h">
+      <Filter>Fichiers d%27en-tête\FASTMAP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

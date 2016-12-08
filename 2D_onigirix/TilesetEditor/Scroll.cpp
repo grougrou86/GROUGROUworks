@@ -75,7 +75,7 @@ namespace ONIGIRIX_GUI {
 		boutton->RelativeElement = Rela;
 	}
 	void scroll_update_old_s(Rectangle* lere) {
-		SDL_SetWindowGrab(lere->ma_fenetre->sdlWindow(), SDL_TRUE);
+		SDL_SetWindowGrab(lere->ma_fenetre->get_DisplayContext().get_SDL_Window(), SDL_TRUE);
 		if ((lere->data->scroll_data["scroll"])->is_vertical) {
 			lere->data->mesure_data["y_base"] = Mesure(lere->ma_fenetre->Mousey, 0);
 
@@ -86,7 +86,7 @@ namespace ONIGIRIX_GUI {
 		lere->data->double_data["val_base"] = lere->data->scroll_data["scroll"]->value;
 	}
 	void scroll_update_old_e(Rectangle* lere) {
-		SDL_SetWindowGrab(lere->ma_fenetre->sdlWindow(), SDL_FALSE);
+		SDL_SetWindowGrab(lere->ma_fenetre->get_DisplayContext().get_SDL_Window(), SDL_FALSE);
 	}
 
 	Scroll::Scroll(Fenetre* f, Mesure h1, Mesure h2, Mesure w, Mesure x, Mesure y, bool vertical) :fen(f), _h1(h1), _h2(h2), _w(w), _x(x), _y(y) {

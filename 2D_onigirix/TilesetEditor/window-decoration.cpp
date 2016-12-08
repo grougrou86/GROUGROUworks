@@ -13,7 +13,7 @@ namespace ONIGIRIX_GUI {
 	}
 	void top_fct_3(Rectangle* r) {
 		SDL_SetRelativeMouseMode(SDL_FALSE);
-		SDL_WarpMouseInWindow(r->ma_fenetre->sdlWindow(), r->data->int_data["x"], r->data->int_data["y"]);
+		SDL_WarpMouseInWindow(r->ma_fenetre->get_DisplayContext().get_SDL_Window(), r->data->int_data["x"], r->data->int_data["y"]);
 	}
 	void top_fct_2(Rectangle* r) {
 		int x(0), y(0);

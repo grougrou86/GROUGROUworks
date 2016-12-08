@@ -32,9 +32,8 @@ namespace ONIGIRIX_GUI {
 		}
 		if (_T_S_SDL != nullptr&&_T_S_SDL->get_data() != nullptr&&_T_H_SDL == nullptr) {
 
-			if (_renderer != nullptr) {
-				SDL_Texture* newtex = SDL_CreateTextureFromSurface(_renderer, _T_S_SDL->get_data()->second.native());
-				std::cout << "renderer" << _renderer << std::endl;
+			if (_DisplayContext.get_SDL_Renderer() != nullptr) {
+				SDL_Texture* newtex = SDL_CreateTextureFromSurface(_DisplayContext.get_SDL_Renderer(), _T_S_SDL->get_data()->second.native());
 				std::function<void(DIFFERED_LOADER::syncro_tools<std::pair<I, SDL_H_texture>>*, std::pair<I, SDL_Texture*>)> soft2hard = [](DIFFERED_LOADER::syncro_tools<std::pair<I, SDL_H_texture>>* flag, std::pair<I, SDL_Texture*> info) {
 					SDL_H_texture b;
 					std::pair<I, SDL_H_texture>* m = new std::pair<I, SDL_H_texture>();

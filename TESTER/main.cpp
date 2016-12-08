@@ -3,30 +3,12 @@
 #include "test.h"
 #include "timer.h"
 #include "TYPELIST.h"
+#include "FastUnorderedMap.h"
+#include <unordered_map>
 
 void sin(int) {}
 
-class A {
-public:
-	virtual void print() {
-		std::cout << "A"<<_a << std::endl;
-	}
-	int _a = 1;
-};
-class B : public A{
-public:
-	B() {
-		A::_a = 3;
-	}
-	virtual void print() {
-		std::cout << "B" <<_a<< std::endl;
-	}
-	virtual void print3() {
-		std::cout << "GFRR" << _c << std::endl;
-	}
-	int _a = 2;
-	int _c = 1000;
-};
+
 int main(int argc, char *argv[])
 {
 	/*double bl = 3.1;
@@ -35,20 +17,45 @@ int main(int argc, char *argv[])
 	std::cout << G_sin(bk) << std::endl;;
 	*/
 	
-	A * first = new A;
-	A * second= new B;
-	B* moi;
-	B tris;
-	std::cout << first<<"--"<<second << std::endl;
-	first->print();
-	second->print();
-	std::cout << tris.A::_a << std::endl;
-	//(*first) = std::move(*second);
-	moi=  static_cast<B*>(second);
-	std::cout << first << "--" << second << std::endl;
-	moi->print();
-	second->print();
-	moi->print3();
+	int era = 30000;
+
+	FastMap< std::string, int> FastM;
+	std::unordered_map< std::string, int> M;
+
+	std::vector< std::string> noms;
+	std::vector<FastMapSearch< std::string>> searches;
+
+	Timer timer;
+
+	for (unsigned int i = 0; i < 100; i++) {
+		noms.push_back(std::to_string(i));
+		searches.push_back(FastMapSearch< std::string>(std::to_string(i+9999999999)));
+	}
+
+	timer.reset();
+	for (unsigned int j = 0; j < 10000000; j++) {
+		for (unsigned int i = 0; i < 100; i+=4) {
+			int* s = FastM[searches[i]];
+			if (s == nullptr) {
+				FastM.Insert(searches[i], i);
+				s = FastM[searches[i]];
+			}
+			(*s)++;
+		}
+	}
+	std::cout << timer.elapsed() << std::endl;
+
+	timer.reset();
+	for (unsigned int j = 0; j < 10000000; j++) {
+		for (unsigned int i = 0; i < 100; i+=4) {
+			//std::unordered_map< std::string, int>::iterator it = M.find(noms[i]);
+			//if (it == M.end()) {
+			//	M[noms[i]] =i;
+			//}
+			M[noms[i]]++;
+		}
+	}
+	std::cout << timer.elapsed() << std::endl;
 
 	system("PAUSE");
 

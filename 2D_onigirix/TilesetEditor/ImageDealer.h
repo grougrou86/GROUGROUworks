@@ -1,4 +1,5 @@
 #pragma once
+#include"DisplayContext.h"
 namespace ONIGIRIX_GUI {
 	class RGB_c;
 	class VideoInstance;
@@ -118,7 +119,7 @@ namespace ONIGIRIX_GUI {
 	*/
 	template <class I> class InfoImage :public Image{//image base url should be a unique identifier
 	public:
-		InfoImage(SDL_Renderer* r = nullptr):_renderer(r){}
+		InfoImage(DisplayContext r = DisplayContext()):_DisplayContext(r){}
 		virtual ~InfoImage();//FREE IMAGE is lete to texture wraper
 
 		virtual  SDL_H_texture* get_SDL_TEXTURE();
@@ -135,7 +136,7 @@ namespace ONIGIRIX_GUI {
 
 	protected:
 
-		SDL_Renderer* _renderer = nullptr;
+		DisplayContext _DisplayContext = DisplayContext();
 
 		DIFFERED_LOADER::loader<std::pair<I, SDL_H_texture>>* _T_H_SDL=nullptr;//The sdl texture (correspond to renderer)
 		DIFFERED_LOADER::loader<std::pair<I, GL_H_texture>>* _T_H_GL=nullptr;//The opengl texture
@@ -179,7 +180,7 @@ namespace ONIGIRIX_GUI {
 
 	class RealImage :public RescuableImage<InfoRealImage>{ // go to search on disk the file url mean the path here
 	public:
-		RealImage(std::wstring,SDL_Renderer* r = nullptr);
+		RealImage(std::wstring, DisplayContext r = DisplayContext());
 		RealImage();
 	protected:
 		virtual void reload_img();
@@ -277,11 +278,11 @@ namespace ONIGIRIX_GUI {
 	{
 	public:
 
-		ImageDealer(SDL_Renderer* r=nullptr);
+		ImageDealer(DisplayContext r= DisplayContext());
 		~ImageDealer();
 
 		RealImage* get_image(std::wstring url);
-		void set_renderer(SDL_Renderer* r);
+		void set_DisplayContext(DisplayContext r);
 		//LetterImage* get_font_image(std::wstring font, unsigned int size, RGB_c color, wchar_t character);
 		//WordImage* get_word_image(std::wstring font, unsigned int size, RGB_c color, std::wstring word);
 
@@ -289,7 +290,7 @@ namespace ONIGIRIX_GUI {
 
 		std::unordered_map<std::wstring, RealImage> _images;
 
-		SDL_Renderer* _renderer;
+		DisplayContext _DisplayContext;
 
 		//std::unordered_map<std::wstring, std::unordered_map<unsigned int, std::unordered_map<RGB_c,std::unordered_map<wchar_t, LetterImage>>>> _font_image;
 		//std::unordered_map<std::wstring, std::unordered_map<unsigned int, std::unordered_map<RGB_c, std::unordered_map<std::wstring, WordImage>>>> _word_image;

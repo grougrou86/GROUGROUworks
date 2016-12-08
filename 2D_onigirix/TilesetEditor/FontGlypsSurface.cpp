@@ -27,14 +27,15 @@ namespace FontMapper {
 	DIFFERED_LOADER::loader<std::pair<Glyps, ONIGIRIX_GUI::SDL_S_texture>>* GetGlypsLoader(FontInfo font) {
 
 		std::function<void(DIFFERED_LOADER::syncro_tools<std::pair<Glyps, ONIGIRIX_GUI::SDL_S_texture>>*, FontInfo)> load = [](DIFFERED_LOADER::syncro_tools<std::pair<Glyps, ONIGIRIX_GUI::SDL_S_texture>>* flag, FontInfo lafont) {
-			auto m = new std::pair<Glyps, ONIGIRIX_GUI::SDL_S_texture>();
+			ONIGIRIX_GUI::GlypsImage::_imageStack.add_task(new FontInfoLoad({ lafont , flag }));
+			/*auto m = new std::pair<Glyps, ONIGIRIX_GUI::SDL_S_texture>();
 			int a;
 			auto res= GetGlypsSurface(lafont);
 			m->first = res;
 			ONIGIRIX_GUI::SDL_S_texture b;
 			m->second = std::move(b);
 			m->second.set(m->first.surface);
-			flag->finish_use(m);
+			flag->finish_use(m);*/
 		};
 
 		return new DIFFERED_LOADER::loader<std::pair<Glyps, ONIGIRIX_GUI::SDL_S_texture>>(load,  font,false);
@@ -270,8 +271,8 @@ namespace FontMapper {
 
 }
 namespace ONIGIRIX_GUI {
-	GlypsImage::GlypsImage(FontMapper::FontInfo font, SDL_Renderer* r) {
-		_renderer = r;
+	GlypsImage::GlypsImage(FontMapper::FontInfo font, DisplayContext r) {
+		_DisplayContext = r;
 		_font = font;
 		_T_S_SDL = nullptr;
 		reload_img();
@@ -284,5 +285,18 @@ namespace ONIGIRIX_GUI {
 			
 			throw("An image has already been loaded so can not reload !!! because _T_S_SDL is not a nullptr.");
 		}
+	}
+	
+	QueueExecutor<FontMapper::FontInfoLoad> GlypsImage::_imageStack(worker_GlypsImage);
+
+	void worker_GlypsImage(FontMapper::FontInfoLoad* Info ) {
+		auto m = new std::pair<FontMapper::Glyps, ONIGIRIX_GUI::SDL_S_texture>();
+		int a;
+		auto res = FontMapper::GetGlypsSurface(Info->info);
+		m->first = res;
+		ONIGIRIX_GUI::SDL_S_texture b;
+		m->second = std::move(b);
+		m->second.set(m->first.surface);
+		Info->syncro->finish_use(m);
 	}
 };

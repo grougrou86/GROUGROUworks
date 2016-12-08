@@ -45,7 +45,7 @@ namespace ONIGIRIX_GUI {
 		bool is_full();
 		bool is_max();
 
-		SDL_Surface* get_screen_surface();
+		DisplayContext get_DisplayContext();
 
 		//setter
 
@@ -83,10 +83,8 @@ namespace ONIGIRIX_GUI {
 		UnderWindow* addUnderwindow(UnderWindow*);
 
 		Text_input* addRectangle(Text_input& monRectangle);
-		SDL_Window* sdlWindow()const;
 		//SDL_GetWindowID(SDL_Window* window)
 		int get_id();
-		SDL_Renderer* get_screen_render();
 		std::string titre;
 		void add_police(std::string name, std::string path);
 		bool clickFct(int x, int y);
@@ -159,11 +157,14 @@ namespace ONIGIRIX_GUI {
 		//std::vector<int> zIndexOrder_cleaner;
 		std::vector<SDL_Surface*> Surfaces;
 		//The window we'll be rendering to
-		SDL_Window* gWindow = NULL;
+		
 
 		//The surface contained by the window
-		SDL_Surface* gScreenSurface = NULL;
-		SDL_Renderer* gRenderer = NULL;
+
+		DisplayContext _DisplayContext;
+		//SDL_Surface* gScreenSurface = NULL;
+		//SDL_Renderer* gRenderer = NULL;
+		//SDL_Window* gWindow = NULL;
 
 
 		SDL_Surface *software_rendering=NULL;//only activate if you makes software rendering

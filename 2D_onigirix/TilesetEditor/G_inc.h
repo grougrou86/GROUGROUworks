@@ -13,6 +13,8 @@ template <typename T> int sgn(T val) {
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
+#include "DisplayContext.h"
+
 namespace ONIGIRIX_GUI {
 
 	class RGB_c;

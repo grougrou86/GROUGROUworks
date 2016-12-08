@@ -5,6 +5,7 @@
 #include <array>
 #include <map>
 #include "ImageDealer.h"
+#include"QueueExecutor.h"
 
 namespace FontMapper {
 	struct GlypsSize {
@@ -33,7 +34,7 @@ namespace FontMapper {
 
 	struct FontInfo {
 		std::wstring url;
-		int size;
+		unsigned int size;
 	};
 	struct Glyps {
 
@@ -42,6 +43,10 @@ namespace FontMapper {
 		int width = 0;//surface width
 		int height = 0;//surface height
 
+	};
+	struct FontInfoLoad {
+		FontInfo info;
+		DIFFERED_LOADER::syncro_tools<std::pair<Glyps, ONIGIRIX_GUI::SDL_S_texture>>* syncro;
 	};
 	Glyps GetGlypsSurface(FontInfo font);
 	
@@ -52,9 +57,12 @@ namespace FontMapper {
 namespace ONIGIRIX_GUI {
 	class GlypsImage :public RescuableImage<FontMapper::Glyps> {
 	public:
-		GlypsImage(FontMapper::FontInfo font, SDL_Renderer* r);
+		GlypsImage(FontMapper::FontInfo font, DisplayContext r);
+		GlypsImage() { throw("ERROR you must use arrgument to innit a GlypsImage"); }//default constructor to allow usage in map but must not be used !!!
+		static QueueExecutor<FontMapper::FontInfoLoad> _imageStack;// the dealer of the queue
 	protected:
 		virtual void reload_img();
 		FontMapper::FontInfo _font;
 	};
+	void worker_GlypsImage(FontMapper::FontInfoLoad*);
 }

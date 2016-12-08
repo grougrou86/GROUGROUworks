@@ -26,13 +26,13 @@ namespace ONIGIRIX_GUI {
 		void RemoveInstance(VideoInstance*);
 		ImageVideo* get_Video(std::wstring url);//the instance will survive as long as the video manager
 		void Update();//update the image call one's every loop
-		void set_renderer(SDL_Renderer*);//the render in case of hardware use
+		void set_DisplayContext(DisplayContext r);//the render in case of hardware use
 	private:
 		bool _use=true; // true-> hardware false->software
-		void init(SDL_Renderer*,bool);
+		void init(DisplayContext,bool);
 		std::vector<VideoInstance*> _videos;
 		libvlc_instance_t *libvlc;
-		SDL_Renderer* _renderer=nullptr;
+		DisplayContext _DisplayContext = DisplayContext();
 	};
 
 	class VideoInstance {

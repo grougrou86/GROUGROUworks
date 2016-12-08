@@ -267,7 +267,7 @@ namespace ONIGIRIX_GUI {
 					else { toto.w = 0; toto.h = 0; }
 
 					stretchs.back().push_back(toto);
-					if (sf2 != NULL)TEXT_type = SDL_CreateTextureFromSurface(rec->ma_fenetre->get_screen_render(), sf2);
+					if (sf2 != NULL)TEXT_type = SDL_CreateTextureFromSurface(rec->ma_fenetre->get_DisplayContext().get_SDL_Renderer(), sf2);
 					les_surface.back().push_back(TEXT_type);
 					SDL_FreeSurface(sf2);
 					j++;

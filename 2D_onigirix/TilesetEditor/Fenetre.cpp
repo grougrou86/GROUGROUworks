@@ -18,37 +18,37 @@ namespace ONIGIRIX_GUI {
 
 		data = new data_store();
 
-		gWindow = SDL_CreateWindow("Tileset Mover", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN);
+		_DisplayContext.set_SDL_Window(SDL_CreateWindow("Tileset Mover", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN));
 		//SDL_SetWindowGrab(gWindow, SDL_TRUE);
 		//SDL_WarpMouseInWindow(gWindow, 50, 50);
 		//SDL_Cursor* moncu = SDL_GetDefaultCursor();
 		//SDL_SetRelativeMouseMode(SDL_TRUE);
 		//gScreenSurface = SDL_GetWindowSurface(gWindow);
-		SDL_SetWindowIcon(gWindow, loadImg("images/icon/icon-new.png"));
-		if (!SOFTWARE_RENDERING)gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);// | SDL_RENDERER_PRESENTVSYNC);
+		SDL_SetWindowIcon(_DisplayContext.get_SDL_Window(), loadImg("images/icon/icon-new.png"));
+		if (!SOFTWARE_RENDERING)_DisplayContext.set_SDL_Renderer(SDL_CreateRenderer(_DisplayContext.get_SDL_Window(), -1, SDL_RENDERER_ACCELERATED));// | SDL_RENDERER_PRESENTVSYNC);
 		//else gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_SOFTWARE);
 		else {
-			software_rendering = SDL_GetWindowSurface(gWindow);
-			gRenderer = SDL_CreateSoftwareRenderer(software_rendering);
-			SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0, 0xff);
-			SDL_RenderClear(gRenderer);
+			software_rendering = SDL_GetWindowSurface(_DisplayContext.get_SDL_Window());
+			_DisplayContext.set_SDL_Renderer(SDL_CreateSoftwareRenderer(software_rendering));
+			SDL_SetRenderDrawColor(_DisplayContext.get_SDL_Renderer(), 0xff, 0xff, 0, 0xff);
+			SDL_RenderClear(_DisplayContext.get_SDL_Renderer());
 		}
-
+		SDL_SetRenderDrawBlendMode(_DisplayContext.get_SDL_Renderer(), SDL_BLENDMODE_BLEND);
 		//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "best");
 
 
-		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+		SDL_SetRenderDrawColor(_DisplayContext.get_SDL_Renderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 		//SDL_Surface* tp_sf=SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, 32, 0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000);
-		if (!border)SDL_SetWindowBordered(gWindow, SDL_FALSE);
+		if (!border)SDL_SetWindowBordered(_DisplayContext.get_SDL_Window(), SDL_FALSE);
 
-		SDL_GetWindowPosition(gWindow, &x_base, &y_base);
-		SDL_GetWindowSize(gWindow, &w_base, &h_base);
+		SDL_GetWindowPosition(_DisplayContext.get_SDL_Window(), &x_base, &y_base);
+		SDL_GetWindowSize(_DisplayContext.get_SDL_Window(), &w_base, &h_base);
 
 		//loading font
 
 		//set the renderer for differents images ^^
-		_imageDealer.set_renderer(get_screen_render());
-		get_videoManager()->set_renderer(get_screen_render());
+		_imageDealer.set_DisplayContext(get_DisplayContext());
+		get_videoManager()->set_DisplayContext(get_DisplayContext());
 
 
 	}
@@ -158,9 +158,9 @@ namespace ONIGIRIX_GUI {
 
 		
 
-		SDL_SetRenderDrawColor(gRenderer, 0XFF, 0XFF, 0XFF, 0XFF);
-		SDL_RenderClear(gRenderer);
-		SDL_SetRenderDrawColor(gRenderer, 0X0F, 0X00, 0XF0, 0XFF);
+		SDL_SetRenderDrawColor(_DisplayContext.get_SDL_Renderer(), 0XFF, 0XFF, 0XFF, 0XFF);
+		SDL_RenderClear(_DisplayContext.get_SDL_Renderer());
+		SDL_SetRenderDrawColor(_DisplayContext.get_SDL_Renderer(), 0X0F, 0X00, 0XF0, 0XFF);
 
 		get_videoManager()->Update();//Update the videos on screen 
 
@@ -195,8 +195,8 @@ namespace ONIGIRIX_GUI {
 		SDL_RenderFillRect(gRenderer, &rect);
 		std::cout << "true RENDERER " << gRenderer << std::endl;*/
 
-		SDL_RenderPresent(gRenderer);
-		 if (SOFTWARE_RENDERING) SDL_UpdateWindowSurface(gWindow);
+		SDL_RenderPresent(_DisplayContext.get_SDL_Renderer());
+		 if (SOFTWARE_RENDERING) SDL_UpdateWindowSurface(_DisplayContext.get_SDL_Window());
 		 
 		clean();
 		for (auto& monRect : Rectangles) {
@@ -210,9 +210,9 @@ namespace ONIGIRIX_GUI {
 
 
 	void Fenetre::close() {
-		SDL_RestoreWindow(gWindow);
-		SDL_DestroyWindow(gWindow);
-		gWindow = NULL;
+		SDL_RestoreWindow(_DisplayContext.get_SDL_Window());
+		SDL_DestroyWindow(_DisplayContext.get_SDL_Window());
+		_DisplayContext.set_SDL_Window( NULL );
 		ask_close = true;
 	}
 	bool Fenetre::TestEnd() {
@@ -220,16 +220,16 @@ namespace ONIGIRIX_GUI {
 	}
 	void Fenetre::hide() {
 
-		SDL_RestoreWindow(gWindow);
-		SDL_MinimizeWindow(gWindow);
+		SDL_RestoreWindow(_DisplayContext.get_SDL_Window());
+		SDL_MinimizeWindow(_DisplayContext.get_SDL_Window());
 
 
 	}
 	void Fenetre::maximize() {
-		SDL_RestoreWindow(gWindow);
+		SDL_RestoreWindow(_DisplayContext.get_SDL_Window());
 		if (fullscreen.active) unfullScreen();
-		SDL_SetWindowSize(gWindow, w_max, h_max);
-		SDL_SetWindowPosition(gWindow, x_max, y_max);
+		SDL_SetWindowSize(_DisplayContext.get_SDL_Window(), w_max, h_max);
+		SDL_SetWindowPosition(_DisplayContext.get_SDL_Window(), x_max, y_max);
 		set_full_value(false);
 		set_max_value(true);
 		update_w_h();
@@ -238,10 +238,10 @@ namespace ONIGIRIX_GUI {
 	}
 	void Fenetre::unmaximize() {
 
-		SDL_RestoreWindow(gWindow);
+		SDL_RestoreWindow(_DisplayContext.get_SDL_Window());
 		if (fullscreen.active) unfullScreen();
-		SDL_SetWindowSize(gWindow, w_base, h_base);
-		SDL_SetWindowPosition(gWindow, x_base, y_base);
+		SDL_SetWindowSize(_DisplayContext.get_SDL_Window(), w_base, h_base);
+		SDL_SetWindowPosition(_DisplayContext.get_SDL_Window(), x_base, y_base);
 		set_full_value(false);
 		set_max_value(false);
 		update_w_h();
@@ -250,15 +250,15 @@ namespace ONIGIRIX_GUI {
 
 	void Fenetre::fullScreen() {
 		maximize();
-		SDL_SetWindowFullscreen(gWindow, SDL_TRUE);
+		SDL_SetWindowFullscreen(_DisplayContext.get_SDL_Window(), SDL_TRUE);
 		set_full_value(true);
 		update_w_h();
 		refresh();
 	}
 	void Fenetre::unfullScreen() {
 		//std::cout << " dis -- error:" << SDL_GetError() << std::endl;
-		SDL_RestoreWindow(gWindow);
-		SDL_SetWindowFullscreen(gWindow, SDL_FALSE);
+		SDL_RestoreWindow(_DisplayContext.get_SDL_Window());
+		SDL_SetWindowFullscreen(_DisplayContext.get_SDL_Window(), SDL_FALSE);
 		set_full_value(false);
 		update_w_h();
 		refresh();
@@ -494,24 +494,15 @@ namespace ONIGIRIX_GUI {
 	int Fenetre::get_height() {
 		return _height;
 	}
-	SDL_Surface* Fenetre::get_screen_surface() {
-		return gScreenSurface;
-	}
-	SDL_Renderer* Fenetre::get_screen_render() {
-		return gRenderer;
-	}
 	void Fenetre::add_police(std::string name, std::string path) {
 		Polices[name] = Police(path);
 	}
-	SDL_Window* Fenetre::sdlWindow()const {
-		return gWindow;
-	}
 	//SDL_GetWindowID(SDL_Window* window)
 	int Fenetre::get_id() {
-		return SDL_GetWindowID(sdlWindow());
+		return SDL_GetWindowID(_DisplayContext.get_SDL_Window());
 	}
 	void Fenetre::update_w_h() {
-		SDL_GetWindowSize(gWindow, &_width, &_height);
+		SDL_GetWindowSize(_DisplayContext.get_SDL_Window(), &_width, &_height);
 	}
 	void Fenetre::refresh() {
 		for (auto& monRect : Rectangles) {
@@ -553,16 +544,16 @@ namespace ONIGIRIX_GUI {
 	}
 	int Fenetre::get_x() {
 		int x(0), y(0);
-		SDL_GetWindowPosition(sdlWindow(), &x, &y);
+		SDL_GetWindowPosition(_DisplayContext.get_SDL_Window(), &x, &y);
 		return x;
 	}
 	int Fenetre::get_y() {
 		int x(0), y(0);
-		SDL_GetWindowPosition(sdlWindow(), &x, &y);
+		SDL_GetWindowPosition(_DisplayContext.get_SDL_Window(), &x, &y);
 		return y;
 	}
 	void Fenetre::resize(int w, int h) {
-		SDL_SetWindowSize(sdlWindow(), w, h);
+		SDL_SetWindowSize(_DisplayContext.get_SDL_Window(), w, h);
 		if (w_base != w || h_base != h)send_resize = true;
 		w_base = w;
 		h_base = h;
@@ -578,10 +569,13 @@ namespace ONIGIRIX_GUI {
 	void Fenetre::deplace(int x, int y) {
 		x_base = x;
 		y_base = y;
-		SDL_SetWindowPosition(sdlWindow(), x, y);
+		SDL_SetWindowPosition(_DisplayContext.get_SDL_Window(), x, y);
 	}
 	bool Fenetre::was_resized() {
 		return _was_resized;
+	}
+	DisplayContext Fenetre::get_DisplayContext() {
+		return _DisplayContext;
 	}
 	VideoManager* Fenetre::get_videoManager() {
 		return &_videoPlayer;

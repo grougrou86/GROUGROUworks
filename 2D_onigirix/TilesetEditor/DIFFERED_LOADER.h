@@ -39,6 +39,9 @@ namespace DIFFERED_LOADER {
 
 	template<class T> class loader;
 	template<class T> class syncro_tools {
+		/*
+		THIS clas is what links the loader to the loading function 
+		*/
 		friend class loader<T>;
 	public:
 		~syncro_tools() {
