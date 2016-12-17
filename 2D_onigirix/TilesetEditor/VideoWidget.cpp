@@ -59,7 +59,7 @@ namespace ONIGIRIX_GUI {
 		_vid->set_bg_img(_video);
 		_vid->set_width(Mesure(0, 100));
 		_vid->set_height(Mesure(0, 100));
-		_true_vid = static_cast<ImageVideo*>(_vid->oldIMG[_video]);
+		_true_vid = static_cast<ImageVideo*>(_vid->get_bg_from_name(_video));
 		_vid->draw(f);
 		_true_vid->play(false);
 

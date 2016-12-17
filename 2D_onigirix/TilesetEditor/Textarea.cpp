@@ -6,7 +6,6 @@ namespace ONIGIRIX_GUI {
 	}
 	Textarea::Textarea(Fenetre* f, Mesure x, Mesure y, Mesure w, Mesure h, std::string Font, int w1) :Widget(f, x, y, w, h, w1, 10) {
 		font = Font;
-
 		Rectangle* r = W_add(new Rectangle(f));
 		r->RelativeElement = get_background();
 		r->set_bgcolor(0xeeeeee);

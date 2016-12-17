@@ -2,7 +2,7 @@
 - un mode resize rapide dans la fenêtre c.a.d gpu resizing...
 - faire un truc pour supp les recharger
 - faire un id pour les rec 
-- dans draw minimiser les apels des fct get car ils sont gourmants en boucles 
+- dans draw minimiser les appels des fct get car ils sont gourmants en boucles 
 un fonction qui s'execute en tout cas à chaque boucle avant l'affichage
 -bien refaire le close !
 -faire un état : focus
@@ -10,7 +10,6 @@ un fonction qui s'execute en tout cas à chaque boucle avant l'affichage
 
 //last idea
 
-idealiser les acces au map (tester d'abord le pointeur precedent )
 rendre la classe scroll comme un widget evite de faire des putin de cas speciaux ....
 autoriser les element a aparaitre hors du widget
 autoriser un display des element du widget au moment ou le widget est display (tous a la foi !!!)
@@ -22,3 +21,54 @@ si l image est même taille que le rectangle -> no linear transform else yes
 Une police a une fonction display character comme ca plusieur type de ploces sont possibles (ex gif as character etc...)
 
 ajouter la fast map dans tous les image / polices / etcs dealer pour meilleur performance (c.f.solution tester)
+
+ammeliorer l acces au scroll 
+
+_____________________________________________________________________________________________________
+
+CONCEPT DU DisplayPaquet:
+
+classe qui a :
+
+- un z index (sous forme de tableau par importance de l index (multi index pour les child))
+- une fonction void draw(DisplayEngine*) qui affiche sont paquet grace qu fonction du pisplay engine 
+
+et rien d autre 
+
+ex:
+
+- display image (input rectangle, output rectangle)
+- display rectangle on color
+- display line one color
+- display segment
+- display image + mask (two input rectangle , one output rectangle)
+- display besier curve
+
+
+_____________________________________________________________________________________________________
+
+classe DisplayEngine
+
+qui a :
+
+tout les fonction de display en imaginaire pure .
+
+la classe est surcharger pour afficher avec differentes api :
+- SDL
+- SDL Hardware
+- Opengl
+et peux être un jour 
+- Vulkan
+- directx
+
+Attention : output an Image class !
+___________________________________________________________________________________________________
+
+un fonction update qui realise les demande de transfer d images entres les apis
+
+
+___________________________________________________________________________________________________
+
+une fonction predict update qui predit les update d image necessaire avant le display 
+
+___________________________________________________________________________________________________

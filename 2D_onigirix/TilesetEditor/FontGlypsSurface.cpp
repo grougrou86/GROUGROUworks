@@ -9,7 +9,7 @@
 #include <vector>
 #include <map>
 #include <malloc.h>
-#include "ImageDealer.h"
+#include "ImageIncludes.h"
 #include "encodage.h"
 
 namespace FontMapper {

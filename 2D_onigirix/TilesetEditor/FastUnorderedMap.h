@@ -51,7 +51,15 @@ namespace ONIGIRIX_GUI {
 		template<class T, class I> friend class FastMap;
 	public:
 		FastMapSearch(T val) :_key(val) {}
-
+		FastMapSearch() {}
+		T get_key() {
+			return _key;
+		}
+		void set_key(T val) {
+			_guest_position = 0;
+			_key_int = 0;
+			_key = val;
+		}
 	protected:
 		unsigned int _guest_position = 0;//0->unset key and so it is the quest position - 1
 		T _key;
@@ -81,9 +89,13 @@ namespace ONIGIRIX_GUI {
 			}
 			return nullptr; // not found
 		}
+		unsigned int size() {
+			return _size;
+		}
 		void Insert(FastMapSearch<T>& search, I element) {
 			search._key_int = (curr_id++);
-			(_value.push_back(HolderValue<T, I>(search._key_int, search._key, element)));
+			_value.push_back(HolderValue<T, I>(search._key_int, search._key, element));
+			_size++;
 			search._guest_position = _value.size() + 1;// udate the first search position !!
 		}
 		void Remove(FastMapSearch<T>& search) {
@@ -91,12 +103,28 @@ namespace ONIGIRIX_GUI {
 				//swap back delet is efficient delet and it only moves one element -> the other are still found thery easialy ! -> good performance
 				std::swap(_value[search._guest_position - 1], _value.back());
 				_value.pop_back();
+				_size--;
+			}
+		}
+		FastMapSearch<T> last() {//return a search to access the last el of the vector ex to empty the map
+			if (_value.size()!=0) {
+				FastMapSearch<T> s;
+				auto end = &(_value[_value.size()-1]);
+				s._key = end->key();
+				s._key_int = end->holder();
+				s._guest_position = _value.size();
+				return s;
+			}
+			else {
+				throw std::overflow_error("FastMap empty cannot get last");
+				return FastMapSearch<T>();
 			}
 		}
 	private:
 		//each element is asociated to an int id for faster lookup !
 		unsigned int curr_id = 0;//0 correspond to unknown id and thus will not be attributed to any thing.
 		std::vector<HolderValue<T, I>> _value;
+		unsigned int _size = 0;
 	};
 
 }

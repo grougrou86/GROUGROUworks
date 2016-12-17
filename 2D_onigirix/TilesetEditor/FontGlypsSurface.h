@@ -4,7 +4,7 @@
 #include <limits>
 #include <array>
 #include <map>
-#include "ImageDealer.h"
+#include "ImageIncludes.h"
 #include"QueueExecutor.h"
 
 namespace FontMapper {

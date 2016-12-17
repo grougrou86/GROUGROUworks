@@ -12,10 +12,8 @@
 #include "encodage.h"
 #include "SDL.h"
 #include "SDL_mutex.h"
-
 #include "vlc/vlc.h"
-
-#include"ImageDealer.h"
+#include "ImageIncludes.h"
 #include"texture.h"
 #include"Video_Player.h"
 #include"VLC_test.h"

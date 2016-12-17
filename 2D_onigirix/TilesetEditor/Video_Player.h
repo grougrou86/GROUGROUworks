@@ -5,7 +5,7 @@ namespace ONIGIRIX_GUI {
 	static void vlc_unlock(void *data, void *id, void *const *p_pixels);
 	static void vlc_display(void *data, void *id);
 }
-#include"ImageDealer.h"
+#include "ImageIncludes.h"
 #include"texture.h"
 #include<vector>
 #include<string>

@@ -486,7 +486,7 @@ void click_to_export_file(Rectangle* r, Fenetre* f, SDL_mainLoop* l) {
 				   // returns NULL on cancel
 		if (link != NULL) {
 			std::string url = link;
-			IMG_SavePNG(r->data->rect_data["aff"]->oldIMG[base_present_url]->get_SOFTWARE()->native(), link);
+			IMG_SavePNG(r->data->rect_data["aff"]->get_bg_from_name(base_present_url)->get_SOFTWARE()->native(), link);
 		}
 	}
 	catch (int e) {
@@ -529,8 +529,8 @@ void click_change_on(Rectangle*r, Fenetre*, SDL_mainLoop*) {
 		}
 	}
 	else {
-		if (!r->get_etat("on")->active) { if (!data_TOTAL.include(r->data->rect_data["img_rel"]->get_bg_img(), r->data->int_data["index_x"], r->data->int_data["index_y"]))change = false; }
-		else data_TOTAL.remove(r->data->rect_data["img_rel"]->get_bg_img(), r->data->int_data["index_x"], r->data->int_data["index_y"]);
+		//if (!r->get_etat("on")->active) { if (!data_TOTAL.include(r->data->rect_data["img_rel"]->get_bg_img(), r->data->int_data["index_x"], r->data->int_data["index_y"]))change = false; }
+		//else data_TOTAL.remove(r->data->rect_data["img_rel"]->get_bg_img(), r->data->int_data["index_x"], r->data->int_data["index_y"]);
 	}
 	if(change)r->set_etat_activity(!r->get_etat("on")->active, "on");
 }
@@ -553,10 +553,10 @@ void carlet(Rectangle* r) {
 			grille[i][j]->data->int_data["max_index_y"] = nm_y;
 			grille[i][j]->everyframe_fct = replace_el_grid;
 			grille[i][j]->set_borderwidth(-1);
-			if (!data_TOTAL.exists(r->get_bg_img(), j, i))
-				grille[i][j]->add_etat(etat("on", false), 1);
-			else
-				grille[i][j]->add_etat(etat("on", true), 1);
+			//if (!data_TOTAL.exists(r->get_bg_img(), j, i))
+			//	grille[i][j]->add_etat(etat("on", false), 1);
+			//else
+			//	grille[i][j]->add_etat(etat("on", true), 1);
 			grille[i][j]->set_etat("on");
 			grille[i][j]->set_bordercolor(0xbb0000);
 			grille[i][j]->data->int_data["equinum"] = r->data->int_data["nmaff"];

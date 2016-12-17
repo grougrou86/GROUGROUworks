@@ -17,7 +17,7 @@ namespace ONIGIRIX_GUI {
 	}
 	namespace IMGDISPLAY_EVERTYFRAME_FCT {
 		void set_to_normal(Rectangle* r) {
-			if (r->oldIMG[r->get_bg_img()]->get_SOFTWARE()!=nullptr) {
+			if (r->get_bg_from_name(r->get_bg_img())->get_SOFTWARE()!=nullptr) {
 
 				r->draw(r->ma_fenetre);
 				r->set_width(Mesure(r->img_dim_w, 0));

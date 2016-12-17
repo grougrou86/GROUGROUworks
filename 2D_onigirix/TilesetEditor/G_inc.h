@@ -60,7 +60,7 @@ template <typename T, int N> static std::size_t hasharray(const T(&arr)[N]);
 
 
 #include "texture.h"
-#include "ImageDealer.h"
+#include "ImageIncludes.h"
 
 #include "useful-fct.h"
 #include "relative.h"

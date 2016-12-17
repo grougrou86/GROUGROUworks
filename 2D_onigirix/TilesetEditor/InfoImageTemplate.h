@@ -1,3 +1,12 @@
+#pragma once
+#include"Image.h"
+#include"InfoImage.h"
+#include "QueueExecutor.h"
+#include <string>
+#include "DIFFERED_LOADER.h"
+#include "texture.h"
+#include "DisplayContext.h"
+
 namespace ONIGIRIX_GUI {
 	template<class I> void InfoImage<I>::reload_img() {
 		throw("IMAGE COULD NOT BE RECOVERED ERROR !!!");
@@ -96,11 +105,11 @@ namespace ONIGIRIX_GUI {
 				if (_T_H_GL != nullptr)data_3 = _T_H_GL->get_data();
 				if (data_3 == nullptr) {
 					/*if (!_reload_sent) {
-						_reload_sent = true;
-						reload_img();
-						I* result = get_info();
-						_reload_sent = false;
-						return result;
+					_reload_sent = true;
+					reload_img();
+					I* result = get_info();
+					_reload_sent = false;
+					return result;
 					}*/
 					return nullptr;
 				}

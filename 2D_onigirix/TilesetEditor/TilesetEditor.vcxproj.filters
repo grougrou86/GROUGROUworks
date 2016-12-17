@@ -97,6 +97,21 @@
     <Filter Include="Fichiers d%27en-tête\FASTMAP">
       <UniqueIdentifier>{cab34dc9-c3d9-4243-8136-2f0850064881}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\GEOMETRY">
+      <UniqueIdentifier>{cec51b3a-f14c-45e4-88e4-8add3afe5398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GEOMETRY">
+      <UniqueIdentifier>{69c174df-9bbd-432a-9071-a1c4fc9749b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\IMAGES">
+      <UniqueIdentifier>{b3005ab9-1311-4db5-afa8-36ccdadc8439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\IMAGE">
+      <UniqueIdentifier>{9f067ad2-2159-427f-89f5-1020ad08dfdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\DIFFERED_LOADER">
+      <UniqueIdentifier>{3e65c33c-323a-4647-96e4-81f8dc382f83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -225,9 +240,6 @@
     <ClCompile Include="DisplayEngine_SDL_SOFTWARE.cpp">
       <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
     </ClCompile>
-    <ClCompile Include="ImageDealer.cpp">
-      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
-    </ClCompile>
     <ClCompile Include="texture.cpp">
       <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
     </ClCompile>
@@ -269,6 +281,24 @@
     </ClCompile>
     <ClCompile Include="DisplayContext.cpp">
       <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayPacket.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry.cpp">
+      <Filter>Fichiers sources\GEOMETRY</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Fichiers sources\IMAGES</Filter>
+    </ClCompile>
+    <ClCompile Include="RealImage.cpp">
+      <Filter>Fichiers sources\IMAGES</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageDealer.cpp">
+      <Filter>Fichiers sources\IMAGES</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageVideo.cpp">
+      <Filter>Fichiers sources\IMAGES</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -455,14 +485,8 @@
     <ClInclude Include="DisplayEngine_SDL_SOFTWARE.h">
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
-    <ClInclude Include="ImageDealer.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Fichiers d%27en-tête\AUTRES</Filter>
-    </ClInclude>
-    <ClInclude Include="DIFFERED_LOADER.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
     <ClInclude Include="color.h">
       <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\CORE</Filter>
@@ -494,9 +518,6 @@
     <ClInclude Include="Ensemble.h">
       <Filter>Fichiers d%27en-tête\FONT_DEALER</Filter>
     </ClInclude>
-    <ClInclude Include="ImageDealerTemplate.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
-    </ClInclude>
     <ClInclude Include="QueueExecutor.h">
       <Filter>Fichiers d%27en-tête\QUEUE_EXECUTOR</Filter>
     </ClInclude>
@@ -511,6 +532,39 @@
     </ClInclude>
     <ClInclude Include="FastUnorderedMap.h">
       <Filter>Fichiers d%27en-tête\FASTMAP</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayPacket.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.h">
+      <Filter>Fichiers d%27en-tête\GEOMETRY</Filter>
+    </ClInclude>
+    <ClInclude Include="DIFFERED_LOADER.h">
+      <Filter>Fichiers d%27en-tête\DIFFERED_LOADER</Filter>
+    </ClInclude>
+    <ClInclude Include="RealImage.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageIncludes.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageTemplate.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoImage.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoImageTemplate.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageDealer.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageVideo.h">
+      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

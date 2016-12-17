@@ -17,7 +17,7 @@ unsigned int split(const std::string &txt, std::vector<std::string> &strs, char 
 	}
 
 	// Add the last one
-	strs.push_back(txt.substr(initialPos, std::min(pos, txt.size()) - initialPos + 1));
+	strs.push_back(txt.substr(initialPos, std::min<unsigned int>(pos, txt.size()) - initialPos + 1));
 
 	return strs.size();
 }
@@ -36,7 +36,7 @@ unsigned int split(const std::wstring &txt, std::vector<std::wstring> &strs, cha
 	}
 
 	// Add the last one
-	strs.push_back(txt.substr(initialPos, std::min(pos, txt.size()) - initialPos + 1));
+	strs.push_back(txt.substr(initialPos, std::min<unsigned int>(pos, txt.size()) - initialPos + 1));
 
 	return strs.size();
 }

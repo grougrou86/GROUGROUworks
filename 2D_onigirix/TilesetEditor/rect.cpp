@@ -93,56 +93,27 @@ namespace ONIGIRIX_GUI {
 				stretchRect.h = LeText->height;
 			}
 		}
-
-
-
-
-		if (get_bg_img() != "" && get_bg_img() != "none") {
-
-			std::cout << "trying reload img : " << oldIMG[get_bg_img()] << "--" << get_bg_img() << std::endl;
-
-			rect_bg = nullptr;
-			if (oldIMG[get_bg_img()]->is_changing())always_reload = true;//exemple video
-			if (oldIMG[get_bg_img()] != nullptr && oldIMG[get_bg_img()]->get_SOFTWARE() != nullptr) {
-				/*
-				if (oldIMG[get_bg_img()]->get_SDL_TEXTURE() == nullptr) {
-					rect_bg = oldIMG[get_bg_img()]->get_SOFTWARE()->native();
-					if (rect_bg != nullptr) {
-						text_bg = SDL_CreateTextureFromSurface(this->ma_fenetre->get_screen_render(), rect_bg);
-					}
-				}*/
-				rect_bg = nullptr;
-				if (oldIMG[get_bg_img()]->get_SDL_TEXTURE() != nullptr) {
-					text_bg = oldIMG[get_bg_img()]->get_SDL_TEXTURE()->native();
-					std::cout << "THE NEW TESXTURES ARE" << text_bg << std::endl;
-					std::cout << "33renderer" << ma_fenetre->get_DisplayContext().get_SDL_Renderer() << std::endl;
-				}
-			}
-			std::cout << "utilisated :  " << text_bg << std::endl;
-
-			img_dim_h = oldIMG[get_bg_img()]->get_height();
-			img_dim_w = oldIMG[get_bg_img()]->get_width();
-
-			double ratio = (double)img_dim_w / (double)img_dim_h;
-			if (rect_bg != NULL) {
-				if (get_bg_img_sizing().x_mode == fit&&get_bg_img_sizing().y_mode == automatic) {
-					zoom = (double)stretchRect.w / (double)rect_bg->w;
-					stretchRect.h = (double)stretchRect.w / (double)ratio;
-				}
-				if (get_bg_img_sizing().x_mode == automatic&&get_bg_img_sizing().y_mode == fit) {
-					zoom = (double)stretchRect.h / (double)rect_bg->h;
-					stretchRect.w = (double)stretchRect.h * (double)ratio;
-				}
-			}
-
-		}
-		//std::cout << std::endl;
-
-		myTextures.push_back(text_bg);
 		myTextures.push_back(text_txt);
-		//SDL_FreeSurface(rect_bg);
-		if (!(get_bg_img() != ""&&get_bg_img() != "none"&&oldIMG[get_bg_img()] != nullptr && oldIMG[get_bg_img()]->get_SOFTWARE()==nullptr ))dys_updated();
-		if(always_reload)dys_changed();
+		dys_updated();
+	}
+	Image* Rectangle::get_bg_from_name(std::string path) {
+		return get_bg_from_name(s2ws(path));
+	}
+	Image* Rectangle::get_bg_from_name(std::wstring path) {
+		Image* Background = nullptr;
+		if (oldIMG.size() != 0) {
+			auto it = oldIMG.find(path);
+			if (it != oldIMG.end()) {
+				Background = it->second;
+			}
+		}
+		if (Background == nullptr) {
+			if (last_search.get_key() != get_bg_img()) {
+				last_search.set_key(get_bg_img());
+			}
+			Background = ma_fenetre->get_ImageDealer()->get_image(get_bg_img());
+		}
+		return Background;
 	}
 	void Rectangle::ask_clip_updat() {
 		clip_updated = false;
@@ -182,12 +153,11 @@ namespace ONIGIRIX_GUI {
 
 
 
-		if (dys_is_changed() || text->changed || font_color->changed || bg_img->changed || bg_img_sizing->changed || _w->changed || _h->changed) {
+		if (dys_is_changed() || text->changed || font_color->changed || _w->changed || _h->changed) {// bg_img->changed || bg_img_sizing->changed 
 			reload_img(text_bg, text_txt);
 		}
 		else if (myTextures.size() != 0) {
-			text_bg = myTextures[0];
-			text_txt = myTextures[1];
+			text_txt = myTextures[0];
 		}
 
 		if (oldRel_w != RelativeElement->rel_w() || oldRel_h != RelativeElement->rel_h() || oldRel_x != RelativeElement->rel_x() || oldRel_y != RelativeElement->rel_y()) {//on vérifie si l'élement relatif a "bougé"
@@ -238,23 +208,41 @@ namespace ONIGIRIX_GUI {
 				SDL_RenderFillRect(f->get_DisplayContext().get_SDL_Renderer(), &destRect);
 
 			}
-			if (text_bg != NULL) {
-				int w, h;
-				SDL_QueryTexture(text_bg, NULL, NULL, &w, &h);
-				SDL_Rect srcRect2;
-				if (stretchRect.h != 0)srcRect2.y = (double)srcRect.y * (double)h / (double)stretchRect.h;
-				if (stretchRect.w != 0)srcRect2.x = (double)srcRect.x * (double)w / (double)stretchRect.w;
-				if (stretchRect.h != 0)srcRect2.h = (double)srcRect.h * (double)h / (double)stretchRect.h;
-				if (stretchRect.w != 0)srcRect2.w = (double)srcRect.w * (double)w / (double)stretchRect.w;
-				if (debug) {
-					std::cout << "______________" << std::endl;
-					std::cout << "DESTIN:" << destRect.x << ".--." << destRect.y << ".--." << destRect.w << ".--." << destRect.h << std::endl;
-					std::cout << "ORIGAL:" << stretchRect.x << ".--." << stretchRect.y << ".--." << stretchRect.w << ".--." << stretchRect.h << std::endl;
-					std::cout << "SOURCE:" << srcRect.x << ".--." << srcRect.y << ".--." << srcRect.w << ".--." << srcRect.h << std::endl;
-					std::cout << "WINDOW:" << ma_fenetre->get_width() << "--" << ma_fenetre->get_height() << std::endl;
-					std::cout << "RATIOS:" << w << "//" << h << " .defo. " << (double)srcRect.w / (double)srcRect.h << "-" << (double)destRect.w / (double)destRect.h << std::endl;
+			if (get_bg_img() != L"" && get_bg_img() != L"none") {
+				Image* Background = get_bg_from_name(get_bg_img());
+				if (Background != nullptr&&Background->get_SDL_TEXTURE() != nullptr) {
+					//calcule des dimention celon propriete
+
+					int w = Background->get_width(), h = Background->get_height();
+					
+					double ratio = (double)w / (double)h;
+					if (get_bg_img_sizing().x_mode == fit&&get_bg_img_sizing().y_mode == automatic) {
+						zoom = (double)stretchRect.w / (double)w;
+						stretchRect.h = (double)stretchRect.w / (double)ratio;
+					}
+					if (get_bg_img_sizing().x_mode == automatic&&get_bg_img_sizing().y_mode == fit) {
+						zoom = (double)stretchRect.h / (double)h;
+						stretchRect.w = (double)stretchRect.h * (double)ratio;
+					}
+
+
+					//affichage
+					
+					SDL_Rect srcRect2;
+					if (stretchRect.h != 0)srcRect2.y = (double)srcRect.y * (double)h / (double)stretchRect.h;
+					if (stretchRect.w != 0)srcRect2.x = (double)srcRect.x * (double)w / (double)stretchRect.w;
+					if (stretchRect.h != 0)srcRect2.h = (double)srcRect.h * (double)h / (double)stretchRect.h;
+					if (stretchRect.w != 0)srcRect2.w = (double)srcRect.w * (double)w / (double)stretchRect.w;
+					if (debug) {
+						std::cout << "______________" << std::endl;
+						std::cout << "DESTIN:" << destRect.x << ".--." << destRect.y << ".--." << destRect.w << ".--." << destRect.h << std::endl;
+						std::cout << "ORIGAL:" << stretchRect.x << ".--." << stretchRect.y << ".--." << stretchRect.w << ".--." << stretchRect.h << std::endl;
+						std::cout << "SOURCE:" << srcRect.x << ".--." << srcRect.y << ".--." << srcRect.w << ".--." << srcRect.h << std::endl;
+						std::cout << "WINDOW:" << ma_fenetre->get_width() << "--" << ma_fenetre->get_height() << std::endl;
+						std::cout << "RATIOS:" << w << "//" << h << " .defo. " << (double)srcRect.w / (double)srcRect.h << "-" << (double)destRect.w / (double)destRect.h << std::endl;
+					}
+					SDL_RenderCopy(f->get_DisplayContext().get_SDL_Renderer(), Background->get_SDL_TEXTURE()->native(), &srcRect2, &destRect);
 				}
-				SDL_RenderCopy(f->get_DisplayContext().get_SDL_Renderer(), text_bg, &srcRect2, &destRect);
 			}
 			if (LeText != NULL) {
 				//SDL_Rect monrec = { stretchRect.x, stretchRect.y, stretchRect.w, text_height };
@@ -330,7 +318,7 @@ namespace ONIGIRIX_GUI {
 		_x = new style_etat_data<Mesure>(0);
 		_y = new style_etat_data<Mesure>(1);
 		bg_color = new style_etat_data<int>(2);
-		bg_img = new style_etat_data<std::string>(3, "none");
+		bg_img = new style_etat_data<std::wstring>(3, L"none");
 		border_color = new style_etat_data<int>(4);
 		border_width = new style_etat_data<int>(5);
 		bg_opacity = new style_etat_data<double>(6);
@@ -374,29 +362,23 @@ namespace ONIGIRIX_GUI {
 		set_what(_h, maMesure);
 	}
 	void Rectangle::set_bg_img(std::string path) {
-		try {
-			oldIMG.at(path);   // vector::at throws an out-of-range if image not already loaded for this rectangle
-		}
-		catch (const std::out_of_range& oor) {
-			if (path.substr(path.length() - 3) == "mkv" || path.substr(path.length() - 3) == "mp4" || path.substr(path.length() - 3) == "avi") {
-				oldIMG[path] = ma_fenetre->get_videoManager()->get_Video(s2ws(path));
-			}
-			else {
-				oldIMG[path] = ma_fenetre->get_ImageDealer()->get_image(s2ws(path));  //( this->ma_fenetre->loadImg(path);
-			}
-			if (oldIMG[path]!= nullptr && oldIMG[path]->get_SOFTWARE() != nullptr) {
+		set_bg_img(s2ws(path));
+	}
+	void Rectangle::set_bg_img(std::wstring path) {
 
-				if ((img_dim_h == -1 || img_dim_w == -1) && currentState == "default") {
-					img_dim_h = oldIMG[path]->get_height();
-					img_dim_w = oldIMG[path]->get_width();
-				}
+		if (path.substr(path.length() - 3) == L"mkv" || path.substr(path.length() - 3) == L"mp4" || path.substr(path.length() - 3) == L"avi") {
+			try {
+				oldIMG.at(path);   // vector::at throws an out-of-range if image not already loaded for this rectangle
+			}
+			catch (const std::out_of_range& oor) {
+				oldIMG[path] = ma_fenetre->get_videoManager()->get_Video((path));
 			}
 		}
 		set_what(bg_img, path);
 		dys_changed();
 	}
 
-	std::string Rectangle::get_bg_img() {
+	std::wstring Rectangle::get_bg_img() {
 		return get_what(bg_img);
 	}
 	int Rectangle::get_bg_couleur() {
@@ -838,6 +820,9 @@ namespace ONIGIRIX_GUI {
 		return active_absolute;
 	}
 	void Rectangle::add_bg(std::string path, Image* img) {
+		add_bg(s2ws(path),img);
+	}
+	void Rectangle::add_bg(std::wstring path, Image* img) {
 		try {
 			oldIMG.at(path);   // vector::at throws an out-of-range if image not already loaded for this rectangle
 		}

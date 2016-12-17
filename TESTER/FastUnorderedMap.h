@@ -50,8 +50,14 @@ private:
 template<class T> class FastMapSearch {
 	template<class T, class I> friend class FastMap;
 public:
-	FastMapSearch( T val) :_key(val) {}
 
+	FastMapSearch( T val) :_key(val) {}
+	FastMapSearch() {}
+	void set_key(T val) {
+		_guest_position = 0;
+		_key_int = 0;
+		_key = val;
+	}
 protected:
 	unsigned int _guest_position = 0;//0->unset key and so it is the quest position - 1
 	T _key;

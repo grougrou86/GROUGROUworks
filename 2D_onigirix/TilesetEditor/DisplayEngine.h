@@ -18,8 +18,13 @@ namespace ONIGIRIX_GUI {
 		DisplayEngine();
 		~DisplayEngine();
 
-		void play();//play the context
-		void pause();//pause the context
+		virtual void Reset() = 0;//reset to fulltransparent
+
+		//drawing function
+
+		
+
+
 
 	private:
 

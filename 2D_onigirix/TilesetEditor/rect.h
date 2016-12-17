@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include "DIFFERED_LOADER.h"
-#include "ImageDealer.h"
+#include "ImageIncludes.h"
 #include "texture.h"
 
 namespace ONIGIRIX_GUI {
@@ -64,7 +64,9 @@ namespace ONIGIRIX_GUI {
 		void set_width(Mesure);
 		void set_height(Mesure);
 		void set_bg_img(std::string);
-		void add_bg(std::string,Image*);//if you want the image to be destroyed at same time as the rectangle do the forget to set the rectangle as the proprietar of image !!!
+		void set_bg_img(std::wstring);
+		void add_bg(std::wstring,Image*);//if you want the image to be destroyed at same time as the rectangle do the forget to set the rectangle as the proprietar of image !!!
+		void add_bg(std::string, Image*);
 		void set_bgcolor(int color);
 		void set_bgopacity(double opacity);
 		void set_bg_img_sizing(img_sizing);
@@ -80,7 +82,7 @@ namespace ONIGIRIX_GUI {
 
 		void check_state_upd();
 
-		std::string get_bg_img();
+		std::wstring get_bg_img();
 		int get_bg_couleur();
 		alignement get_alignement();
 		Mesure get_x();
@@ -89,6 +91,8 @@ namespace ONIGIRIX_GUI {
 		Mesure get_y2();
 		Mesure get_width();
 		Mesure get_height();
+		Image* get_bg_from_name(std::wstring);
+		Image* get_bg_from_name(std::string);
 		int get_z_index() const;
 		int get_bgcolor();
 		int get_bordercolor();
@@ -163,7 +167,7 @@ namespace ONIGIRIX_GUI {
 		style_etat_data<Mesure>* _x;
 		style_etat_data<Mesure>* _y;
 		style_etat_data<int>* bg_color;
-		style_etat_data<std::string>* bg_img;
+		style_etat_data<std::wstring>* bg_img;
 		style_etat_data<int>* border_color;
 		style_etat_data<int>* border_width;
 		style_etat_data<double>* bg_opacity = 0;
@@ -190,7 +194,6 @@ namespace ONIGIRIX_GUI {
 		std::vector<etat*> clearatclean_etat;
 		TextBlock* LeText = NULL;
 		//std::map<std::string, SDL_Surface*> oldIMG;
-		std::map<std::string, Image* > oldIMG; // if you one to set or change manualy this do not forget to put the rectangle as owner of the image !
 		//std:: vector<int>::iterator index_th ;//pas touch stp
 		std::vector<Rectangle_clip>& clips();
 		std::vector<Rectangle_clip*> p_clips;
@@ -218,6 +221,9 @@ namespace ONIGIRIX_GUI {
 
 		bool ever_refresh_text = false;//to try display even empty text(for textinput subclass)...
 	private:
+
+		std::map<std::wstring, Image* > oldIMG; // if you one to set or change manualy this do not forget to put the rectangle as owner of the image !
+		FastMapSearch<std::wstring> last_search;
 
 		bool active_absolute = false;
 		bool active_offset = true;
