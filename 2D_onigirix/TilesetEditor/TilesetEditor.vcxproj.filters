@@ -82,9 +82,6 @@
     <Filter Include="Fichiers d%27en-tête\VIDEO_PLAYER">
       <UniqueIdentifier>{9755554a-1e55-4f52-a5b3-743843f3935d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\FONT_DEALER">
-      <UniqueIdentifier>{d4fc7cfc-d6c5-4541-880c-e231fc4c86cd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\FONT_DEALER">
       <UniqueIdentifier>{10f59983-d830-4b50-874e-9d6f712f028c}</UniqueIdentifier>
     </Filter>
@@ -112,6 +109,9 @@
     <Filter Include="Fichiers d%27en-tête\DIFFERED_LOADER">
       <UniqueIdentifier>{3e65c33c-323a-4647-96e4-81f8dc382f83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\FRAMES\FONT_DEALER">
+      <UniqueIdentifier>{d4fc7cfc-d6c5-4541-880c-e231fc4c86cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,9 +122,6 @@
     </ClCompile>
     <ClCompile Include="Acceuil.cpp">
       <Filter>Fichiers sources\FRAMES</Filter>
-    </ClCompile>
-    <ClCompile Include="xbrz\xbrz.cpp">
-      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI\RESIZER</Filter>
     </ClCompile>
     <ClCompile Include="staff.cpp">
       <Filter>Fichiers sources\FRAMES</Filter>
@@ -300,6 +297,9 @@
     <ClCompile Include="ImageVideo.cpp">
       <Filter>Fichiers sources\IMAGES</Filter>
     </ClCompile>
+    <ClCompile Include="ZIndex.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceuil.h">
@@ -307,9 +307,6 @@
     </ClInclude>
     <ClInclude Include="Tilset_edit.h">
       <Filter>Fichiers d%27en-tête\FRAMES</Filter>
-    </ClInclude>
-    <ClInclude Include="xbrz\xbrz.h">
-      <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\RESIZER</Filter>
     </ClInclude>
     <ClInclude Include="xbrz\config.h">
       <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\RESIZER</Filter>
@@ -507,16 +504,16 @@
       <Filter>Fichiers d%27en-tête\ONIGIRIX_SDL_GUI\WIDGET</Filter>
     </ClInclude>
     <ClInclude Include="FontDealer.h">
-      <Filter>Fichiers d%27en-tête\FONT_DEALER</Filter>
+      <Filter>Fichiers d%27en-tête\FRAMES\FONT_DEALER</Filter>
     </ClInclude>
     <ClInclude Include="FontGlypsSurface.h">
-      <Filter>Fichiers d%27en-tête\FONT_DEALER</Filter>
+      <Filter>Fichiers d%27en-tête\FRAMES\FONT_DEALER</Filter>
     </ClInclude>
     <ClInclude Include="GlypsTest.h">
       <Filter>Fichiers d%27en-tête\FRAMES</Filter>
     </ClInclude>
     <ClInclude Include="Ensemble.h">
-      <Filter>Fichiers d%27en-tête\FONT_DEALER</Filter>
+      <Filter>Fichiers d%27en-tête\FRAMES\FONT_DEALER</Filter>
     </ClInclude>
     <ClInclude Include="QueueExecutor.h">
       <Filter>Fichiers d%27en-tête\QUEUE_EXECUTOR</Filter>
@@ -551,9 +548,6 @@
     <ClInclude Include="Image.h">
       <Filter>Fichiers d%27en-tête\IMAGE</Filter>
     </ClInclude>
-    <ClInclude Include="ImageTemplate.h">
-      <Filter>Fichiers d%27en-tête\IMAGE</Filter>
-    </ClInclude>
     <ClInclude Include="InfoImage.h">
       <Filter>Fichiers d%27en-tête\IMAGE</Filter>
     </ClInclude>
@@ -565,6 +559,9 @@
     </ClInclude>
     <ClInclude Include="ImageVideo.h">
       <Filter>Fichiers d%27en-tête\IMAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="ZIndex.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

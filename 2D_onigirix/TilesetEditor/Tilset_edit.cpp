@@ -6,7 +6,7 @@ SILENT UPDATE
 #include "G_inc.h"
 #include "tinyfiledialogs.h"
 #include "all_frame_include.h"
-#include "xbrz/xbrz.h"
+//#include "xbrz/xbrz.h"
 #define WINDOWS
 #ifdef WINDOWS
 #include <direct.h>

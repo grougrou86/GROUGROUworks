@@ -1,34 +1,48 @@
 #pragma once
 namespace ONIGIRIX_GUI {
-	class Angle {
-		
-	};
-	class Point {
+	namespace GEOMETRY {
+		class Angle{};
+		class Radiant : public Angle {
 
-	};
-	class Line {
+		};
+		class Degree :public Angle {
 
-	};
-	class Segment {
+		};
+		template<class Unit> class Point {
 
-	};
-	class Rectangle {
+		};
+		template<class Unit> class Line {
 
-	};
-	class BesierCurve {
+		};
+		template<class Unit> class HalfLine {
 
-	};
-	class Circle {
+		};
+		template<class Unit> class Segment {
 
-	};
-	class CircleArc {
+		};
+		template<class Unit> class Rectangle {
 
-	};
-	class Elipse {
+		};
+		template<class Unit> class Triangle {
 
-	};
-	class ElipseArc {
+		};
+		template<class Unit> class Quadrilater {
 
-	};
+		};
+		template<class Unit> class BesierCurve {
 
+		};
+		template<class Unit> class Circle {
+
+		};
+		template<class Unit>class CircleArc {
+
+		};
+		template<class Unit> class Elipse {
+
+		};
+		template<class Unit> class ElipseArc {
+
+		};
+	}
 }

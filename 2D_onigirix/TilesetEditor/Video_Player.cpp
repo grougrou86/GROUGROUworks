@@ -22,20 +22,48 @@
 namespace ONIGIRIX_GUI {
 
 	//FOR VLC 
-
+	unsigned change_video_format(void **data, char *chroma, unsigned *width, unsigned *height, unsigned *pitches, unsigned *lines) {
+		SDL_context *ctx1 = (SDL_context *)(data);
+		VideoInstance *ctx = (VideoInstance*)(ctx1->instance);
+		ctx->_width = *width;
+		ctx->_height = *height;
+		return 4;
+	}
+	void ResizeFrame(VideoInstance *ctx, int num) {
+		if (ctx->_frames[num] != nullptr) {
+			if (ctx->_frames[num]->get_height() != ctx->get_height() || ctx->_frames[num]->get_width() != ctx->get_width()) {
+				ctx->_hardware_to_clear[num] = true;
+				if (ctx->_frames[num]->get_SOFTWARE() != nullptr)delete ctx->_frames[num]->get_SOFTWARE();
+				SDL_Surface* surf = SDL_CreateRGBSurface(SDL_SWSURFACE, ctx->get_width(), ctx->get_height(), 32, 0, 0, 0, 0);
+				SDL_S_texture* a = new SDL_S_texture(surf);
+				ctx->_frames[num]->set_SOFTWARE(a);
+				ctx->_frames[num]->set_height(ctx->get_height());
+				ctx->_frames[num]->set_width(ctx->get_width());
+			}
+		}
+	}
 	static void *vlc_lock(void *data, void **p_pixels)
 	{
 		SDL_context *ctx1 = (SDL_context *)(data);
 		VideoInstance *ctx = (VideoInstance*)(ctx1->instance);
 		int num=0;
+
+		if(ctx->numframe==0)ctx->numframe++;
+
 		if (!ctx->nextFrameReady) {
 			num = ctx->current_display_frame;
+			//resize frame if needed
+			ResizeFrame(ctx, (num + 1) % 3);
+			//update frame
 			SDL_LockSurface(ctx->_frames[(num + 1) % 3]->get_SOFTWARE()->native());
 			*p_pixels = ctx->_frames[(num + 1) % 3]->get_SOFTWARE()->native()->pixels;
 		}
 		else {
 			ctx->write_garbage = true;
 			num = 3;
+			//resize frame if needed
+			ResizeFrame(ctx, num);
+			//update frame
 			SDL_LockSurface(ctx->_frames[num]->get_SOFTWARE()->native());
 			*p_pixels = ctx->_frames[num]->get_SOFTWARE()->native()->pixels;
 		}
@@ -131,9 +159,6 @@ namespace ONIGIRIX_GUI {
 
 		context.instance = this;
 
-		_height = 1080;
-		_width = 1920;
-
 
 		for (int i = 0; i < 4; i = i + 1) {
 			_frames[i] = new BasicImage();
@@ -156,8 +181,10 @@ namespace ONIGIRIX_GUI {
 		libvlc_media_release(m);
 
 		libvlc_video_set_callbacks(mp, vlc_lock, vlc_unlock, vlc_display, &context);
+		//libvlc_video_set_format_callbacks(mp,change_video_format,NULL);
 		libvlc_video_set_format(mp, "RV32", _width, _height, _width*4);
 		libvlc_media_player_play(mp);
+		//play(false);
 		//if (a = -1)throw("error media not played");
 
 	}
@@ -182,7 +209,6 @@ namespace ONIGIRIX_GUI {
 	}
 	void VideoInstance::try_rotate_frame() {
 		if (nextFrameReady) {
-			if (numframe == 0)numframe++;
 			if (numframe == 1) { 
 				numframe++; 
 				libvlc_media_player_set_pause(mp, (int)(!_play));
@@ -193,9 +219,14 @@ namespace ONIGIRIX_GUI {
 			current_display_frame = a;
 			nextFrameReady = false;
 			if (_use){
+				if (_hardware_to_clear[a]) {
+					_hardware_to_clear[a] = false;
+					delete _frames[a]->get_SDL_TEXTURE();
+					_frames[a]->set_SDL_TEXTURE(new SDL_H_texture(nullptr));
+				}
 				if (_frames[a]->get_SDL_TEXTURE()->native() == nullptr) {
 					SDL_Texture* newtex = SDL_CreateTexture(_manager->_DisplayContext.get_SDL_Renderer(),SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING,_frames[a]->get_SOFTWARE()->native()->w, _frames[a]->get_SOFTWARE()->native()->h);
-					//SDL_Texture* newtex = SDL_CreateTextureFromSurface(_manager->_renderer, _frames[a]->get_SOFTWARE()->native());
+					//SDL_Texture* newtex = SDL_CreateTextureFromSurface(_manager->_DisplayContext.get_SDL_Renderer(), _frames[a]->get_SOFTWARE()->native());
 					_frames[a]->get_SDL_TEXTURE()->set(newtex);
 				}
 				SDL_Texture* tex = _frames[a]->get_SDL_TEXTURE()->native();
@@ -249,5 +280,38 @@ namespace ONIGIRIX_GUI {
 	double VideoInstance::get_volume() {
 		return libvlc_audio_get_volume(mp);
 	}
+	unsigned int  VideoInstance::get_max_width() {
+		unsigned int w,h;
+		libvlc_video_get_size(mp, 0, &w, &h);
+		return w;
+	}
+	unsigned int  VideoInstance::get_max_height() {
+		unsigned int w, h;
+		libvlc_video_get_size(mp, 0, &w, &h);
+		return h;
+	}
+	unsigned int  VideoInstance::get_width() {
+		return _width;
+	}
+	unsigned int  VideoInstance::get_height() {
+		return _height;
+	}
+	void  VideoInstance::set_width_height(unsigned int w, unsigned int h) {
+		if (w != _width||h!=_height) {
+
+			
+			unsigned int t = get_time();
+			libvlc_media_player_stop(mp);
+			libvlc_video_set_format(mp, "RV32", w, h, w * 4);
+			libvlc_media_player_play(mp);
+			numframe = 0;
+			set_time(t);
+			play(_play);
+			
+		}
+		_width = w;
+		_height = h;
+	}
+	
 }
 //exemple of VLC

@@ -13,6 +13,11 @@ Requirement for the class I :
 - have a heigth and width parameter
 - set those parameter to zero by default (not -1) for better performance !
 
+INFO IMAGE INFORMATION
+
+provide the default convertion to opengl textures and or sdl texture 
+is an image with some additional info 
+
 */
 namespace ONIGIRIX_GUI {
 	template <class I> class InfoImage :public Image {//image base url should be a unique identifier

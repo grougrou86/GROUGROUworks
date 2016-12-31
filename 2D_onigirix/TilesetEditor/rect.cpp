@@ -1,7 +1,7 @@
 #include "G_inc.h" 
 #include<iostream>
 #include <algorithm>
-#include"SDL2_gfx-1.0.1\SDL2_rotozoom.h"
+//#include"SDL2_gfx-1.0.1\SDL2_rotozoom.h"
 #include"sdladdon.h"
 #include <stdexcept> 
 #include <exception>
@@ -314,6 +314,8 @@ namespace ONIGIRIX_GUI {
 	Rectangle::Rectangle(Mesure x, Mesure y, Mesure w, Mesure h) {
 
 		data = new data_store();
+
+		//attention pas oublier d'ajouter les etats a point_styles
 
 		_x = new style_etat_data<Mesure>(0);
 		_y = new style_etat_data<Mesure>(1);
@@ -769,7 +771,7 @@ namespace ONIGIRIX_GUI {
 	void Rectangle::finish_LOOP() {
 		for (auto& sty : point_styles) {
 			sty->check_implicite_change = false;
-			sty->changed = false;
+			sty->changed = false;//set all the variable changle to false 
 		}
 		general_update = false;
 	}

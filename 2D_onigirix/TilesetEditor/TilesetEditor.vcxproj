@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\include\SDL2;$(IncludePath)</IncludePath>
-    <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\include\SDL2;$(IncludePath)</IncludePath>
-    <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2-devel-2.0.3-VC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\zlib\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL2-devel-2.0.3-VC\include\SDL2;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\libpng\include;$(IncludePath)</IncludePath>
@@ -209,7 +209,7 @@
     <ClCompile Include="VLC_test.cpp" />
     <ClCompile Include="Widget.cpp" />
     <ClCompile Include="window-decoration.cpp" />
-    <ClCompile Include="xbrz\xbrz.cpp" />
+    <ClCompile Include="ZIndex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceuil.h" />
@@ -251,7 +251,6 @@
     <ClInclude Include="G_inc.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageDealer.h" />
-    <ClInclude Include="ImageTemplate.h" />
     <ClInclude Include="ImageIncludes.h" />
     <ClInclude Include="ImageVideo.h" />
     <ClInclude Include="ImgDisplay.h" />
@@ -299,7 +298,7 @@
     <ClInclude Include="window-decoration.h" />
     <ClInclude Include="xbrzscale.h" />
     <ClInclude Include="xbrz\config.h" />
-    <ClInclude Include="xbrz\xbrz.h" />
+    <ClInclude Include="ZIndex.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="optimisation.txt" />

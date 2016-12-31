@@ -19,6 +19,9 @@ namespace ONIGIRIX_GUI {
 		int get_max_time();
 		void set_volume(double);
 		double get_volume();
+		unsigned int get_max_width();
+		unsigned int get_max_height();
+		void set_width_height(unsigned int w,unsigned int h);
 
 	private:
 		VideoInstance* _instance_vid = nullptr;

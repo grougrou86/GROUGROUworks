@@ -204,6 +204,7 @@ namespace Condtext_Compiler {
 	void Compiled_File::nicePrint()const {
 		int last_line = -1;
 		unsigned int i = 0;
+		
 		for (auto&l : _LINES) {
 			if (_LINE_TRANSLATE[i] != last_line) { last_line= _LINE_TRANSLATE[i]; std::cout<<fillString(std::to_string(_LINE_TRANSLATE[i]+1)+":", 5); }
 			else std::cout << fillString("", 5);

@@ -45,12 +45,14 @@ namespace ONIGIRIX_GUI {
 		bool success = true;
 		//Load splash image
 		glsurf = IMG_Load(ws2s(url).c_str());
-		width = glsurf->w;
-		height = glsurf->h;
 		if (glsurf == NULL)
 		{
 			printf("Unable to load image #.# SDL Error: %s\n", SDL_GetError());
 			success = false;
+		}
+		else {
+			width = glsurf->w;
+			height = glsurf->h;
 		}
 		target.set(glsurf);
 	}

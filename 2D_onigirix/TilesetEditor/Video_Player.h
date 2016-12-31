@@ -34,13 +34,15 @@ namespace ONIGIRIX_GUI {
 		libvlc_instance_t *libvlc;
 		DisplayContext _DisplayContext = DisplayContext();
 	};
-
+	unsigned change_video_format(void **data, char *chroma, unsigned *width, unsigned *height, unsigned *pitches, unsigned *lines);
 	class VideoInstance {
 	public:
 		friend void VideoManager::Update();
 		friend void *vlc_lock(void *data, void **p_pixels);
 		friend void vlc_unlock(void *data, void *id, void *const *p_pixels);
 		friend void vlc_display(void *data, void *id);
+		friend void ResizeFrame(VideoInstance *ctx, int num);
+		friend unsigned change_video_format(void **data, char *chroma, unsigned *width, unsigned *height, unsigned *pitches, unsigned *lines);
 		VideoInstance(std::wstring, VideoManager*, ImageVideo*, bool is_hardware );
 		virtual ~VideoInstance();
 		void play(bool);
@@ -51,6 +53,12 @@ namespace ONIGIRIX_GUI {
 		void set_volume(double);
 		double get_volume();
 
+		unsigned int get_max_width();
+		unsigned int get_max_height();
+		unsigned int get_width();
+		unsigned int get_height();
+		void set_width_height(unsigned int w, unsigned int h);
+
 	private:
 
 		bool _use = true; // true-> hardware false->software
@@ -60,8 +68,8 @@ namespace ONIGIRIX_GUI {
 								//the streaming image to update
 
 								//the images (frame of video)
-		std::array<BasicImage*,4> _frames = { nullptr,nullptr,nullptr};//the frame to display
-
+		std::array<BasicImage*,4> _frames = { nullptr,nullptr,nullptr,nullptr};//the frame to display
+		std::array<bool, 4> _hardware_to_clear = { false,false,false,false };//note if hardware has to be cleared 
 		//the 4th frame is a dustbin hahahah in case
 
 		std::atomic<bool> nextFrameReady = false;//to sycronise the changing of the Images
@@ -75,8 +83,8 @@ namespace ONIGIRIX_GUI {
 
 		std::wstring _url;
 		
-		unsigned int _width = 0;
-		unsigned int _height = 0;
+		std::atomic<unsigned int> _width = 1280;
+		std::atomic<unsigned int> _height = 720;
 
 		VideoManager* _manager;
 
@@ -93,7 +101,7 @@ namespace ONIGIRIX_GUI {
 
 
 		int _seted_time = -1;//in case time is setted before player is ready
-		int numframe = 0;
+		std::atomic<int> numframe = 0;
 
 	};
 }

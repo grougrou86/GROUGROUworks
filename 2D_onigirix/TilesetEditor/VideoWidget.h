@@ -17,8 +17,8 @@ namespace ONIGIRIX_GUI {
 		friend void MULTIMENU_CLICK_FCT::timeSET(Rectangle* r, Fenetre* f, SDL_mainLoop* l,int x,int y);
 		friend void MULTIMENU_CLICK_FCT::set_avancement(Rectangle* r);
 		friend void MULTIMENU_CLICK_FCT::ChangeVolume(Rectangle* r1, int);
+		friend void resizing_video_good(Rectangle* r);
 		VideoWidget(Fenetre* f, Mesure x, Mesure y, Mesure w, Mesure h, std::string video);
-		
 
 	private:
 

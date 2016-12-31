@@ -82,10 +82,12 @@ namespace ONIGIRIX_GUI {
 
 				else if (e.type == SDL_MOUSEMOTION) {
 					int x, y;
-					SDL_GetMouseState(&x, &y);
+					SDL_GetGlobalMouseState(&x, &y);
+					
+					//SDL_GetMouseState(&x, &y);
 					for (auto& f : Fenetres) {
 						if (f->get_id() == e.motion.windowID) {
-							f->moveFct(x, y, e.motion.xrel, e.motion.yrel);
+							f->moveFct(x-f->get_x(), y-f->get_y(), e.motion.xrel, e.motion.yrel);
 						}
 					}
 				}

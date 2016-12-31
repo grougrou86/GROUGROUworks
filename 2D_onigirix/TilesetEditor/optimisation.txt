@@ -24,6 +24,25 @@ ajouter la fast map dans tous les image / polices / etcs dealer pour meilleur pe
 
 ammeliorer l acces au scroll 
 
+enable quality change in cideo player 
+
+si un widget est coupé les child du widget son il aussi coupé
+PAS LA BONNE SOL :: --> donc d'abord evaluer les cut rectangles de widget et après ceux des rectangles 
+SOLUTION :: --> remonter dans les relative element jusqua arriver a la fenetre et si le relative clip rectangle a deja ete calculer ne pas le recalculer
+algo:
+- remonter au premier parent calculer sont clip rectangle set son clip rectangle remonter au prent plus proch etc 
+- quand on doit calculer le clip rectangle du parent par la suit il se peux qu il ai deja ete set par un child du coup rien a refaire dans ce cas
+
+regler les petit problem dans le positionement
+
+improve the style_etat_data ex le fait  que l on doive les ajouter à point_styles etc ... a la creation passer le rectangle en parametre 
+
+use is_ready in video to rehandle --> rewrite video more properly
+
+in rectangle provide function such as display border or get clip rectangle to simplify specialisation ex: si on prend un rect  qui fait des feux d artifice (un child de rect) et bien ca peux etre bien pour ajouter une bordure autour de just apeler la fonction draw border dans le draw du feu dartifice
+
+faire le tri au moment des display packet pas avant 
+
 _____________________________________________________________________________________________________
 
 CONCEPT DU DisplayPaquet:

@@ -33,4 +33,13 @@ namespace ONIGIRIX_GUI {
 	double ImageVideo::get_volume() {
 		return _instance_vid->get_volume();
 	}
+	unsigned int ImageVideo::get_max_width() {
+		return _instance_vid->get_max_width();
+	}
+	unsigned int ImageVideo::get_max_height() {
+		return _instance_vid->get_max_height();
+	}
+	void ImageVideo::set_width_height(unsigned int w, unsigned int h) {
+		_instance_vid->set_width_height(w,h);
+	}
 }

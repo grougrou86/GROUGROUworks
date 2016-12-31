@@ -50,8 +50,39 @@ namespace ONIGIRIX_GUI {
 			
 		}
 	}
+	void resizing_video_good(Rectangle* r) {
+		auto VidWidget = static_cast<VideoWidget*>(r->RelativeElement);
+		auto Vid = VidWidget->_true_vid;
+		if (Vid->get_max_height() != 0) {
+			double ratio = (double)(Vid->get_max_height()) / (double)(Vid->get_max_width());
+			double ratio2 = (double)(VidWidget->rel_h()) / ((double)VidWidget->rel_w());
+			int nextH = 0;
+			int nextW = 0;
+			if (ratio > ratio2) {
+				nextH = VidWidget->rel_h();
+				nextW = (double)nextH / (double)ratio;
+			}
+			else {
+				nextW = VidWidget->rel_w();
+				nextH = (double)nextW*(double)ratio;
+			}
+			
+			r->set_height(Mesure(nextH, 0));
+			r->set_width(Mesure(nextW, 0));
+			r->set_y(Mesure(-nextH / 2, 50));
+			r->set_x(Mesure(-nextW / 2, 50));
+			if (nextH > Vid->get_max_height())nextH = Vid->get_max_height();
+			if (nextW > Vid->get_max_width())nextH = Vid->get_max_width();
+			Vid->set_width_height(nextW, nextH);
+		}
+	}
 
 	VideoWidget::VideoWidget(Fenetre* f, Mesure x, Mesure y, Mesure w, Mesure h, std::string _video) : Widget(f, x, y, w, h, 0, 0) {
+
+		//background color
+
+		this->get_background()->set_bgcolor(0x000000);
+		this->get_background()->set_bgopacity(1);
 
 		//the video 
 
@@ -62,6 +93,7 @@ namespace ONIGIRIX_GUI {
 		_true_vid = static_cast<ImageVideo*>(_vid->get_bg_from_name(_video));
 		_vid->draw(f);
 		_true_vid->play(false);
+		_vid->everyframe_fct = resizing_video_good;
 
 		//the controls
 

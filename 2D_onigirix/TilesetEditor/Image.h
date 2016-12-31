@@ -91,5 +91,3 @@ namespace ONIGIRIX_GUI {
 
 	};
 }
-//TEMPLATE
-#include"ImageTemplate.h"

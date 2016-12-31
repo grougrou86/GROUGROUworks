@@ -25,7 +25,7 @@ namespace ONIGIRIX_GUI {
 		SDL_S_texture(SDL_Surface* s);
 		SDL_S_texture();
 		SDL_Surface* native();//should be avoided !!!
-		void set(SDL_Surface* s);
+		void set(SDL_Surface* s, bool free=true); // set free to false if you do not want to free the old texture 
 		void free();
 		virtual ~SDL_S_texture();
 	private:

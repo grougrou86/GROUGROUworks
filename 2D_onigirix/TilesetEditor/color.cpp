@@ -1,4 +1,4 @@
-#include "G_inc.h"
+#include "color.h"
 namespace ONIGIRIX_GUI {
 
 
@@ -6,30 +6,45 @@ namespace ONIGIRIX_GUI {
 		if (c1.get_r() != c2.get_r())return c1.get_r() < c2.get_r();
 		if (c1.get_g() != c2.get_g())return c1.get_g() < c2.get_g();
 		if (c1.get_b() != c2.get_b())return c1.get_b() < c2.get_b();
+		return false;
 	}
 	bool operator> (RGB_c c1, RGB_c c2) {
 		if (c1.get_r() != c2.get_r())return c1.get_r() > c2.get_r();
 		if (c1.get_g() != c2.get_g())return c1.get_g() > c2.get_g();
 		if (c1.get_b() != c2.get_b())return c1.get_b() > c2.get_b();
+		return false;
 	}
-
+	bool operator< (RGBA_c c1, RGBA_c c2) {
+		if (c1.get_a() != c2.get_a())return c1.get_a() < c2.get_a();
+		else return ((RGB_c)c1) < ((RGB_c)c2);
+	}
+	bool operator> (RGBA_c c1, RGBA_c c2) {
+		if (c1.get_a() != c2.get_a())return c1.get_a() > c2.get_a();
+		else return ((RGB_c)c1) > ((RGB_c)c2);
+	}
 	double RGB_c :: get_r() const {
-		return r;
+		return _r;
 	}
 	double RGB_c :: get_g() const {
-		return g;
+		return _g;
 	}
 	double RGB_c :: get_b() const {
-		return b;
+		return _b;
 	}
-	void RGB_c :: set_r(double _r) {
-		r = _r;
+	double RGBA_c::get_a() const {
+		return _a;
 	}
-	void RGB_c :: set_g(double _g) {
-		g = _g;
+	void RGB_c :: set_r(double r) {
+		_r = r;
 	}
-	void RGB_c :: set_b(double _b) {
-		b = _b;
+	void RGB_c :: set_g(double g) {
+		_g = g;
+	}
+	void RGB_c :: set_b(double b) {
+		_b = b;
+	}
+	void RGBA_c::set_a(double a) {
+		_a = a;
 	}
 
 	RGB_c couleurConverter(int hexValue)
