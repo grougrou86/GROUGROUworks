@@ -25,7 +25,7 @@ namespace ONIGIRIX_GUI {
 		//SDL_SetRelativeMouseMode(SDL_TRUE);
 		//gScreenSurface = SDL_GetWindowSurface(gWindow);
 		SDL_SetWindowIcon(_DisplayContext.get_SDL_Window(), loadImg("images/icon/icon-new.png"));
-		if (!SOFTWARE_RENDERING)_DisplayContext.set_SDL_Renderer(SDL_CreateRenderer(_DisplayContext.get_SDL_Window(), -1, SDL_RENDERER_ACCELERATED));// | SDL_RENDERER_PRESENTVSYNC);
+		if (!SOFTWARE_RENDERING)_DisplayContext.set_SDL_Renderer(SDL_CreateRenderer(_DisplayContext.get_SDL_Window(), -1, SDL_RENDERER_ACCELERATED));// | SDL_RENDERER_PRESENTVSYNC));// | SDL_RENDERER_PRESENTVSYNC);
 		//else gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_SOFTWARE);
 		else {
 			software_rendering = SDL_GetWindowSurface(_DisplayContext.get_SDL_Window());

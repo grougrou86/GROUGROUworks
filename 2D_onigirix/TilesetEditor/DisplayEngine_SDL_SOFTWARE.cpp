@@ -1,6 +1,7 @@
 #include "DisplayEngine.h"
 #include <SDL.h>
 #include "ImageIncludes.h"
+#include "Geometry.h"
 #include "DisplayEngine_SDL_SOFTWARE.h"
 namespace ONIGIRIX_GUI {
 
@@ -70,28 +71,37 @@ namespace ONIGIRIX_GUI {
 	//DRAWING FUNCTION
 
 
-	void DisplayEngine_Software::draw_Image(Image* image, GEOMETRY::Rectangle<int> input, GEOMETRY::Rectangle<int> output) {
+	void DisplayEngine_Software::draw_Image(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output) {
 
 	}
-	void DisplayEngine_Software::draw_MultImage(Image* image, GEOMETRY::Rectangle<int> input, GEOMETRY::Rectangle<int> output) {
+	void DisplayEngine_Software::draw_MultImage(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output) {
 
 	}
-	void DisplayEngine_Software::draw_Line(GEOMETRY::Line<int> line, int thickness, RGBA_c color) {
+	void DisplayEngine_Software::draw_Line(GEOMETRY2D::Line<GeometryType>* line, GeometryType thickness, RGBA_c color) {
 
 	}
-	void DisplayEngine_Software::draw_Segment(GEOMETRY::Segment<int> line, int thickness, RGBA_c color) {
+	void DisplayEngine_Software::draw_Segment(GEOMETRY2D::Segment<GeometryType>* line, GeometryType thickness, RGBA_c color) {
 
 	}
-	void DisplayEngine_Software::draw_HalfLine(GEOMETRY::HalfLine<int> line, int thickness, RGBA_c color) {
+	void DisplayEngine_Software::draw_HalfLine(GEOMETRY2D::HalfLine<GeometryType>* line, GeometryType thickness, RGBA_c color) {
 
 	}
-	void DisplayEngine_Software::draw_Triangle(GEOMETRY::Triangle<int> line, RGBA_c color) {
+	void DisplayEngine_Software::draw_Polygone(GEOMETRY2D::DynamicPolygone<GeometryType>* line, RGBA_c color) {
 
 	}
-	void DisplayEngine_Software::draw_BesierCurve(GEOMETRY::BesierCurve<int> line, int thickness, RGBA_c color) {
+	void DisplayEngine_Software::draw_Polyline(GEOMETRY2D::DynamicPolyline<GeometryType>* line, RGBA_c color) {
 
 	}
-	void DisplayEngine_Software::draw_LinearGradient(GEOMETRY::Quadrilater<int> quad, RGBA_c color1, RGBA_c color2) {
+	void DisplayEngine_Software::draw_BesierCurve(GEOMETRY2D::BesierCurve<GeometryType>* line, GeometryType thickness, RGBA_c color) {
+
+	}
+	void DisplayEngine_Software::draw_LinearGradient(GEOMETRY2D::Quadrilater<GeometryType>* quad, RGBA_c color1, RGBA_c color2) {
+
+	}
+	void DisplayEngine_Software::draw_Shape(GEOMETRY2D::Shape<GeometryType>* quad, RGBA_c color) {
+
+	}
+	void DisplayEngine_Software::draw_Curve(GEOMETRY2D::Curve<GeometryType>* quad, RGBA_c color) {
 
 	}
 

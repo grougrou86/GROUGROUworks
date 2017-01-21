@@ -247,6 +247,7 @@
     <ClInclude Include="GeneralInclude.h" />
     <ClInclude Include="GENERAL_PARAMETER.h" />
     <ClInclude Include="Geometry.h" />
+    <ClInclude Include="GeometryTemplate.h" />
     <ClInclude Include="GlypsTest.h" />
     <ClInclude Include="G_inc.h" />
     <ClInclude Include="Image.h" />

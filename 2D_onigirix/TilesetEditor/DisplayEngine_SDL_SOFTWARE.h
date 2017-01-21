@@ -38,14 +38,17 @@ namespace ONIGIRIX_GUI {
 		virtual Image* get_output();
 
 
-		virtual void draw_Image(Image* image, GEOMETRY::Rectangle<int> input, GEOMETRY::Rectangle<int> output);
-		virtual void draw_MultImage(Image* image, GEOMETRY::Rectangle<int> input, GEOMETRY::Rectangle<int> output);//draw multiplication of two images (usefull for mask)
-		virtual void draw_Line(GEOMETRY::Line<int> line, int thickness, RGBA_c color);
-		virtual void draw_Segment(GEOMETRY::Segment<int> line, int thickness, RGBA_c color);
-		virtual void draw_HalfLine(GEOMETRY::HalfLine<int> line, int thickness, RGBA_c color);
-		virtual void draw_Triangle(GEOMETRY::Triangle<int> line, RGBA_c color); // to draw rectangle draw to triangle
-		virtual void draw_BesierCurve(GEOMETRY::BesierCurve<int> line, int thickness, RGBA_c color);
-		virtual void draw_LinearGradient(GEOMETRY::Quadrilater<int> quad, RGBA_c color1, RGBA_c color2);
+		virtual void draw_Image(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output);
+		virtual void draw_MultImage(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output);//draw multiplication of two images (usefull for mask)
+		virtual void draw_Line(GEOMETRY2D::Line<GeometryType>* line, GeometryType thickness, RGBA_c color);
+		virtual void draw_Segment(GEOMETRY2D::Segment<GeometryType>* line, GeometryType thickness, RGBA_c color);
+		virtual void draw_HalfLine(GEOMETRY2D::HalfLine<GeometryType>* line, GeometryType thickness, RGBA_c color);
+		virtual void draw_Polygone(GEOMETRY2D::DynamicPolygone<GeometryType>* line, RGBA_c color); // to draw rectangle draw to triangle
+		virtual void draw_Polyline(GEOMETRY2D::DynamicPolyline<GeometryType>* line, RGBA_c color); // to draw rectangle draw to triangle
+		virtual void draw_BesierCurve(GEOMETRY2D::BesierCurve<GeometryType>* line, GeometryType thickness, RGBA_c color);
+		virtual void draw_LinearGradient(GEOMETRY2D::Quadrilater<GeometryType>* quad, RGBA_c color1, RGBA_c color2);
+		virtual void draw_Shape(GEOMETRY2D::Shape<GeometryType>* quad, RGBA_c color);
+		virtual void draw_Curve(GEOMETRY2D::Curve<GeometryType>* quad, RGBA_c color);
 
 
 	private:

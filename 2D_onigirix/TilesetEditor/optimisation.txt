@@ -43,6 +43,10 @@ in rectangle provide function such as display border or get clip rectangle to si
 
 faire le tri au moment des display packet pas avant 
 
+ne pas utiliser la everyframe function du widget car elle doit etre disponible pour l utilisateure
+
+faire heriter les widget de widget en protected ou private comme ca on peux pas le modifier de l exterieur par erreure.
+
 _____________________________________________________________________________________________________
 
 CONCEPT DU DisplayPaquet:

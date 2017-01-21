@@ -563,6 +563,9 @@
     <ClInclude Include="ZIndex.h">
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
+    <ClInclude Include="GeometryTemplate.h">
+      <Filter>Fichiers d%27en-tête\GEOMETRY</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="version.txt">
