@@ -65,7 +65,7 @@ namespace ONIGIRIX_GUI {
 			ResizeFrame(ctx, num);
 			//update frame
 			SDL_LockSurface(ctx->_frames[num]->get_SOFTWARE()->native());
-			*p_pixels = ctx->_frames[num]->get_SOFTWARE()->native()->pixels;
+			*p_pixels =ctx->_frames[num]->get_SOFTWARE()->native()->pixels;
 		}
 
 		return NULL; /* picture identifier, not needed here */

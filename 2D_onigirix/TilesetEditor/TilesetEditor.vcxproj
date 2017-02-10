@@ -69,11 +69,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\include;$(IncludePath)</IncludePath>
+    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\FixedPointMath\include\fpml;Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\include;$(IncludePath)</IncludePath>
     <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\include;$(IncludePath)</IncludePath>
+    <IncludePath>Z:\cpp\visual_studio\GROUGROUengine\LIB\FixedPointMath\include\fpml;Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\include;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\include;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\include;$(IncludePath)</IncludePath>
     <LibraryPath>Z:\cpp\visual_studio\GROUGROUengine\LIB\libVLC\lib;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_image-2.0.0\lib\x86;Z:\cpp\visual_studio\GROUGROUengine\LIB\SDL\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\SDL2_ttf-2.0.12\lib\x86;Z:\cpp\visual_studio\TilesetEditor\TilesetEditor\lib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -91,6 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>Z:\cpp\visual_studio\Lib\boost_1_60_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;libpng.lib;libvlc.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -104,6 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>Z:\cpp\visual_studio\GROUGROUengine\LIB\boost_1_60_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,6 +124,7 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -139,6 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>Z:\cpp\visual_studio\GROUGROUengine\LIB\boost_1_60_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

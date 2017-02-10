@@ -6,7 +6,6 @@
 namespace ONIGIRIX_GUI {
 	class DisplayEngine_Software;
 
-
 	class DisplayEngine_Software_Output : public Image {
 		friend DisplayEngine_Software;
 		
@@ -16,52 +15,65 @@ namespace ONIGIRIX_GUI {
 
 		virtual ~DisplayEngine_Software_Output();
 	private :
+
+		//set_hieght / width update the width the sooner as possible 
+		// ---> it update the Edit frame if it is bad size and ( if it as not been acced since last swap or at next swap )
+		// ---> between each swap the Edit (sdl_surface) and the Displayable sdl_surface are promised to be constant !!!
 		void set_height(int);
 		void set_width (int);
 
-		void set_Software(SDL_Surface*);// only the display engine can set it 
-		
-		SDL_S_texture _s;
+
+		SDL_Surface* get_Edit();// only the display engine can set it 
+		void swap(); // swap the edited frame so that it can b e render and accessed throw get_SDL_TEXTURE
+
+		SDL_S_texture _s0;
+		SDL_S_texture _s1;
+
+		//internal usage only
+
+		//about size abdate
+		bool size_updated = true;//if the asked size is the current ouput size
+		int asked_height = -1;
+		int asked_width = -1;
+
+		bool edit_accessed = false; // if get_Edit() has been called since last call of swap()
+
+		bool _s0_update = true; //if the size of the display frame will be  changable of s0
+		bool _s1_update = true; //if the size of the display frame will be  changable of s1
+		bool editable_texture=0;
+		void reset_s0();//destroy s0 and make it again using the current dimmention
+		void reset_s1();//destroy s1 and make it again using the current dimmention
+
 	};
 
 	//the universal display engine 
 	// this display engine must work under every c++ compiler non depending frome system 
 	// on can have the sdl function related to surface provade apart from library(for ex if system is not compatible to sdl ) TO DO !!
 
-	class DisplayEngine_Software {
-	public:
 
+
+	class DisplayEngine_Software : public DisplayEngine {
+	public:
 		DisplayEngine_Software(ViewPort);
-		~DisplayEngine_Software();
+		virtual ~DisplayEngine_Software();
+
+		virtual ViewPort get_ViewPort();
 		virtual void set_ViewPort(ViewPort v);
 
 		virtual Image* get_output();
 
-
-		virtual void draw_Image(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output);
-		virtual void draw_MultImage(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output);//draw multiplication of two images (usefull for mask)
-		virtual void draw_Line(GEOMETRY2D::Line<GeometryType>* line, GeometryType thickness, RGBA_c color);
-		virtual void draw_Segment(GEOMETRY2D::Segment<GeometryType>* line, GeometryType thickness, RGBA_c color);
-		virtual void draw_HalfLine(GEOMETRY2D::HalfLine<GeometryType>* line, GeometryType thickness, RGBA_c color);
-		virtual void draw_Polygone(GEOMETRY2D::DynamicPolygone<GeometryType>* line, RGBA_c color); // to draw rectangle draw to triangle
-		virtual void draw_Polyline(GEOMETRY2D::DynamicPolyline<GeometryType>* line, RGBA_c color); // to draw rectangle draw to triangle
-		virtual void draw_BesierCurve(GEOMETRY2D::BesierCurve<GeometryType>* line, GeometryType thickness, RGBA_c color);
-		virtual void draw_LinearGradient(GEOMETRY2D::Quadrilater<GeometryType>* quad, RGBA_c color1, RGBA_c color2);
-		virtual void draw_Shape(GEOMETRY2D::Shape<GeometryType>* quad, RGBA_c color);
-		virtual void draw_Curve(GEOMETRY2D::Curve<GeometryType>* quad, RGBA_c color);
+		virtual void draw_Image(Image* image, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* input, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* output) = 0;
+		virtual void draw_MultImage(Image* image, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* input, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* output) = 0;//draw multiplication of two images (usefull for mask)
+		virtual void draw_Geometry(GEOMETRY2D::Drawable<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* line, DisplayEngine_Unit thickness, RGBA_c color) = 0;
 
 
 	private:
 
 		// to stored output so tu ensure that the outputed image is available up to the next call of "get_output()"
-		std::array<SDL_Surface*, 2> surf = {nullptr,nullptr};
-
-		size_t drawSurf = 0;// surface to draw at 
 
 		DisplayEngine_Software_Output  _output;
 
 		ViewPort _ViewPort;
 
-		int ViewportChange = 0; // 0 -> no change ==>change the viewport -> value to 1 / 2 need to change the images size for respectively the first and second one 
 	};
 }

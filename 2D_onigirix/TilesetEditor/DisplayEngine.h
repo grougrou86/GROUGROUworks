@@ -26,40 +26,34 @@ namespace ONIGIRIX_GUI {
 
 	*/
 
-	typedef double GeometryType;
+	
+
+	typedef float DisplayEngine_Unit;
+	typedef uint8_t DisplayEngine_ImageType;
+	constexpr int DisplayEngine_DataPerPixel=4;
+	
 
 	class DisplayEngine
 	{
 	public:
-		DisplayEngine(ViewPort);
+		DisplayEngine();
 		virtual ~DisplayEngine();
 		
 		virtual Image* get_output() = 0;// give the output and clear the rendering for next frame 
 
-		virtual void set_ViewPort(ViewPort v);
-		virtual ViewPort get_ViewPort();
+		virtual void set_ViewPort(ViewPort v)=0;
+		virtual ViewPort get_ViewPort()=0;
 
 		//drawing function
 
 
-		virtual void draw_Image(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output )=0;
-		virtual void draw_MultImage(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output) = 0;//draw multiplication of two images (usefull for mask)
-		virtual void draw_Line(GEOMETRY2D::Line<GeometryType>* line, GeometryType thickness, RGBA_c color )=0;
-		virtual void draw_Segment(GEOMETRY2D::Segment<GeometryType>* line, GeometryType thickness, RGBA_c color)=0;
-		virtual void draw_HalfLine(GEOMETRY2D::HalfLine<GeometryType>* line, GeometryType thickness, RGBA_c color) = 0;
-		virtual void draw_Polygone(GEOMETRY2D::DynamicPolygone<GeometryType>* line, RGBA_c color) = 0; // to draw rectangle draw to triangle
-		virtual void draw_Polyline(GEOMETRY2D::DynamicPolyline<GeometryType>* line, RGBA_c color) = 0; // to draw rectangle draw to triangle
-		virtual void draw_BesierCurve(GEOMETRY2D::BesierCurve<GeometryType>* line, GeometryType thickness, RGBA_c color) = 0;
-		virtual void draw_LinearGradient(GEOMETRY2D::Quadrilater<GeometryType>* quad, RGBA_c color1, RGBA_c color2) = 0;
-		virtual void draw_Shape(GEOMETRY2D::Shape<GeometryType>* quad, RGBA_c color) = 0;
-		virtual void draw_Curve(GEOMETRY2D::Curve<GeometryType>* quad, RGBA_c color) = 0;
+		virtual void draw_Image(Image* image, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* input, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* output )=0;
+		virtual void draw_MultImage(Image* image, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* input, GEOMETRY2D::Rectangle<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* output) = 0;//draw multiplication of two images (usefull for mask)
+		virtual void draw_Geometry(GEOMETRY2D::Drawable<DisplayEngine_Unit, DisplayEngine_ImageType, DisplayEngine_DataPerPixel>* line, DisplayEngine_Unit thickness, RGBA_c color )=0;
+		virtual void valid_swap() = 0;// valide the frame that was been drawn and move it to the output
 
 		void draw_DisplayPacket(std::vector<DisplayPacket*>& v);// take the vector display the packet and then delete the packet (ATTENTION) it deleats the packet 
 
-	private:
-
-		//Fenetre _fenetres; to set !!!!!
-		ViewPort _viewport;
 
 	};
 

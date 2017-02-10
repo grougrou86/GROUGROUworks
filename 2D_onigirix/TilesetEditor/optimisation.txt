@@ -47,6 +47,25 @@ ne pas utiliser la everyframe function du widget car elle doit etre disponible p
 
 faire heriter les widget de widget en protected ou private comme ca on peux pas le modifier de l exterieur par erreure.
 
+Use for formae a draw throw a template with fonction as parameter wich only call the function for the given values  : cf http://stackoverflow.com/questions/4860762/c-can-compilers-inline-a-function-pointer?noredirect=1&lq=1 http://stackoverflow.com/a/4860805/4722868  http://stackoverflow.com/questions/4860762/c-can-compilers-inline-a-function-pointer?noredirect=1&lq=1
+	- first intersect the rectangle where the geometry is bound and the display one
+	- then test every pixel in that intersection rectangle ( ATTENTION apeller les fonctions de teste is in qui ont pas le test du in rectangle dedans  )
+	- faire les 2 etapesw superieur pour chaques sous geometries 
+	---> cette approche permet de ne pas tester tout les pixel si on sait comment ittérer sur les pixel valides ---> ex le degment on inter en direction diagonale. on sais les espacement entre les pixel etc on peux predire .... 
+	- aproche du segment première ligne tester jusqua être dehors dessendre d'un ligne et commencer a la valeure qui avais fonctionnéee a la ligne du dessus jusqu'a etre dehors puis aller dessous a la première valeur qui avais fonctionnée etc...
+	- IMPORTANT on peux aussi predire le minimum que l 'on doit avancer a chaque passage de ligne au debut celons la pente 
+	- this can maybeebe multithreaded dividing the image in part faire de thread worker et faire gaffe a leur nombre etc... mais ca c est pour après
+
+- faire une image geometrie semblale a celle du lecteur video avec differente frame qui est rendered avec un autre graphic core ?! 
+- aussi permettre juste le display in frame pas en tant qu une image 
+- pourquoi pas etc -> multi thread peux etre peut etre pas la bonne aproche tout dois etre fais par le display engine ou option display engine independant stream image ?? en multithread comme vlc ?
+maybee support svg animation 
+
+- for figure recognition use : http://www.nerdblog.com/2006/12/how-slow-is-dynamiccast.html methode of the virtual methode 
+
+- faire le update au dernier moment pour les geometrie comme ca si les var d aides sont pas utilisee elle sont pas compilee
+
+In opengl for drawing besier this is interesting  http://ciechanowski.me/blog/2014/02/18/drawing-bezier-curves/
 _____________________________________________________________________________________________________
 
 CONCEPT DU DisplayPaquet:

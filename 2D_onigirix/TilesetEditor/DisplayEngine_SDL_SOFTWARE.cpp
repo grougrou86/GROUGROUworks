@@ -4,12 +4,9 @@
 #include "Geometry.h"
 #include "DisplayEngine_SDL_SOFTWARE.h"
 namespace ONIGIRIX_GUI {
-
-	void DisplayEngine_Software_Output::set_Software(SDL_Surface* s) {
-		_s.set(s, false);
-	}
 	DisplayEngine_Software_Output::~DisplayEngine_Software_Output() {
-		_s.set(nullptr, false);//to avoid deletion of the texture 
+		_s0.set(nullptr, false);//to avoid deletion of the texture 
+		_s1.set(nullptr, false);//to avoid deletion of the texture 
 	}
 	SDL_H_texture* DisplayEngine_Software_Output::get_SDL_TEXTURE() {
 		return nullptr;
@@ -18,91 +15,109 @@ namespace ONIGIRIX_GUI {
 		return nullptr;
 	}
 	SDL_S_texture* DisplayEngine_Software_Output::get_SOFTWARE() {
-		return &_s;
+		if(!editable_texture) return &_s1;
+		else return &_s0;
+	}
+	SDL_Surface*  DisplayEngine_Software_Output::get_Edit() {
+		//rest the surface is they have bad size
+		if (edit_accessed=false) {
+			if (editable_texture) {
+				if (!_s1_update)reset_s1();
+			}
+			else {
+				if (!_s0_update)reset_s0();
+			}
+		}
+		edit_accessed = true;
+		if (editable_texture) return _s1.native();
+		else return _s0.native();
+	}
+	void DisplayEngine_Software_Output::swap() {
+		editable_texture = !editable_texture;
+		edit_accessed = false;
+		// set the true height of the image
+		if (!size_updated) {
+			if (editable_texture) {
+				//display texture is 0
+				if (_s0_update) {
+					_width = asked_width;
+					_height = asked_height;
+					size_updated = true;
+				}
+			}
+			else {
+				//display texture is 1
+				if (_s1_update) {
+					_width = asked_width;
+					_height = asked_height;
+					size_updated = true;
+				}
+			}
+		}
 	}
 	void DisplayEngine_Software_Output::set_height(int h) {
-		_height = h;
+		if (_height != h) {
+			_s0_update = false;
+			_s1_update = false;
+			asked_height = h;
+			size_updated = false;
+		}
 	}
 	void DisplayEngine_Software_Output::set_width(int w) {
-		_width = w;
+		if (_width != w) {
+			_s0_update = false;
+			_s1_update = false;
+			asked_width = w;
+			size_updated = false;
+		}
+	}
+	void DisplayEngine_Software_Output::reset_s0() {
+
+		SDL_Surface* surface;
+
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE, asked_width, asked_height, 32, 0xFF000000, 0x00FF0000, 0x0000FF00, 0x000000FF);
+#else
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE, asked_width, asked_height, 32, 0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000);
+#endif
+		_s0.set(surface);
+		_s0_update = true;
+
+	}
+	void DisplayEngine_Software_Output::reset_s1() {
+
+		SDL_Surface* surface;
+
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE, asked_width, asked_height, 32, 0xFF000000, 0x00FF0000, 0x0000FF00, 0x000000FF);
+#else
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE, asked_width, asked_height, 32, 0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000);
+#endif
+		_s1.set(surface);
+		_s1_update = true;
 	}
 	DisplayEngine_Software::DisplayEngine_Software(ViewPort v) {
 		set_ViewPort(v);
 		get_output();//so that it initialisate the first surface !
 	}
 	DisplayEngine_Software::~DisplayEngine_Software() {
-		for (auto& s : surf) {
-			if (s != nullptr) {
-				SDL_FreeSurface(s);
-				s = nullptr;
-			}
-		}
+		
 	}
 	void DisplayEngine_Software::set_ViewPort(ViewPort v) {
 		_ViewPort = v;
-		ViewportChange = 1;
+		_output.set_height(v.height);
+		_output.set_width(v.width);
+	}
+	ViewPort DisplayEngine_Software::get_ViewPort() {
+		return _ViewPort;
 	}
 	Image* DisplayEngine_Software::get_output() {
-		
-		_output.set_Software(surf[drawSurf]);
-
-		drawSurf = (drawSurf + 1) % 2;
-
-		if (ViewportChange != 0 || surf[drawSurf] != nullptr) {
-			//need to recreat surface because not created already or because changed of dimension
-			if (surf[drawSurf] != nullptr) {
-				SDL_FreeSurface(surf[drawSurf]);
-				surf[drawSurf] = nullptr;
-			}
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-			surf[drawSurf] = SDL_CreateRGBSurface(SDL_SWSURFACE, _ViewPort.width, _ViewPort.height, 32, 0x00000000, 0x00000000, 0x00000000, 0x00000000);
-#else
-			surf[drawSurf] = SDL_CreateRGBSurface(SDL_SWSURFACE, _ViewPort.width, _ViewPort.height, 32, 0x00000000, 0x00000000, 0x00000000, 0x00000000);
-#endif
-		}
-		if (ViewportChange == 1)ViewportChange = 2;
-		else if (ViewportChange == 2)ViewportChange = 0;
-
 		return &_output;
 	}
-
-
 
 	//DRAWING FUNCTION
 
 
-	void DisplayEngine_Software::draw_Image(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output) {
-
-	}
-	void DisplayEngine_Software::draw_MultImage(Image* image, GEOMETRY2D::Rectangle<GeometryType>* input, GEOMETRY2D::Rectangle<GeometryType>* output) {
-
-	}
-	void DisplayEngine_Software::draw_Line(GEOMETRY2D::Line<GeometryType>* line, GeometryType thickness, RGBA_c color) {
-
-	}
-	void DisplayEngine_Software::draw_Segment(GEOMETRY2D::Segment<GeometryType>* line, GeometryType thickness, RGBA_c color) {
-
-	}
-	void DisplayEngine_Software::draw_HalfLine(GEOMETRY2D::HalfLine<GeometryType>* line, GeometryType thickness, RGBA_c color) {
-
-	}
-	void DisplayEngine_Software::draw_Polygone(GEOMETRY2D::DynamicPolygone<GeometryType>* line, RGBA_c color) {
-
-	}
-	void DisplayEngine_Software::draw_Polyline(GEOMETRY2D::DynamicPolyline<GeometryType>* line, RGBA_c color) {
-
-	}
-	void DisplayEngine_Software::draw_BesierCurve(GEOMETRY2D::BesierCurve<GeometryType>* line, GeometryType thickness, RGBA_c color) {
-
-	}
-	void DisplayEngine_Software::draw_LinearGradient(GEOMETRY2D::Quadrilater<GeometryType>* quad, RGBA_c color1, RGBA_c color2) {
-
-	}
-	void DisplayEngine_Software::draw_Shape(GEOMETRY2D::Shape<GeometryType>* quad, RGBA_c color) {
-
-	}
-	void DisplayEngine_Software::draw_Curve(GEOMETRY2D::Curve<GeometryType>* quad, RGBA_c color) {
-
-	}
+	
 
 }

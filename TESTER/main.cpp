@@ -5,6 +5,8 @@
 #include "TYPELIST.h"
 #include "FastUnorderedMap.h"
 #include <unordered_map>
+#include <cmath>
+#include <fixed_point.h>
 
 void sin(int) {}
 /*
@@ -26,70 +28,41 @@ int main(int argc, char *argv[])
 	std::cout << G_sin(bl) << std::endl;;
 	std::cout << G_sin(bk) << std::endl;;
 	*/
+
+	fpml::fixed_point<unsigned int, 0> a1 = 0.5;
+	fpml::fixed_point<unsigned int, 0> b1 = 0.5;
+	float a2 = 0.5;
+	float b2 = 0.5;
+
+	Timer timer;
+	for (size_t i = 0; i < 1000000000; i++)
+	{
+		b1 = a1 * b1;
+		a1 = b1*(a1+b1);
+	}
+	std::cout << timer.elapsed() << std::endl;
+	timer.reset();
+	for (size_t i = 0; i < 1000000000; i++)
+	{
+		b2 = a2 * b2;
+		a2 = b2*(a2+b2);
+	}
+	std::cout << timer.elapsed() << std::endl;
 	
-	/*
-	int era = 30000;
-
-	FastMap< std::string, int> FastM;
-	std::unordered_map< std::string, int> M;
-
-	std::vector< std::string> noms;
-	std::vector<FastMapSearch< std::string>> searches;
-
-	Timer timer;
-
-	for (unsigned int i = 0; i < 100; i++) {
-		noms.push_back(std::to_string(i));
-		searches.push_back(FastMapSearch< std::string>(std::to_string(i+9999999999)));
-	}
-
-	timer.reset();
-	for (unsigned int j = 0; j < 10000000; j++) {
-		for (unsigned int i = 0; i < 100; i+=4) {
-			int* s = FastM[searches[i]];
-			if (s == nullptr) {
-				FastM.Insert(searches[i], i);
-				s = FastM[searches[i]];
-			}
-			(*s)++;
-		}
-	}
-	std::cout << timer.elapsed() << std::endl;
-
-	timer.reset();
-	for (unsigned int j = 0; j < 10000000; j++) {
-		for (unsigned int i = 0; i < 100; i+=4) {
-			//std::unordered_map< std::string, int>::iterator it = M.find(noms[i]);
-			//if (it == M.end()) {
-			//	M[noms[i]] =i;
-			//}
-			M[noms[i]]++;
-		}
-	}
-	std::cout << timer.elapsed() << std::endl;
-	*/
-
-
-	Timer timer;
-
-	timer.reset();
-	uint32_t b1 = 2,b2=2;
-	uint32_t a1 = 2,a2=2;
-	for (uint32_t j = 0; j < 1000000000; j++) {
-		b1=b1+b2;
-	}
-	std::cout << timer.elapsed() <<" "<< b1 << std::endl;
-
-	timer.reset();
-	uint64_t c = 2;
-	for (uint64_t j = 0; j < 1000000000; j++) {
-		c = c*c;
-		c = c + c;
-	}
-	std::cout << timer.elapsed() << " " << c << std::endl;
-
-
+	std::cout << b1 <<"--"<< b2 << std::endl;
 
 	system("PAUSE");
+
+	//access / set to raw 
+
+	fpml::fixed_point<unsigned int, 0> a = 0.5;
+	fpml::fixed_point<unsigned int, 0> b = 0.5;
+	a.set_raw(0xFFFFFFFF);
+
+	b = a*fpml::fixed_point<unsigned int, 0>(0.5);
+
+	double c = a;
+
+	std::cout << timer.elapsed() << a.get_raw() << "/\\" << b.get_raw() << "/\\" << c << std::endl;
 
 }

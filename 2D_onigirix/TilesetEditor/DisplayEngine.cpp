@@ -12,13 +12,7 @@ namespace ONIGIRIX_GUI {
 		}
 		v.clear();
 	}
-	void DisplayEngine::set_ViewPort(ViewPort v) {
-		_viewport=v;
-	}
-	ViewPort DisplayEngine::get_ViewPort() {
-		return _viewport;
-	}
-	DisplayEngine::DisplayEngine(ViewPort)
+	DisplayEngine::DisplayEngine()
 	{
 
 	}
