@@ -67,6 +67,8 @@ namespace ONIGIRIX_GUI {
 		void set_bg_img(std::wstring);
 		void add_bg(std::wstring,Image*);//if you want the image to be destroyed at same time as the rectangle do the forget to set the rectangle as the proprietar of image !!!
 		void add_bg(std::string, Image*);
+		void remove_bg(std::wstring);
+		void remove_bg(std::string);
 		void set_bgcolor(int color);
 		void set_bgopacity(double opacity);
 		void set_bg_img_sizing(img_sizing);
@@ -188,7 +190,11 @@ namespace ONIGIRIX_GUI {
 		void add_move_fnct(fct_duree);
 		void updat_move_fnct();
 
+		// function called every frame 
 		call_funk everyframe_fct = NULL;
+		//function called at destruction
+		call_funk destruction_fct = NULL;
+
 		key_funk keyfunct = NULL;
 
 		std::vector<etat*> clearatclean_etat;

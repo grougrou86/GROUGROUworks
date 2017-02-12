@@ -112,6 +112,24 @@
     <Filter Include="Fichiers d%27en-tête\FRAMES\FONT_DEALER">
       <UniqueIdentifier>{d4fc7cfc-d6c5-4541-880c-e231fc4c86cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\DISPLAY_ENGINES\GL_HARDWARE">
+      <UniqueIdentifier>{f153b11a-2e41-4297-b8d1-e3da1abeb9a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\DISPLAY_ENGINES\SDL_SOFTWARE">
+      <UniqueIdentifier>{0a22c606-d6f6-4db6-8b2a-543828276ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\DISPLAY_ENGINES\SDL_HARDWARE">
+      <UniqueIdentifier>{1da8ed9a-4819-453d-9b77-6052d0eb7b5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\DISPLAY_ENGINES\GL_HARDWARE">
+      <UniqueIdentifier>{ff459a7a-fac2-4639-b628-b86b260466b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\DISPLAY_ENGINES\SDL_SOFTWARE">
+      <UniqueIdentifier>{25cf04a1-f4c8-45f1-97a9-6f1aef175f26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\DISPLAY_ENGINES\SDL_HARDWARE">
+      <UniqueIdentifier>{57da4a01-92f8-460d-91ab-86633f6b3c16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -222,19 +240,7 @@
     <ClCompile Include="GENERAL_PARAMETER.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DisplayEngine_GL_HARDWARE.cpp">
-      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
-    </ClCompile>
     <ClCompile Include="DisplayEngine.cpp">
-      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
-    </ClCompile>
-    <ClCompile Include="DisplayEngine_GL_SOFTRWARE.cpp">
-      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
-    </ClCompile>
-    <ClCompile Include="DisplayEngine_SDL_HARDWARE.cpp">
-      <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
-    </ClCompile>
-    <ClCompile Include="DisplayEngine_SDL_SOFTWARE.cpp">
       <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
     </ClCompile>
     <ClCompile Include="texture.cpp">
@@ -260,9 +266,6 @@
     </ClCompile>
     <ClCompile Include="GlypsTest.cpp">
       <Filter>Fichiers sources\FRAMES</Filter>
-    </ClCompile>
-    <ClCompile Include="VideoPlayerTest.cpp">
-      <Filter>Fichiers sources\ONIGIRIX_SDL_GUI</Filter>
     </ClCompile>
     <ClCompile Include="Ensemble.cpp">
       <Filter>Fichiers sources\FONT_DEALER</Filter>
@@ -299,6 +302,24 @@
     </ClCompile>
     <ClCompile Include="ZIndex.cpp">
       <Filter>Fichiers sources\DISPLAY_ENGINES</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngineTest.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_GL_HARDWARE.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES\GL_HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_SDL_SOFTWARE.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES\SDL_SOFTWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_SDL_SOFTWARE_output.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES\SDL_SOFTWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayEngine_SDL_HARDWARE.cpp">
+      <Filter>Fichiers sources\DISPLAY_ENGINES\SDL_HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoPlayerTest.cpp">
+      <Filter>Fichiers sources\FRAMES</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -470,18 +491,6 @@
     <ClInclude Include="DisplayEngine.h">
       <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
     </ClInclude>
-    <ClInclude Include="DisplayEngine_GL_HARDWARE.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
-    </ClInclude>
-    <ClInclude Include="DisplayEngine_GL_SOFTWARE.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
-    </ClInclude>
-    <ClInclude Include="DisplayEngine_SDL_HARDWARE.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
-    </ClInclude>
-    <ClInclude Include="DisplayEngine_SDL_SOFTWARE.h">
-      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Fichiers d%27en-tête\AUTRES</Filter>
     </ClInclude>
@@ -565,6 +574,21 @@
     </ClInclude>
     <ClInclude Include="GeometryTemplate.h">
       <Filter>Fichiers d%27en-tête\GEOMETRY</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_GL_HARDWARE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES\GL_HARDWARE</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_SDL_SOFTWARE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES\SDL_SOFTWARE</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_SDL_SOFTWARE_output.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES\SDL_SOFTWARE</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngine_SDL_HARDWARE.h">
+      <Filter>Fichiers d%27en-tête\DISPLAY_ENGINES\SDL_HARDWARE</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEngineTest.h">
+      <Filter>Fichiers d%27en-tête\FRAMES</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

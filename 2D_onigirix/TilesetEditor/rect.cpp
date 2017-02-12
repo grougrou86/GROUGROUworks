@@ -210,7 +210,7 @@ namespace ONIGIRIX_GUI {
 			}
 			if (get_bg_img() != L"" && get_bg_img() != L"none") {
 				Image* Background = get_bg_from_name(get_bg_img());
-				if (Background != nullptr&&Background->get_SDL_TEXTURE() != nullptr) {
+				if (Background != nullptr && Background->get_SDL_TEXTURE() != nullptr) {
 					//calcule des dimention celon propriete
 
 					int w = Background->get_width(), h = Background->get_height();
@@ -551,6 +551,8 @@ namespace ONIGIRIX_GUI {
 
 	}*/
 	Rectangle::~Rectangle() {
+		if(destruction_fct!=NULL) destruction_fct(this);
+
 		if (LeText != NULL)delete LeText;
 		for (auto& call : callbacks_etat)delete call;
 		int i = 0;
@@ -558,9 +560,9 @@ namespace ONIGIRIX_GUI {
 			if(i!=0)SDL_DestroyTexture(call);
 			i++;
 		}
-		for (auto& sdlimg : oldIMG) { 
-			if (sdlimg.second->get_owner() == this|| sdlimg.second->get_owner() == nullptr) { delete sdlimg.second; } 
-			sdlimg.second = nullptr; 
+		// removing the background 
+		while (!oldIMG.empty()) {
+			remove_bg(oldIMG.rbegin()->first);
 		}
 		if (!copied)
 		{
@@ -830,6 +832,19 @@ namespace ONIGIRIX_GUI {
 		}
 		catch (const std::out_of_range& oor) {
 			oldIMG[path] = img;
+		}
+	}
+	void Rectangle::remove_bg(std::string path) {
+		remove_bg(s2ws(path));
+	}
+	void Rectangle::remove_bg(std::wstring path) {
+		try {
+			Image* i = oldIMG.at(path);   // vector::at throws an out-of-range if image not already loaded for this rectangle
+			if (i->get_owner() == this || i->get_owner() == nullptr) { delete i; }
+			oldIMG.erase(path);
+		}
+		catch (const std::out_of_range& oor) {
+			throw("Image not found background cann not be removed sorry");
 		}
 	}
 }

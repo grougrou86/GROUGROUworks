@@ -161,10 +161,11 @@
     <ClCompile Include="ConfigFile.cpp" />
     <ClCompile Include="DisplayContext.cpp" />
     <ClCompile Include="DisplayEngine.cpp" />
+    <ClCompile Include="DisplayEngineTest.cpp" />
     <ClCompile Include="DisplayEngine_GL_HARDWARE.cpp" />
-    <ClCompile Include="DisplayEngine_GL_SOFTRWARE.cpp" />
     <ClCompile Include="DisplayEngine_SDL_HARDWARE.cpp" />
     <ClCompile Include="DisplayEngine_SDL_SOFTWARE.cpp" />
+    <ClCompile Include="DisplayEngine_SDL_SOFTWARE_output.cpp" />
     <ClCompile Include="DisplayPacket.cpp" />
     <ClCompile Include="encodage.cpp" />
     <ClCompile Include="Ensemble.cpp" />
@@ -231,10 +232,11 @@
     <ClInclude Include="DIFFERED_LOADER.h" />
     <ClInclude Include="DisplayContext.h" />
     <ClInclude Include="DisplayEngine.h" />
+    <ClInclude Include="DisplayEngineTest.h" />
     <ClInclude Include="DisplayEngine_GL_HARDWARE.h" />
-    <ClInclude Include="DisplayEngine_GL_SOFTWARE.h" />
     <ClInclude Include="DisplayEngine_SDL_HARDWARE.h" />
     <ClInclude Include="DisplayEngine_SDL_SOFTWARE.h" />
+    <ClInclude Include="DisplayEngine_SDL_SOFTWARE_output.h" />
     <ClInclude Include="DisplayPacket.h" />
     <ClInclude Include="DISPLAY_STRUCTURE.h" />
     <ClInclude Include="DISPLAY_thread.h" />
